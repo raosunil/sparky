@@ -16,44 +16,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y8p-Nm-3en">
-                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
-                                <items>
-                                    <navigationItem title="LOGIN CREDENTIALS" id="M67-sJ-eca"/>
-                                </items>
-                            </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z5g-fn-ccE">
-                                <rect key="frame" x="211" y="221" width="359" height="30"/>
+                                <rect key="frame" x="211" y="328" width="359" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="i1O-K5-KxH"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PO-jV-zCB">
+                                <rect key="frame" x="211" y="407" width="359" height="30"/>
+                                <color key="backgroundColor" red="0.90046953914141414" green="0.90046953914141414" blue="0.90046953914141414" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="LOGIN">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.91193181818181812" green="0.91193181818181812" blue="0.91193181818181812" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Da1-1b-CDI"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logoTelevision.png" translatesAutoresizingMaskIntoConstraints="NO" id="k2i-em-gd5">
+                                <rect key="frame" x="211" y="113" width="359" height="81"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aAy-aC-RXC">
-                                <rect key="frame" x="211" y="161" width="359" height="30"/>
+                                <rect key="frame" x="211" y="270" width="359" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ztM-Fz-iVH"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PO-jV-zCB">
-                                <rect key="frame" x="332" y="321" width="116" height="30"/>
-                                <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="LOGIN">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fAy-Om-Z5u"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="mayo-clinic-logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5yD-gb-P7n">
-                                <rect key="frame" x="242" y="438" width="297" height="147"/>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="LAI-mm-fYq" appends="YES" id="InN-Fb-QLi"/>
@@ -63,7 +57,7 @@
                     <connections>
                         <outlet property="passWord" destination="Z5g-fn-ccE" id="N6k-pz-Yk2"/>
                         <outlet property="userName" destination="aAy-aC-RXC" id="NDk-9G-nOq"/>
-                        <segue destination="m1v-FK-Y8R" kind="modal" identifier="login_success" id="VVP-Uq-DsR"/>
+                        <segue destination="HhO-lk-TaY" kind="modal" identifier="login_success" id="fRe-nH-fId"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -73,113 +67,62 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1207" y="-661"/>
+            <point key="canvasLocation" x="-1194" y="-651"/>
         </scene>
-        <!--View Controller2-->
-        <scene sceneID="Qx7-6D-upC">
+        <!--Table View Controller-->
+        <scene sceneID="ozO-Gk-OK5">
             <objects>
-                <viewController id="m1v-FK-Y8R" customClass="ViewController2" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eSv-Xp-h5m"/>
-                        <viewControllerLayoutGuide type="bottom" id="5EG-dg-fPo"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7TF-hg-jif">
+                <tableViewController id="HhO-lk-TaY" customClass="TableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" sectionHeaderHeight="22" sectionFooterHeight="22" id="dhW-B5-T5J">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C26-nR-J1n" userLabel="View-overview">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u5L-7N-vqw">
-                                        <rect key="frame" x="0.0" y="216" width="768" height="700"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Name: Rishabh Srivastava
-Address: 150 S XYZ, Tempe, AZ-85281
-Phone no# xxx-xxx-xxxx
-Patient ID: abc123
-Last Appointment: 12/12/12
-Next Appointment: 12/12/13  
-Doctor's Name: Dr. Xyz
-Department: Cardiology Mayo Clinic Branch: Chandler,AZ
-Address: 123 S Gilbert Rd, Chandler, AZ - 85249   Current Medications: abc, dfgg,fgh,hhffdd,hgfdds,jhgff,sdfghh.  Last tests: MRI, Blood Test, Urine Test. </string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.81871811220000001" green="0.81871811220000001" blue="0.81871811220000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Glz-nJ-WdM" userLabel="View-report">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Kd-fx-9dy">
-                                        <rect key="frame" x="0.0" y="218" width="768" height="700"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3g-KG-QKs">
-                                        <rect key="frame" x="301" y="152" width="166" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Take Photo">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="takePhoto:" destination="m1v-FK-Y8R" eventType="touchUpInside" id="Ydz-G1-b2I"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.81871811220000001" green="0.81871811220000001" blue="0.81871811220000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WJz-94-wNp" userLabel="View-upload">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zej-Ab-HO8">
-                                        <rect key="frame" x="0.0" y="219" width="768" height="700"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzv-v8-XxQ">
-                                        <rect key="frame" x="289" y="135" width="190" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Upload image">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="uploadImage:" destination="m1v-FK-Y8R" eventType="touchUpInside" id="ass-Xc-eIW"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.81871811220000001" green="0.81871811220000001" blue="0.81871811220000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GXP-c7-BcC">
-                                <rect key="frame" x="119" y="54" width="530" height="29"/>
-                                <color key="backgroundColor" red="0.0" green="0.37302345610786647" blue="0.73975605867346939" alpha="1" colorSpace="calibratedRGB"/>
-                                <segments>
-                                    <segment title="Overview"/>
-                                    <segment title="Reports"/>
-                                    <segment title="Upload"/>
-                                </segments>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UsW-8s-YCI">
+                            <rect key="frame" x="0.0" y="147" width="768" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Next">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" rowHeight="125" id="8UQ-3i-S0O" customClass="TableCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8UQ-3i-S0O" id="YUN-Gj-O85">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCl-Ee-RCM">
+                                            <rect key="frame" x="8" y="43" width="137" height="40"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6U-fE-GFZ">
+                                            <rect key="frame" x="233" y="44" width="450" height="40"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
                                 <connections>
-                                    <action selector="segment:" destination="m1v-FK-Y8R" eventType="valueChanged" id="rgl-5t-Hpf"/>
+                                    <outlet property="DescriptionLabel" destination="w6U-fE-GFZ" id="dJH-mh-50d"/>
+                                    <outlet property="TitleLabel" destination="gCl-Ee-RCM" id="BdO-Rd-bn7"/>
                                 </connections>
-                            </segmentedControl>
-                        </subviews>
-                        <color key="backgroundColor" red="0.81871811224489799" green="0.81871811224489799" blue="0.81871811224489799" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="768" height="1024"/>
-                    <connections>
-                        <outlet property="imageView" destination="4Kd-fx-9dy" id="hLD-Px-shC"/>
-                        <outlet property="imageView2" destination="Zej-Ab-HO8" id="BNY-1d-CED"/>
-                        <outlet property="segmentController" destination="GXP-c7-BcC" id="QGp-Ur-Gpc"/>
-                        <outlet property="textView" destination="u5L-7N-vqw" id="kuN-x5-QVC"/>
-                        <outlet property="upLoad" destination="WJz-94-wNp" id="aqk-Uw-fgi"/>
-                        <outlet property="viewOverview" destination="C26-nR-J1n" id="gP6-78-1oK"/>
-                        <outlet property="viewReport" destination="Glz-nJ-WdM" id="rCe-76-ZM8"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3NJ-jA-PmK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HhO-lk-TaY" id="Zg8-12-bSI"/>
+                            <outlet property="delegate" destination="HhO-lk-TaY" id="L7I-pf-c5r"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="0P4-kD-A8V"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8dN-Bj-Gin" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-387" y="-672"/>
+            <point key="canvasLocation" x="43" y="-780"/>
         </scene>
     </scenes>
     <resources>
-        <image name="mayo-clinic-logo.jpg" width="200" height="200"/>
+        <image name="logoTelevision.png" width="514" height="97"/>
     </resources>
 </document>

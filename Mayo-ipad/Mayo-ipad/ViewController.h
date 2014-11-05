@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 #import "appConstants.h"
+#import "KeychainItemWrapper.h"
+
+NSMutableDictionary *userMap;
+KeychainItemWrapper *keychainItem;
 
 @interface ViewController : UIViewController <UITextFieldDelegate>
 

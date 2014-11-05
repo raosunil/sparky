@@ -21,18 +21,23 @@
 		635905F019F98C8E00693A25 /* XMLRPCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 635905E119F98C8E00693A25 /* XMLRPCRequest.m */; };
 		635905F119F98C8E00693A25 /* XMLRPCResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 635905E319F98C8E00693A25 /* XMLRPCResponse.m */; };
 		635905F219F98C8E00693A25 /* XMLValueDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 635905E519F98C8E00693A25 /* XMLValueDecoder.m */; };
-		63EE3F7319E5F95D0095026D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3F7219E5F95D0095026D /* main.m */; };
 		63EE3F7619E5F95D0095026D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3F7519E5F95D0095026D /* AppDelegate.m */; };
 		63EE3F7919E5F95D0095026D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3F7819E5F95D0095026D /* ViewController.m */; };
-		63EE3F7C19E5F95D0095026D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63EE3F7A19E5F95D0095026D /* Main.storyboard */; };
 		63EE3F7E19E5F95D0095026D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63EE3F7D19E5F95D0095026D /* Images.xcassets */; };
-		63EE3F8119E5F95D0095026D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63EE3F7F19E5F95D0095026D /* LaunchScreen.xib */; };
 		63EE3F8D19E5F95E0095026D /* Mayo_ipadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3F8C19E5F95E0095026D /* Mayo_ipadTests.m */; };
 		63EE3F9A19E605820095026D /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3F9919E605820095026D /* ViewController2.m */; };
 		63EE3F9C19E701D50095026D /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EE3F9B19E701D50095026D /* AssetsLibrary.framework */; };
 		63EE3FA119E708CB0095026D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EE3FA019E708CB0095026D /* ImageIO.framework */; };
 		63EE3FA419E70C460095026D /* CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3FA319E70C460095026D /* CustomPhotoAlbum.m */; };
 		99B3BEED1A0125FE00095D5A /* mayo-clinic-logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99B3BEEC1A0125FE00095D5A /* mayo-clinic-logo.jpg */; };
+		99CEE1691A0A6E9B00C989CB /* mayobg.png in Resources */ = {isa = PBXBuildFile; fileRef = 99CEE1681A0A6E9B00C989CB /* mayobg.png */; };
+		99CEE16C1A0A6F0B00C989CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CEE16B1A0A6F0B00C989CB /* main.m */; };
+		99CEE1741A0A6F7600C989CB /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CEE16E1A0A6F7600C989CB /* KeychainItemWrapper.m */; };
+		99CEE1751A0A6F7600C989CB /* logoTelevision.png in Resources */ = {isa = PBXBuildFile; fileRef = 99CEE16F1A0A6F7600C989CB /* logoTelevision.png */; };
+		99CEE1761A0A6F7600C989CB /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CEE1711A0A6F7600C989CB /* TableCell.m */; };
+		99CEE1771A0A6F7600C989CB /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CEE1731A0A6F7600C989CB /* TableViewController.m */; };
+		99CEE17F1A0A732E00C989CB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99CEE17B1A0A732E00C989CB /* LaunchScreen.xib */; };
+		99CEE1801A0A732E00C989CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99CEE17D1A0A732E00C989CB /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		635905C519F98C8000693A25 /* appConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appConstants.h; sourceTree = "<group>"; };
 		635905C619F98C8000693A25 /* NSString+XMLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLExtensions.h"; sourceTree = "<group>"; };
 		635905C719F98C8000693A25 /* NSString+XMLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLExtensions.m"; sourceTree = "<group>"; };
 		635905CA19F98C8E00693A25 /* WPBase64Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPBase64Utils.h; sourceTree = "<group>"; };
@@ -78,14 +82,11 @@
 		635905E519F98C8E00693A25 /* XMLValueDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLValueDecoder.m; sourceTree = "<group>"; };
 		63EE3F6D19E5F95D0095026D /* Mayo-ipad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mayo-ipad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EE3F7119E5F95D0095026D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63EE3F7219E5F95D0095026D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		63EE3F7419E5F95D0095026D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		63EE3F7519E5F95D0095026D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		63EE3F7719E5F95D0095026D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		63EE3F7819E5F95D0095026D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		63EE3F7B19E5F95D0095026D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63EE3F7D19E5F95D0095026D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		63EE3F8019E5F95D0095026D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		63EE3F8619E5F95E0095026D /* Mayo-ipadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mayo-ipadTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EE3F8B19E5F95E0095026D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63EE3F8C19E5F95E0095026D /* Mayo_ipadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mayo_ipadTests.m; sourceTree = "<group>"; };
@@ -96,6 +97,18 @@
 		63EE3FA219E70C460095026D /* CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPhotoAlbum.h; sourceTree = "<group>"; };
 		63EE3FA319E70C460095026D /* CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPhotoAlbum.m; sourceTree = "<group>"; };
 		99B3BEEC1A0125FE00095D5A /* mayo-clinic-logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mayo-clinic-logo.jpg"; sourceTree = "<group>"; };
+		99CEE1681A0A6E9B00C989CB /* mayobg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mayobg.png; sourceTree = "<group>"; };
+		99CEE16A1A0A6ED000C989CB /* appConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = appConstants.h; path = ../appConstants.h; sourceTree = "<group>"; };
+		99CEE16B1A0A6F0B00C989CB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		99CEE16D1A0A6F7600C989CB /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		99CEE16E1A0A6F7600C989CB /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		99CEE16F1A0A6F7600C989CB /* logoTelevision.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoTelevision.png; sourceTree = "<group>"; };
+		99CEE1701A0A6F7600C989CB /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
+		99CEE1711A0A6F7600C989CB /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
+		99CEE1721A0A6F7600C989CB /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		99CEE1731A0A6F7600C989CB /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		99CEE17C1A0A732E00C989CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		99CEE17E1A0A732E00C989CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,17 +199,24 @@
 			children = (
 				635905C919F98C8E00693A25 /* WPXMLRPC */,
 				635905D719F98C8E00693A25 /* XMLRPC */,
-				635905C519F98C8000693A25 /* appConstants.h */,
 				635905C619F98C8000693A25 /* NSString+XMLExtensions.h */,
+				99CEE1681A0A6E9B00C989CB /* mayobg.png */,
 				635905C719F98C8000693A25 /* NSString+XMLExtensions.m */,
+				99CEE16A1A0A6ED000C989CB /* appConstants.h */,
 				99B3BEEC1A0125FE00095D5A /* mayo-clinic-logo.jpg */,
 				63EE3F7419E5F95D0095026D /* AppDelegate.h */,
 				63EE3F7519E5F95D0095026D /* AppDelegate.m */,
 				63EE3F7719E5F95D0095026D /* ViewController.h */,
 				63EE3F7819E5F95D0095026D /* ViewController.m */,
-				63EE3F7A19E5F95D0095026D /* Main.storyboard */,
+				99CEE16D1A0A6F7600C989CB /* KeychainItemWrapper.h */,
+				99CEE16E1A0A6F7600C989CB /* KeychainItemWrapper.m */,
+				99CEE16F1A0A6F7600C989CB /* logoTelevision.png */,
+				99CEE1701A0A6F7600C989CB /* TableCell.h */,
+				99CEE1711A0A6F7600C989CB /* TableCell.m */,
+				99CEE17A1A0A732E00C989CB /* Base.lproj */,
+				99CEE1721A0A6F7600C989CB /* TableViewController.h */,
+				99CEE1731A0A6F7600C989CB /* TableViewController.m */,
 				63EE3F7D19E5F95D0095026D /* Images.xcassets */,
-				63EE3F7F19E5F95D0095026D /* LaunchScreen.xib */,
 				63EE3F7019E5F95D0095026D /* Supporting Files */,
 				63EE3F9819E605820095026D /* ViewController2.h */,
 				63EE3F9919E605820095026D /* ViewController2.m */,
@@ -208,7 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				63EE3F7119E5F95D0095026D /* Info.plist */,
-				63EE3F7219E5F95D0095026D /* main.m */,
+				99CEE16B1A0A6F0B00C989CB /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -228,6 +248,15 @@
 				63EE3F8B19E5F95E0095026D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		99CEE17A1A0A732E00C989CB /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				99CEE17B1A0A732E00C989CB /* LaunchScreen.xib */,
+				99CEE17D1A0A732E00C989CB /* Main.storyboard */,
+			);
+			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,9 +340,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63EE3F7C19E5F95D0095026D /* Main.storyboard in Resources */,
+				99CEE17F1A0A732E00C989CB /* LaunchScreen.xib in Resources */,
+				99CEE1691A0A6E9B00C989CB /* mayobg.png in Resources */,
 				99B3BEED1A0125FE00095D5A /* mayo-clinic-logo.jpg in Resources */,
-				63EE3F8119E5F95D0095026D /* LaunchScreen.xib in Resources */,
+				99CEE1801A0A732E00C989CB /* Main.storyboard in Resources */,
+				99CEE1751A0A6F7600C989CB /* logoTelevision.png in Resources */,
 				63EE3F7E19E5F95D0095026D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,7 +371,10 @@
 				635905F219F98C8E00693A25 /* XMLValueDecoder.m in Sources */,
 				635905C819F98C8000693A25 /* NSString+XMLExtensions.m in Sources */,
 				635905E819F98C8E00693A25 /* WPXMLRPCDataCleaner.m in Sources */,
+				99CEE1741A0A6F7600C989CB /* KeychainItemWrapper.m in Sources */,
+				99CEE16C1A0A6F0B00C989CB /* main.m in Sources */,
 				635905ED19F98C8E00693A25 /* XMLRPCDecoder.m in Sources */,
+				99CEE1771A0A6F7600C989CB /* TableViewController.m in Sources */,
 				635905EA19F98C8E00693A25 /* WPXMLRPCDecoderDelegate.m in Sources */,
 				63EE3F9A19E605820095026D /* ViewController2.m in Sources */,
 				635905E919F98C8E00693A25 /* WPXMLRPCDecoder.m in Sources */,
@@ -348,8 +382,8 @@
 				635905F019F98C8E00693A25 /* XMLRPCRequest.m in Sources */,
 				635905EE19F98C8E00693A25 /* XMLRPCEncoder.m in Sources */,
 				635905F119F98C8E00693A25 /* XMLRPCResponse.m in Sources */,
+				99CEE1761A0A6F7600C989CB /* TableCell.m in Sources */,
 				635905E619F98C8E00693A25 /* WPBase64Utils.m in Sources */,
-				63EE3F7319E5F95D0095026D /* main.m in Sources */,
 				63EE3FA419E70C460095026D /* CustomPhotoAlbum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,20 +407,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		63EE3F7A19E5F95D0095026D /* Main.storyboard */ = {
+		99CEE17B1A0A732E00C989CB /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				63EE3F7B19E5F95D0095026D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		63EE3F7F19E5F95D0095026D /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				63EE3F8019E5F95D0095026D /* Base */,
+				99CEE17C1A0A732E00C989CB /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		99CEE17D1A0A732E00C989CB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				99CEE17E1A0A732E00C989CB /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -10,6 +10,7 @@
 
 #import "XMLRPCRequest.h"
 #import "XMLRPCConnection.h"
+#import "KeychainItemWrapper.h"
 
 
 @interface ViewController ()
@@ -21,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [self.view setBackgroundColor:[UIColor clearColor]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,7 +40,7 @@
     NSDictionary *retLogin = [self loginToServerWithUser:self.userName.text passwd:self.passWord.text];
     NSLog((retLogin != nil) ? @"True" : @"False");
    
-
+    
     if(retLogin != nil) {
         
         
@@ -55,94 +57,13 @@
                           cancelButtonTitle:@"Cancel"
                           otherButtonTitles:nil
           ] show];
+        //[self performSegueWithIdentifier:@"login_failed" sender:self];
     }
     
-    //login works
-    
-    //mimicing image upload
-    
-    /*
-    
-    
-    NSDictionary *retUpload = [self uploadImageToServerWithUser:@"rishabh" passwd:@"sundevil"];
-    NSLog((retUpload != nil) ? @"True" : @"False");
 
-    */
-    
-/*
-    
-    NSInteger success = 0;
-    @try {
-        
-        if([[self.userName text] isEqualToString:@"rishabh"] || [[self.passWord text] isEqualToString:@"sundevil"] ) {
-            
-            [self alertStatus:@"Please enter Username and Password" :@"Sign in Failed!" :0];
-            
-        } else {
-            NSString *post =[[NSString alloc] initWithFormat:@"username=%@&password=%@",[self.userName text],[self.passWord text]];
-            NSLog(@"PostData: %@",post);
-            
-            NSURL *url=[NSURL URLWithString:@"http://raostravelogue.com/roller-services/xmlrpc"];
-            NSLog(@"There");
-            
-            NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-            
-            NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-            
-            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-            [request setURL:url];
-            [request setHTTPMethod:@"POST"];
-            [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-            [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-            [request setHTTPBody:postData];
-            
-            //[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
-            
-            NSError *error = [[NSError alloc] init];
-            NSHTTPURLResponse *response = nil;
-            NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-            
-            NSLog(@"Response code: %ld", (long)[response statusCode]);
-            
-            if ([response statusCode] >= 200 && [response statusCode] < 300)
-            {
-                NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-                NSLog(@"Response ==> %@", responseData);
-                
-                NSError *error = nil;
-                NSDictionary *jsonData = [NSJSONSerialization
-                                          JSONObjectWithData:urlData
-                                          options:NSJSONReadingMutableContainers
-                                          error:&error];
-                
-                success = [jsonData[@"success"] integerValue];
-                NSLog(@"Success: %ld",(long)success);
-                
-                if(success == 1)
-                {
-                    NSLog(@"Login SUCCESS");
-                } else {
-                    
-                    NSString *error_msg = (NSString *) jsonData[@"error_message"];
-                    [self alertStatus:error_msg :@"Sign in Failed!" :0];
-                }
-                
-            } else {
-                //if (error) NSLog(@"Error: %@", error);
-                [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
-            }
-        }
-    }
-    @catch (NSException * e) {
-        NSLog(@"Exception: %@", e);
-        [self alertStatus:@"Sign in Failed." :@"Error!" :0];
-    }
-    if (success) {
-        [self performSegueWithIdentifier:@"login_success" sender:self];
-    }
- */
 }
+
+
 
 - (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag
 {
@@ -206,6 +127,23 @@
     [request setMethod:method withObjects:args];
     id response = [self executeXMLRPCRequest:request];
     
+    //Nagesh Start - Will be used when integrating it with VPN
+    
+    [userMap setObject:@"Sunil" forKey:@"firstName"];
+    [userMap setObject:@"Rao" forKey:@"lastname"];
+    [userMap setObject:@"16173198" forKey:@"personId"];
+    [userMap setObject:@"M137121" forKey:@"lanId"];
+    [userMap setObject:@"20ejm5umdo5h3jsfbprmof9drf" forKey:@"securityToken"];
+    
+    // Temporary stuff - delete after uncommenting the above
+    [keychainItem setObject:userMap[@"personId"] forKey:(__bridge id)kSecValueData];
+    [keychainItem setObject:userMap[@"securityToken"] forKey:(__bridge id)kSecAttrAccount];
+    
+    //We can retrieve token and person id from key chain as follows:
+    NSString *token = [keychainItem objectForKey:(__bridge id)kSecAttrAccount];
+    NSString *perId = [keychainItem objectForKey:(__bridge id)kSecValueData];
+
+      //Nagesh End - Will be used when integrating it with VPN
     
     if( [response isKindOfClass:[NSError class]] ) {
         return nil;
@@ -220,6 +158,8 @@
     XMLRPCResponse *userInfoResponse = [XMLRPCConnection sendSynchronousXMLRPCRequest:req];
     return userInfoResponse;
 }
+
+
 
 
 

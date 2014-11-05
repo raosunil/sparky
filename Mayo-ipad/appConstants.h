@@ -13,6 +13,7 @@
 #define xmlrpcUploadMethodName  @"metaWeblog.newMediaObject"
 #define xmlrpcLoginMethodName @"metaWeblog.getUserInfo"
 #define xmlrpcBlogIDName @"TeleVision"
-
+//#define mayoWSCommonURL @"http://javadev.mayo.edu/DCAMSWeb/CommonImportService?"
+//#define mayoWSLoginMethodName @"muser"
 
 #endif
