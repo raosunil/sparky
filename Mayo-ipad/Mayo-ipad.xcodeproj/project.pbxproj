@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26260E491A0B4D0400502C1A /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26260E481A0B4D0400502C1A /* LandingViewController.m */; };
+		487F468D1A0AC1AA00ED7B42 /* Banner.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 487F468C1A0AC1A900ED7B42 /* Banner.jpeg */; };
 		635905C819F98C8000693A25 /* NSString+XMLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 635905C719F98C8000693A25 /* NSString+XMLExtensions.m */; };
 		635905E619F98C8E00693A25 /* WPBase64Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 635905CB19F98C8E00693A25 /* WPBase64Utils.m */; };
 		635905E719F98C8E00693A25 /* WPStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 635905CD19F98C8E00693A25 /* WPStringUtils.m */; };
@@ -35,7 +37,6 @@
 		99CEE1741A0A6F7600C989CB /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CEE16E1A0A6F7600C989CB /* KeychainItemWrapper.m */; };
 		99CEE1751A0A6F7600C989CB /* logoTelevision.png in Resources */ = {isa = PBXBuildFile; fileRef = 99CEE16F1A0A6F7600C989CB /* logoTelevision.png */; };
 		99CEE1761A0A6F7600C989CB /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CEE1711A0A6F7600C989CB /* TableCell.m */; };
-		99CEE1771A0A6F7600C989CB /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CEE1731A0A6F7600C989CB /* TableViewController.m */; };
 		99CEE17F1A0A732E00C989CB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99CEE17B1A0A732E00C989CB /* LaunchScreen.xib */; };
 		99CEE1801A0A732E00C989CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99CEE17D1A0A732E00C989CB /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26260E471A0B4D0400502C1A /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
+		26260E481A0B4D0400502C1A /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
+		487F468C1A0AC1A900ED7B42 /* Banner.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Banner.jpeg; sourceTree = "<group>"; };
 		635905C619F98C8000693A25 /* NSString+XMLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLExtensions.h"; sourceTree = "<group>"; };
 		635905C719F98C8000693A25 /* NSString+XMLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLExtensions.m"; sourceTree = "<group>"; };
 		635905CA19F98C8E00693A25 /* WPBase64Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPBase64Utils.h; sourceTree = "<group>"; };
@@ -105,8 +109,6 @@
 		99CEE16F1A0A6F7600C989CB /* logoTelevision.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoTelevision.png; sourceTree = "<group>"; };
 		99CEE1701A0A6F7600C989CB /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
 		99CEE1711A0A6F7600C989CB /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
-		99CEE1721A0A6F7600C989CB /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
-		99CEE1731A0A6F7600C989CB /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		99CEE17C1A0A732E00C989CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		99CEE17E1A0A732E00C989CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,11 +213,12 @@
 				99CEE16D1A0A6F7600C989CB /* KeychainItemWrapper.h */,
 				99CEE16E1A0A6F7600C989CB /* KeychainItemWrapper.m */,
 				99CEE16F1A0A6F7600C989CB /* logoTelevision.png */,
+				487F468C1A0AC1A900ED7B42 /* Banner.jpeg */,
 				99CEE1701A0A6F7600C989CB /* TableCell.h */,
 				99CEE1711A0A6F7600C989CB /* TableCell.m */,
 				99CEE17A1A0A732E00C989CB /* Base.lproj */,
-				99CEE1721A0A6F7600C989CB /* TableViewController.h */,
-				99CEE1731A0A6F7600C989CB /* TableViewController.m */,
+				26260E471A0B4D0400502C1A /* LandingViewController.h */,
+				26260E481A0B4D0400502C1A /* LandingViewController.m */,
 				63EE3F7D19E5F95D0095026D /* Images.xcassets */,
 				63EE3F7019E5F95D0095026D /* Supporting Files */,
 				63EE3F9819E605820095026D /* ViewController2.h */,
@@ -342,6 +345,7 @@
 			files = (
 				99CEE17F1A0A732E00C989CB /* LaunchScreen.xib in Resources */,
 				99CEE1691A0A6E9B00C989CB /* mayobg.png in Resources */,
+				487F468D1A0AC1AA00ED7B42 /* Banner.jpeg in Resources */,
 				99B3BEED1A0125FE00095D5A /* mayo-clinic-logo.jpg in Resources */,
 				99CEE1801A0A732E00C989CB /* Main.storyboard in Resources */,
 				99CEE1751A0A6F7600C989CB /* logoTelevision.png in Resources */,
@@ -374,10 +378,10 @@
 				99CEE1741A0A6F7600C989CB /* KeychainItemWrapper.m in Sources */,
 				99CEE16C1A0A6F0B00C989CB /* main.m in Sources */,
 				635905ED19F98C8E00693A25 /* XMLRPCDecoder.m in Sources */,
-				99CEE1771A0A6F7600C989CB /* TableViewController.m in Sources */,
 				635905EA19F98C8E00693A25 /* WPXMLRPCDecoderDelegate.m in Sources */,
 				63EE3F9A19E605820095026D /* ViewController2.m in Sources */,
 				635905E919F98C8E00693A25 /* WPXMLRPCDecoder.m in Sources */,
+				26260E491A0B4D0400502C1A /* LandingViewController.m in Sources */,
 				63EE3F7619E5F95D0095026D /* AppDelegate.m in Sources */,
 				635905F019F98C8E00693A25 /* XMLRPCRequest.m in Sources */,
 				635905EE19F98C8E00693A25 /* XMLRPCEncoder.m in Sources */,

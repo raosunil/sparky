@@ -11,9 +11,13 @@
 #import "ViewController.h"
 
 
-@interface TableViewController : UITableViewController {
+@interface LandingViewController : UIViewController {
+    
+    IBOutlet UILabel *userlabel;
+    IBOutlet UILabel *idlabel;
 }
-@property (nonatomic, strong) NSArray *Images;
+@property (nonatomic, strong) NSArray *Banner;
 @property (nonatomic, strong) NSArray *Title;
 @property (nonatomic, strong) NSArray *Description;
+- (IBAction)LogoutButton:(id)sender;
 @end
