@@ -23,6 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self.view setBackgroundColor:[UIColor clearColor]];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,7 +31,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscape;
+}
 
 
 - (IBAction)login:(id)sender {

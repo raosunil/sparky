@@ -32,6 +32,10 @@ UIImage *imageView, *imageVIew2;
     [super viewDidUnload];
 }
 
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscape;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

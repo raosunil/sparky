@@ -12,12 +12,10 @@
 
 
 @interface LandingViewController : UIViewController {
+    __weak IBOutlet UIButton *libraryaccess;
+    __weak IBOutlet UIButton *nexttoupload;
     
-    IBOutlet UILabel *userlabel;
-    IBOutlet UILabel *idlabel;
 }
-@property (nonatomic, strong) NSArray *Banner;
-@property (nonatomic, strong) NSArray *Title;
-@property (nonatomic, strong) NSArray *Description;
-- (IBAction)LogoutButton:(id)sender;
+- (IBAction)libraryaccess:(id)sender;
+
 @end
