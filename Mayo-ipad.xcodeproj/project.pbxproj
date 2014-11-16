@@ -8,17 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		63EE3F7319E5F95D0095026D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3F7219E5F95D0095026D /* main.m */; };
-		63EE3F7619E5F95D0095026D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3F7519E5F95D0095026D /* AppDelegate.m */; };
 		63EE3F7919E5F95D0095026D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3F7819E5F95D0095026D /* ViewController.m */; };
-		63EE3F7C19E5F95D0095026D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63EE3F7A19E5F95D0095026D /* Main.storyboard */; };
 		63EE3F7E19E5F95D0095026D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63EE3F7D19E5F95D0095026D /* Images.xcassets */; };
-		63EE3F8119E5F95D0095026D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63EE3F7F19E5F95D0095026D /* LaunchScreen.xib */; };
 		63EE3F8D19E5F95E0095026D /* Mayo_ipadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3F8C19E5F95E0095026D /* Mayo_ipadTests.m */; };
-		63EE3F9719E601D30095026D /* mayo-clinic-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EE3F9619E601D30095026D /* mayo-clinic-logo.png */; };
 		63EE3F9A19E605820095026D /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3F9919E605820095026D /* ViewController2.m */; };
 		63EE3F9C19E701D50095026D /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EE3F9B19E701D50095026D /* AssetsLibrary.framework */; };
 		63EE3FA119E708CB0095026D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EE3FA019E708CB0095026D /* ImageIO.framework */; };
 		63EE3FA419E70C460095026D /* CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EE3FA319E70C460095026D /* CustomPhotoAlbum.m */; };
+		990AB18F1A18976400162D42 /* PatientIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990AB18E1A18976400162D42 /* PatientIDViewController.m */; };
+		990AB1921A1897CF00162D42 /* lastPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990AB1911A1897CF00162D42 /* lastPageViewController.m */; };
+		998018351A16EDF900BEABBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 998018341A16EDF900BEABBD /* AppDelegate.m */; };
+		998018401A16EFC400BEABBD /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 998018371A16EFC400BEABBD /* KeychainItemWrapper.m */; };
+		998018411A16EFC400BEABBD /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 998018391A16EFC400BEABBD /* LandingViewController.m */; };
+		998018421A16EFC400BEABBD /* logoTelevision.png in Resources */ = {isa = PBXBuildFile; fileRef = 9980183A1A16EFC400BEABBD /* logoTelevision.png */; };
+		998018431A16EFC400BEABBD /* mayobg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9980183B1A16EFC400BEABBD /* mayobg.png */; };
+		998018441A16EFC400BEABBD /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9980183D1A16EFC400BEABBD /* TableCell.m */; };
+		998018451A16EFC400BEABBD /* uploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9980183F1A16EFC400BEABBD /* uploadViewController.m */; };
+		9980184C1A16EFF900BEABBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998018491A16EFF900BEABBD /* Main.storyboard */; };
+		9980184F1A16F03C00BEABBD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9980184D1A16F03C00BEABBD /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,26 +39,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		635905C519F98C8000693A25 /* appConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appConstants.h; sourceTree = "<group>"; };
 		63EE3F6D19E5F95D0095026D /* Mayo-ipad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mayo-ipad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EE3F7119E5F95D0095026D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63EE3F7219E5F95D0095026D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		63EE3F7419E5F95D0095026D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		63EE3F7519E5F95D0095026D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		63EE3F7719E5F95D0095026D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		63EE3F7819E5F95D0095026D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		63EE3F7B19E5F95D0095026D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63EE3F7D19E5F95D0095026D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		63EE3F8019E5F95D0095026D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		63EE3F8619E5F95E0095026D /* Mayo-ipadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mayo-ipadTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EE3F8B19E5F95E0095026D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63EE3F8C19E5F95E0095026D /* Mayo_ipadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mayo_ipadTests.m; sourceTree = "<group>"; };
-		63EE3F9619E601D30095026D /* mayo-clinic-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mayo-clinic-logo.png"; path = "../../../../../Downloads/mayo-clinic-logo.png"; sourceTree = "<group>"; };
 		63EE3F9819E605820095026D /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
 		63EE3F9919E605820095026D /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 		63EE3F9B19E701D50095026D /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		63EE3FA019E708CB0095026D /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		63EE3FA219E70C460095026D /* CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPhotoAlbum.h; sourceTree = "<group>"; };
-		63EE3FA319E70C460095026D /* CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPhotoAlbum.m; sourceTree = "<group>"; };
+		63EE3FA219E70C460095026D /* CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomPhotoAlbum.h; path = ../CustomPhotoAlbum.h; sourceTree = "<group>"; };
+		63EE3FA319E70C460095026D /* CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomPhotoAlbum.m; path = ../CustomPhotoAlbum.m; sourceTree = "<group>"; };
+		990AB18D1A18976400162D42 /* PatientIDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientIDViewController.h; sourceTree = "<group>"; };
+		990AB18E1A18976400162D42 /* PatientIDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientIDViewController.m; sourceTree = "<group>"; };
+		990AB1901A1897CF00162D42 /* lastPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lastPageViewController.h; sourceTree = "<group>"; };
+		990AB1911A1897CF00162D42 /* lastPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lastPageViewController.m; sourceTree = "<group>"; };
+		998018341A16EDF900BEABBD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		998018361A16EFC400BEABBD /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		998018371A16EFC400BEABBD /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		998018381A16EFC400BEABBD /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
+		998018391A16EFC400BEABBD /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
+		9980183A1A16EFC400BEABBD /* logoTelevision.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoTelevision.png; sourceTree = "<group>"; };
+		9980183B1A16EFC400BEABBD /* mayobg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mayobg.png; sourceTree = "<group>"; };
+		9980183C1A16EFC400BEABBD /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
+		9980183D1A16EFC400BEABBD /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
+		9980183E1A16EFC400BEABBD /* uploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uploadViewController.h; sourceTree = "<group>"; };
+		9980183F1A16EFC400BEABBD /* uploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uploadViewController.m; sourceTree = "<group>"; };
+		9980184A1A16EFF900BEABBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		9980184E1A16F03C00BEABBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +98,6 @@
 		63EE3F6419E5F95D0095026D = {
 			isa = PBXGroup;
 			children = (
-				63EE3FA219E70C460095026D /* CustomPhotoAlbum.h */,
-				63EE3FA319E70C460095026D /* CustomPhotoAlbum.m */,
 				63EE3FA019E708CB0095026D /* ImageIO.framework */,
 				63EE3F9B19E701D50095026D /* AssetsLibrary.framework */,
 				63EE3F6F19E5F95D0095026D /* Mayo-ipad */,
@@ -99,14 +118,29 @@
 		63EE3F6F19E5F95D0095026D /* Mayo-ipad */ = {
 			isa = PBXGroup;
 			children = (
-				63EE3F9619E601D30095026D /* mayo-clinic-logo.png */,
+				635905C519F98C8000693A25 /* appConstants.h */,
+				998018341A16EDF900BEABBD /* AppDelegate.m */,
+				998018361A16EFC400BEABBD /* KeychainItemWrapper.h */,
+				998018371A16EFC400BEABBD /* KeychainItemWrapper.m */,
+				998018381A16EFC400BEABBD /* LandingViewController.h */,
+				998018391A16EFC400BEABBD /* LandingViewController.m */,
+				9980183A1A16EFC400BEABBD /* logoTelevision.png */,
+				9980183B1A16EFC400BEABBD /* mayobg.png */,
+				9980183C1A16EFC400BEABBD /* TableCell.h */,
+				9980183D1A16EFC400BEABBD /* TableCell.m */,
+				9980183E1A16EFC400BEABBD /* uploadViewController.h */,
+				9980183F1A16EFC400BEABBD /* uploadViewController.m */,
+				990AB18D1A18976400162D42 /* PatientIDViewController.h */,
+				990AB1901A1897CF00162D42 /* lastPageViewController.h */,
+				990AB1911A1897CF00162D42 /* lastPageViewController.m */,
+				990AB18E1A18976400162D42 /* PatientIDViewController.m */,
+				63EE3FA219E70C460095026D /* CustomPhotoAlbum.h */,
+				63EE3FA319E70C460095026D /* CustomPhotoAlbum.m */,
 				63EE3F7419E5F95D0095026D /* AppDelegate.h */,
-				63EE3F7519E5F95D0095026D /* AppDelegate.m */,
 				63EE3F7719E5F95D0095026D /* ViewController.h */,
 				63EE3F7819E5F95D0095026D /* ViewController.m */,
-				63EE3F7A19E5F95D0095026D /* Main.storyboard */,
 				63EE3F7D19E5F95D0095026D /* Images.xcassets */,
-				63EE3F7F19E5F95D0095026D /* LaunchScreen.xib */,
+				998018461A16EFF900BEABBD /* Base.lproj */,
 				63EE3F7019E5F95D0095026D /* Supporting Files */,
 				63EE3F9819E605820095026D /* ViewController2.h */,
 				63EE3F9919E605820095026D /* ViewController2.m */,
@@ -138,6 +172,15 @@
 				63EE3F8B19E5F95E0095026D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		998018461A16EFF900BEABBD /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				9980184D1A16F03C00BEABBD /* LaunchScreen.xib */,
+				998018491A16EFF900BEABBD /* Main.storyboard */,
+			);
+			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +232,7 @@
 				TargetAttributes = {
 					63EE3F6C19E5F95D0095026D = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 3SQ68LVT3N;
 					};
 					63EE3F8519E5F95E0095026D = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -220,9 +264,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63EE3F7C19E5F95D0095026D /* Main.storyboard in Resources */,
-				63EE3F8119E5F95D0095026D /* LaunchScreen.xib in Resources */,
-				63EE3F9719E601D30095026D /* mayo-clinic-logo.png in Resources */,
+				9980184F1A16F03C00BEABBD /* LaunchScreen.xib in Resources */,
+				998018431A16EFC400BEABBD /* mayobg.png in Resources */,
+				9980184C1A16EFF900BEABBD /* Main.storyboard in Resources */,
+				998018421A16EFC400BEABBD /* logoTelevision.png in Resources */,
 				63EE3F7E19E5F95D0095026D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,10 +287,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				63EE3F7919E5F95D0095026D /* ViewController.m in Sources */,
+				998018411A16EFC400BEABBD /* LandingViewController.m in Sources */,
 				63EE3F9A19E605820095026D /* ViewController2.m in Sources */,
-				63EE3F7619E5F95D0095026D /* AppDelegate.m in Sources */,
+				990AB1921A1897CF00162D42 /* lastPageViewController.m in Sources */,
+				990AB18F1A18976400162D42 /* PatientIDViewController.m in Sources */,
+				998018401A16EFC400BEABBD /* KeychainItemWrapper.m in Sources */,
 				63EE3F7319E5F95D0095026D /* main.m in Sources */,
 				63EE3FA419E70C460095026D /* CustomPhotoAlbum.m in Sources */,
+				998018451A16EFC400BEABBD /* uploadViewController.m in Sources */,
+				998018441A16EFC400BEABBD /* TableCell.m in Sources */,
+				998018351A16EDF900BEABBD /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,18 +319,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		63EE3F7A19E5F95D0095026D /* Main.storyboard */ = {
+		998018491A16EFF900BEABBD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				63EE3F7B19E5F95D0095026D /* Base */,
+				9980184A1A16EFF900BEABBD /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		63EE3F7F19E5F95D0095026D /* LaunchScreen.xib */ = {
+		9980184D1A16F03C00BEABBD /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				63EE3F8019E5F95D0095026D /* Base */,
+				9980184E1A16F03C00BEABBD /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -369,9 +420,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Mayo-ipad/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -379,9 +434,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Mayo-ipad/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

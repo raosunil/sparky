@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+
+
 @interface ViewController ()
 
 @end
@@ -16,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor clearColor]];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -24,77 +27,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+
 - (IBAction)login:(id)sender {
-  /*
-    NSInteger success = 0;
-    @try {
+    
+    [self loginToServerWithUser:self.userName.text passwd:self.passWord.text];
+
+    if(userMap != nil && [userMap objectForKey:@"securityToken"] != nil) {
         
-        if([[self.userName text] isEqualToString:@""] || [[self.passWord text] isEqualToString:@""] ) {
-            
-            [self alertStatus:@"Please enter Username and Password" :@"Sign in Failed!" :0];
-            
-        } else {
-            NSString *post =[[NSString alloc] initWithFormat:@"username=%@&password=%@",[self.userName text],[self.passWord text]];
-            NSLog(@"PostData: %@",post);
-            
-            NSURL *url=[NSURL URLWithString:@""];
-            
-            NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-            
-            NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-            
-            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-            [request setURL:url];
-            [request setHTTPMethod:@"POST"];
-            [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-            [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-            [request setHTTPBody:postData];
-            
-            //[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
-            
-            NSError *error = [[NSError alloc] init];
-            NSHTTPURLResponse *response = nil;
-            NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-            
-            NSLog(@"Response code: %ld", (long)[response statusCode]);
-            
-            if ([response statusCode] >= 200 && [response statusCode] < 300)
-            {
-                NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-                NSLog(@"Response ==> %@", responseData);
-                
-                NSError *error = nil;
-                NSDictionary *jsonData = [NSJSONSerialization
-                                          JSONObjectWithData:urlData
-                                          options:NSJSONReadingMutableContainers
-                                          error:&error];
-                
-                success = [jsonData[@"success"] integerValue];
-                NSLog(@"Success: %ld",(long)success);
-                
-                if(success == 1)
-                {
-                    NSLog(@"Login SUCCESS");
-                } else {
-                    
-                    NSString *error_msg = (NSString *) jsonData[@"error_message"];
-                    [self alertStatus:error_msg :@"Sign in Failed!" :0];
-                }
-                
-            } else {
-                //if (error) NSLog(@"Error: %@", error);
-                [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
-            }
-        }
-    }
-    @catch (NSException * e) {
-        NSLog(@"Exception: %@", e);
-        [self alertStatus:@"Sign in Failed." :@"Error!" :0];
-    }
-    if (success) {
         [self performSegueWithIdentifier:@"login_success" sender:self];
     }
+    
 }
 
 - (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag
@@ -106,7 +50,6 @@
                                               otherButtonTitles:nil, nil];
     alertView.tag = tag;
     [alertView show];
- */
     
 }
 
@@ -119,5 +62,58 @@
     return YES;
     
 }
+
+- (void)loginToServerWithUser:(NSString *)user
+                                 passwd:(NSString *)password{
+    if (user!=nil && ![user isEqualToString:@""] && password!=nil && ![password isEqualToString:@""]) {
+        
+    
+        NSMutableString *serverUrl = [[NSMutableString alloc] initWithString:mayoWSCommonURL];  // the server
+        NSMutableString *urlParam = [[NSMutableString alloc] initWithString:@"service="];
+        [urlParam appendString:mayoWSLoginMethodName];
+        [urlParam appendString: @"&username="];
+        [urlParam appendString:user];
+        [urlParam appendString: @"&password="];
+        [urlParam appendString:password];
+        
+        NSString *urlParamEncoded = [urlParam stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [serverUrl appendString:urlParamEncoded];
+        
+        NSURL *url = [[NSURL alloc] initWithString:serverUrl];
+        
+        NSLog(@"%@", serverUrl);
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                               cachePolicy: NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0];
+        NSError *error = nil;
+        NSURLResponse *response = nil;
+        @try {
+            NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            if(userMap == nil)
+                userMap = [[NSMutableDictionary alloc] init];
+            [userMap setDictionary:[NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]];
+
+        }
+        @catch (NSException *exception) {
+            NSLog(@"Reason for Exception is : %@",[exception reason]);
+            [[[UIAlertView alloc] initWithTitle:@"Sorry"
+                                        message:@"Please ensure VPN is connected and credentials are correct before login"
+                                       delegate: nil
+                              cancelButtonTitle:@"Cancel"
+                              otherButtonTitles:nil
+              ] show];
+        }
+        
+    } else {
+        [[[UIAlertView alloc] initWithTitle:@"Sorry"
+                                    message:@"Enter the username and password to login"
+                                   delegate: nil
+                          cancelButtonTitle:@"Cancel"
+                          otherButtonTitles:nil
+          ] show];
+    }
+    
+    
+}
+
 
 @end

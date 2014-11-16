@@ -16,6 +16,7 @@
 
 @implementation ViewController2
 @synthesize viewOverview, viewReport, upLoad, library;
+UIImage *imageView, *imageVIew2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,6 +32,10 @@
     [super viewDidUnload];
 }
 
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscape;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -39,14 +44,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 
 - (IBAction)segment:(UISegmentedControl *)sender {
@@ -111,6 +116,8 @@
         }
     }];
     
+    imageView = image;
+    imageVIew2 = image;
     [picker dismissModalViewControllerAnimated:NO];
 }
 
