@@ -11,11 +11,13 @@
 #import "KeychainItemWrapper.h"
 
 extern NSMutableDictionary *userMap;
+extern NSMutableDictionary *patientMap;
 extern KeychainItemWrapper *keychainItem;
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        //userMap = [[NSMutableDictionary alloc] init];
+        userMap = [[NSMutableDictionary alloc] init];
+        patientMap=[[NSMutableDictionary alloc]init];
         keychainItem = [[KeychainItemWrapper alloc]initWithIdentifier:@"TeleVisionAppLogin" accessGroup:nil];
         [keychainItem setObject:(__bridge id)kSecAttrAccessibleWhenUnlocked forKey:(__bridge id)kSecAttrAccessible];
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));

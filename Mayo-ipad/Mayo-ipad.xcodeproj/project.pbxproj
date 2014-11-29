@@ -10,9 +10,27 @@
 		03B833A51A14AFFD0004C603 /* uploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B833A41A14AFFD0004C603 /* uploadViewController.m */; };
 		03B833A71A14B0780004C603 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B833A61A14B0780004C603 /* QuartzCore.framework */; };
 		03B833A91A14B0850004C603 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B833A81A14B0850004C603 /* MessageUI.framework */; };
+		03B833B41A21A13A0004C603 /* reviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B833B31A21A13A0004C603 /* reviewViewController.m */; };
 		26260E491A0B4D0400502C1A /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26260E481A0B4D0400502C1A /* LandingViewController.m */; };
+		3BC907B01A24373300D1F276 /* genPdf.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC907A71A24373300D1F276 /* genPdf.m */; };
+		3BC907B11A24373300D1F276 /* hero-eye.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3BC907A91A24373300D1F276 /* hero-eye.jpg */; };
+		3BC907B21A24373300D1F276 /* mainPageTemplate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BC907AA1A24373300D1F276 /* mainPageTemplate.xib */; };
+		3BC907B31A24373300D1F276 /* mayo-clinic_416x416.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3BC907AB1A24373300D1F276 /* mayo-clinic_416x416.jpg */; };
+		3BC907B41A24373300D1F276 /* qaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BC907AC1A24373300D1F276 /* qaView.xib */; };
+		3BC907B51A24373300D1F276 /* remarksView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BC907AD1A24373300D1F276 /* remarksView.xib */; };
+		3BC907B71A24373300D1F276 /* secondPageTemplate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BC907AF1A24373300D1F276 /* secondPageTemplate.xib */; };
 		487F468D1A0AC1AA00ED7B42 /* Banner.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 487F468C1A0AC1A900ED7B42 /* Banner.jpeg */; };
 		48BCAA141A17750A00E6B68A /* lastPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48BCAA131A17750A00E6B68A /* lastPageViewController.m */; };
+		567055961A1EDD280012E1E8 /* QuestionAndOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 567055901A1EDD280012E1E8 /* QuestionAndOptions.m */; };
+		567055971A1EDD280012E1E8 /* QuestionOptions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 567055911A1EDD280012E1E8 /* QuestionOptions.xml */; };
+		567055981A1EDD280012E1E8 /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 567055931A1EDD280012E1E8 /* SurveyViewController.m */; };
+		567055991A1EDD280012E1E8 /* SurveyXMLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 567055951A1EDD280012E1E8 /* SurveyXMLHelper.m */; };
+		567056101A1EE2C10012E1E8 /* RadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5670560F1A1EE2C10012E1E8 /* RadioButton.m */; };
+		567056131A1EE79B0012E1E8 /* radio-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 567056111A1EE79B0012E1E8 /* radio-off.png */; };
+		567056141A1EE79B0012E1E8 /* radio-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 567056121A1EE79B0012E1E8 /* radio-on.png */; };
+		5670561A1A2022F50012E1E8 /* check-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 567056161A2022F50012E1E8 /* check-off.png */; };
+		5670561B1A2022F50012E1E8 /* check-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 567056171A2022F50012E1E8 /* check-on.png */; };
+		5670561C1A2022F50012E1E8 /* CheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 567056191A2022F50012E1E8 /* CheckBox.m */; };
 		635905C819F98C8000693A25 /* NSString+XMLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 635905C719F98C8000693A25 /* NSString+XMLExtensions.m */; };
 		635905E619F98C8E00693A25 /* WPBase64Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 635905CB19F98C8E00693A25 /* WPBase64Utils.m */; };
 		635905E719F98C8E00693A25 /* WPStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 635905CD19F98C8E00693A25 /* WPStringUtils.m */; };
@@ -61,11 +79,36 @@
 		03B833A41A14AFFD0004C603 /* uploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uploadViewController.m; sourceTree = "<group>"; };
 		03B833A61A14B0780004C603 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		03B833A81A14B0850004C603 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		03B833B21A21A13A0004C603 /* reviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewViewController.h; sourceTree = "<group>"; };
+		03B833B31A21A13A0004C603 /* reviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewViewController.m; sourceTree = "<group>"; };
 		26260E471A0B4D0400502C1A /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
 		26260E481A0B4D0400502C1A /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
+		3BC907A61A24373300D1F276 /* genPdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = genPdf.h; sourceTree = "<group>"; };
+		3BC907A71A24373300D1F276 /* genPdf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = genPdf.m; sourceTree = "<group>"; };
+		3BC907A91A24373300D1F276 /* hero-eye.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "hero-eye.jpg"; sourceTree = "<group>"; };
+		3BC907AA1A24373300D1F276 /* mainPageTemplate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mainPageTemplate.xib; sourceTree = "<group>"; };
+		3BC907AB1A24373300D1F276 /* mayo-clinic_416x416.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mayo-clinic_416x416.jpg"; sourceTree = "<group>"; };
+		3BC907AC1A24373300D1F276 /* qaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = qaView.xib; sourceTree = "<group>"; };
+		3BC907AD1A24373300D1F276 /* remarksView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = remarksView.xib; sourceTree = "<group>"; };
+		3BC907AF1A24373300D1F276 /* secondPageTemplate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = secondPageTemplate.xib; sourceTree = "<group>"; };
 		487F468C1A0AC1A900ED7B42 /* Banner.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Banner.jpeg; sourceTree = "<group>"; };
 		48BCAA121A17750A00E6B68A /* lastPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lastPageViewController.h; sourceTree = "<group>"; };
 		48BCAA131A17750A00E6B68A /* lastPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lastPageViewController.m; sourceTree = "<group>"; };
+		5670558F1A1EDD280012E1E8 /* QuestionAndOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionAndOptions.h; sourceTree = "<group>"; };
+		567055901A1EDD280012E1E8 /* QuestionAndOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionAndOptions.m; sourceTree = "<group>"; };
+		567055911A1EDD280012E1E8 /* QuestionOptions.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = QuestionOptions.xml; sourceTree = "<group>"; };
+		567055921A1EDD280012E1E8 /* SurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveyViewController.h; sourceTree = "<group>"; };
+		567055931A1EDD280012E1E8 /* SurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyViewController.m; sourceTree = "<group>"; };
+		567055941A1EDD280012E1E8 /* SurveyXMLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveyXMLHelper.h; sourceTree = "<group>"; };
+		567055951A1EDD280012E1E8 /* SurveyXMLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyXMLHelper.m; sourceTree = "<group>"; };
+		5670560E1A1EE2C10012E1E8 /* RadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioButton.h; sourceTree = "<group>"; };
+		5670560F1A1EE2C10012E1E8 /* RadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadioButton.m; sourceTree = "<group>"; };
+		567056111A1EE79B0012E1E8 /* radio-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio-off.png"; sourceTree = "<group>"; };
+		567056121A1EE79B0012E1E8 /* radio-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio-on.png"; sourceTree = "<group>"; };
+		567056161A2022F50012E1E8 /* check-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-off.png"; sourceTree = "<group>"; };
+		567056171A2022F50012E1E8 /* check-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-on.png"; sourceTree = "<group>"; };
+		567056181A2022F50012E1E8 /* CheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBox.h; sourceTree = "<group>"; };
+		567056191A2022F50012E1E8 /* CheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBox.m; sourceTree = "<group>"; };
 		635905C619F98C8000693A25 /* NSString+XMLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLExtensions.h"; sourceTree = "<group>"; };
 		635905C719F98C8000693A25 /* NSString+XMLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLExtensions.m"; sourceTree = "<group>"; };
 		635905CA19F98C8E00693A25 /* WPBase64Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPBase64Utils.h; sourceTree = "<group>"; };
@@ -148,6 +191,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BC907A51A24373300D1F276 /* genPdf */ = {
+			isa = PBXGroup;
+			children = (
+				3BC907A61A24373300D1F276 /* genPdf.h */,
+				3BC907A71A24373300D1F276 /* genPdf.m */,
+				3BC907A81A24373300D1F276 /* Template Files */,
+			);
+			path = genPdf;
+			sourceTree = "<group>";
+		};
+		3BC907A81A24373300D1F276 /* Template Files */ = {
+			isa = PBXGroup;
+			children = (
+				3BC907A91A24373300D1F276 /* hero-eye.jpg */,
+				3BC907AA1A24373300D1F276 /* mainPageTemplate.xib */,
+				3BC907AB1A24373300D1F276 /* mayo-clinic_416x416.jpg */,
+				3BC907AC1A24373300D1F276 /* qaView.xib */,
+				3BC907AD1A24373300D1F276 /* remarksView.xib */,
+				3BC907AF1A24373300D1F276 /* secondPageTemplate.xib */,
+			);
+			path = "Template Files";
+			sourceTree = "<group>";
+		};
+		5670558E1A1EDD280012E1E8 /* SurveyScene */ = {
+			isa = PBXGroup;
+			children = (
+				5670558F1A1EDD280012E1E8 /* QuestionAndOptions.h */,
+				567055901A1EDD280012E1E8 /* QuestionAndOptions.m */,
+				567055911A1EDD280012E1E8 /* QuestionOptions.xml */,
+				567055921A1EDD280012E1E8 /* SurveyViewController.h */,
+				567055931A1EDD280012E1E8 /* SurveyViewController.m */,
+				567055941A1EDD280012E1E8 /* SurveyXMLHelper.h */,
+				567055951A1EDD280012E1E8 /* SurveyXMLHelper.m */,
+				03B833B21A21A13A0004C603 /* reviewViewController.h */,
+				03B833B31A21A13A0004C603 /* reviewViewController.m */,
+			);
+			path = SurveyScene;
+			sourceTree = "<group>";
+		};
+		5670560D1A1EE2AA0012E1E8 /* RadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				567056111A1EE79B0012E1E8 /* radio-off.png */,
+				567056121A1EE79B0012E1E8 /* radio-on.png */,
+				5670560E1A1EE2C10012E1E8 /* RadioButton.h */,
+				5670560F1A1EE2C10012E1E8 /* RadioButton.m */,
+			);
+			path = RadioButton;
+			sourceTree = "<group>";
+		};
+		567056151A2022F50012E1E8 /* CheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				567056161A2022F50012E1E8 /* check-off.png */,
+				567056171A2022F50012E1E8 /* check-on.png */,
+				567056181A2022F50012E1E8 /* CheckBox.h */,
+				567056191A2022F50012E1E8 /* CheckBox.m */,
+			);
+			path = CheckBox;
+			sourceTree = "<group>";
+		};
 		635905C919F98C8E00693A25 /* WPXMLRPC */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +320,10 @@
 		63EE3F6F19E5F95D0095026D /* Mayo-ipad */ = {
 			isa = PBXGroup;
 			children = (
+				3BC907A51A24373300D1F276 /* genPdf */,
+				567056151A2022F50012E1E8 /* CheckBox */,
+				5670560D1A1EE2AA0012E1E8 /* RadioButton */,
+				5670558E1A1EDD280012E1E8 /* SurveyScene */,
 				635905C919F98C8E00693A25 /* WPXMLRPC */,
 				635905D719F98C8E00693A25 /* XMLRPC */,
 				635905C619F98C8000693A25 /* NSString+XMLExtensions.h */,
@@ -372,8 +480,19 @@
 				487F468D1A0AC1AA00ED7B42 /* Banner.jpeg in Resources */,
 				99B3BEED1A0125FE00095D5A /* mayo-clinic-logo.jpg in Resources */,
 				99CEE1801A0A732E00C989CB /* Main.storyboard in Resources */,
+				3BC907B71A24373300D1F276 /* secondPageTemplate.xib in Resources */,
+				3BC907B21A24373300D1F276 /* mainPageTemplate.xib in Resources */,
 				99CEE1751A0A6F7600C989CB /* logoTelevision.png in Resources */,
+				567055971A1EDD280012E1E8 /* QuestionOptions.xml in Resources */,
+				3BC907B41A24373300D1F276 /* qaView.xib in Resources */,
+				5670561A1A2022F50012E1E8 /* check-off.png in Resources */,
+				3BC907B51A24373300D1F276 /* remarksView.xib in Resources */,
+				5670561B1A2022F50012E1E8 /* check-on.png in Resources */,
 				63EE3F7E19E5F95D0095026D /* Images.xcassets in Resources */,
+				3BC907B31A24373300D1F276 /* mayo-clinic_416x416.jpg in Resources */,
+				567056141A1EE79B0012E1E8 /* radio-on.png in Resources */,
+				567056131A1EE79B0012E1E8 /* radio-off.png in Resources */,
+				3BC907B11A24373300D1F276 /* hero-eye.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +515,11 @@
 				03B833A51A14AFFD0004C603 /* uploadViewController.m in Sources */,
 				635905E719F98C8E00693A25 /* WPStringUtils.m in Sources */,
 				635905EF19F98C8E00693A25 /* XMLRPCExtensions.m in Sources */,
+				5670561C1A2022F50012E1E8 /* CheckBox.m in Sources */,
 				48BCAA141A17750A00E6B68A /* lastPageViewController.m in Sources */,
+				567055981A1EDD280012E1E8 /* SurveyViewController.m in Sources */,
+				567055991A1EDD280012E1E8 /* SurveyXMLHelper.m in Sources */,
+				03B833B41A21A13A0004C603 /* reviewViewController.m in Sources */,
 				635905EC19F98C8E00693A25 /* XMLRPCConnection.m in Sources */,
 				635905F219F98C8E00693A25 /* XMLValueDecoder.m in Sources */,
 				635905C819F98C8000693A25 /* NSString+XMLExtensions.m in Sources */,
@@ -405,9 +528,12 @@
 				99CEE16C1A0A6F0B00C989CB /* main.m in Sources */,
 				635905ED19F98C8E00693A25 /* XMLRPCDecoder.m in Sources */,
 				635905EA19F98C8E00693A25 /* WPXMLRPCDecoderDelegate.m in Sources */,
+				567055961A1EDD280012E1E8 /* QuestionAndOptions.m in Sources */,
 				63EE3F9A19E605820095026D /* ViewController2.m in Sources */,
 				635905E919F98C8E00693A25 /* WPXMLRPCDecoder.m in Sources */,
+				567056101A1EE2C10012E1E8 /* RadioButton.m in Sources */,
 				26260E491A0B4D0400502C1A /* LandingViewController.m in Sources */,
+				3BC907B01A24373300D1F276 /* genPdf.m in Sources */,
 				63EE3F7619E5F95D0095026D /* AppDelegate.m in Sources */,
 				635905F019F98C8E00693A25 /* XMLRPCRequest.m in Sources */,
 				635905EE19F98C8E00693A25 /* XMLRPCEncoder.m in Sources */,

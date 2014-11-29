@@ -7,6 +7,7 @@
 //
 
 #import "PatientIDViewController.h"
+#import "SurveyViewController.h"
 
 @interface PatientIDViewController ()
 
@@ -58,7 +59,7 @@
     
     else{
         
-        [self performSegueWithIdentifier:@"patientID_library" sender:self];
+        [self performSegueWithIdentifier:@"survey_segue" sender:self];
         
         //[self performSegueWithIdentifier:@"login_failed" sender:self];
     }
@@ -95,4 +96,10 @@
 }
 
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"survey_segue"]) {
+        SurveyViewController *destViewController = segue.destinationViewController;
+    }
+}
 @end

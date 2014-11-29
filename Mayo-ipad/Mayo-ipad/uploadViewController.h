@@ -12,6 +12,7 @@
 #import "KeychainItemWrapper.h"
 
 NSMutableDictionary *userMap;
+NSMutableDictionary *patientMap;
 KeychainItemWrapper *keychainItem;
 
 @interface uploadViewController : UIViewController <MFMailComposeViewControllerDelegate> {

@@ -9,8 +9,9 @@
 #import "uploadViewController.h"
 #import "XMLRPCRequest.h"
 #import "XMLRPCConnection.h"
-
-
+#import "SurveyViewController.h"
+#import "genPdf.h"
+#import "appConstants.h"
 #import "ViewController.h"
 
 @interface uploadViewController ()
@@ -69,6 +70,11 @@
     
     if(self.landingImage != nil)
     {
+        NSDictionary *dict=[[NSUserDefaults standardUserDefaults] objectForKey:@"dict"];
+        //[patientMap setValue:@"Mr.blahblah" forKey:@"lastName"];
+        //[patientMap setValue:@"765675675" forKey:@"lanID"];
+        genPdf *PDF=[[genPdf alloc]init];
+        [PDF start:dict image:_landingImage];
         
         [self->activityView startAnimating];
         activityLabel.text = @"Uploading...";
@@ -107,6 +113,10 @@
     
         //Nagesh End - Will be used when integrating it with VPN
     
+        
+        
+        //delete the report
+        [PDF deletePdf:[PDF pdfFileName]];
     }
     else
     {
