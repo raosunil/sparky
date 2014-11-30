@@ -10,6 +10,6 @@
 
 @interface SurveyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 @property NSMutableArray *questionsOptionsList;
-
+@property UITextField *activeTextField;
 @property NSDictionary *dict;
 @end

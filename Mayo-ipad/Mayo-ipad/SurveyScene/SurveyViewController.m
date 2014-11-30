@@ -16,6 +16,7 @@
 @property NSMutableArray *pickerViewsArray;
 @property (weak, nonatomic) IBOutlet UITextView *remarks;
 @property (weak, nonatomic) IBOutlet UIButton *submitSurvey;
+@property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
@@ -32,6 +33,16 @@
     self.questionsOptionsList = [helper getLoadedQuestionOptionsList];
 
     [self createPickerViews];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+
 }
 
 - (void)createPickerViews
@@ -228,4 +239,46 @@
     }
 }
 
+- (void)keyboardWasShown:(NSNotification *)notification
+{
+    
+    // Step 1: Get the size of the keyboard.
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    
+    // Step 2: Adjust the bottom content inset of your scroll view by the keyboard height.
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
+    
+    self.mainScrollView.contentInset = contentInsets;
+    self.mainScrollView.scrollIndicatorInsets = contentInsets;
+    
+    
+    // Step 3: Scroll the target text field into view.
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= keyboardSize.height;
+    if (!CGRectContainsPoint(aRect, self.remarks.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, self.remarks.frame.origin.y - (keyboardSize.height-110));
+        [self.mainScrollView setContentOffset:scrollPoint animated:YES];
+    }
+}
+
+- (void) keyboardWillHide:(NSNotification *)notification {
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.mainScrollView.contentInset = contentInsets;
+    self.mainScrollView.scrollIndicatorInsets = contentInsets;
+}
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    self.activeTextField = self.remarks;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    self.activeTextField = nil;
+}
+- (IBAction)dismissKeyboard:(id)sender
+{
+    [self.activeTextField resignFirstResponder];
+}
 @end

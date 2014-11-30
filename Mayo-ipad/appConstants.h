@@ -22,6 +22,7 @@
 #define PROremarksTag 150
 #define PROpatientNameTag 300
 #define PROpatientIDtag 301
+#define PROeyeTag 500
 //#define mayoWSCommonURL @"http://javadev.mayo.edu/DCAMSWeb/CommonImportService?"
 //#define mayoWSLoginMethodName @"muser"
 

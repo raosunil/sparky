@@ -103,6 +103,13 @@
         UILabel *patientName=(UILabel*)[pageTemplate viewWithTag:PROpatientIDtag];
         patientName.text=[patientMap objectForKey:@"lanID"];
     }
+    
+    //print eye(right or left) tag
+    NSString *eyeTagAnswer=[self getEyeTagAnswer:dict];
+    if (templateName==@"mainPageTemplate") {
+        UILabel *eyeTag=(UILabel*)[pageTemplate viewWithTag:PROeyeTag];
+        eyeTag.text=eyeTagAnswer;
+    }
     return pageTemplate;
 }
 
@@ -210,5 +217,24 @@
     NSString *output=[splitStrings componentsJoinedByString:@", "];
     return output;
 }
+
+-(NSString*)getEyeTagAnswer:(NSDictionary*)dict{
+    NSArray *keys=[dict allKeys];
+    NSString *currAnswer;
+    NSArray *tempArray;
+    NSString *output=@"";
+    for (int i=0; i<[keys count]; i++) {
+        currAnswer=[dict objectForKey:keys[i]];
+        tempArray=[currAnswer componentsSeparatedByString:@" "];
+        if ((([tempArray containsObject:@"left"]||[tempArray containsObject:@"Left"])
+            ||([tempArray containsObject:@"right"]||[tempArray containsObject:@"Right"]))
+            &&[tempArray count]==1) {
+            output=[dict objectForKey:keys[i]];
+            break;
+        }
+    }
+    return output;
+}
+
 
 @end

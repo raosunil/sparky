@@ -26,7 +26,9 @@ KeychainItemWrapper *keychainItem;
     __weak IBOutlet UIActivityIndicatorView *activityView;
     __weak IBOutlet UILabel *activityLabel;
     
-    __weak IBOutlet UIButton *continueNext;
+    __weak IBOutlet UIButton *continueNext;//renamed as LOGOUT in UI
+
+    __weak IBOutlet UIButton *continueToBeginning;
 }
 
 

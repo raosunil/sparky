@@ -43,6 +43,10 @@
     [btnLayer3 setMasksToBounds:YES];
     [btnLayer3 setCornerRadius:10.0f];
     
+    CALayer *btnLayer4 = [continueToBeginning layer];
+    [btnLayer4 setMasksToBounds:YES];
+    [btnLayer4 setCornerRadius:10.0f];
+    
     
 }
 

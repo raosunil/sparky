@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -83,59 +83,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" alpha="0.79999999999999982" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ees-E2-jRq">
-                                <rect key="frame" x="-9" y="0.0" width="1033" height="500"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="questionCell" id="cjM-la-0cS">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cjM-la-0cS" id="kDU-sv-Hqd">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="OE4-dc-Gk3" id="wyL-Be-Xna"/>
-                                    <outlet property="delegate" destination="OE4-dc-Gk3" id="dzg-0r-B88"/>
-                                </connections>
-                            </tableView>
-                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtP-FS-gcF">
-                                <rect key="frame" x="398" y="672" width="228" height="55"/>
-                                <color key="backgroundColor" red="0.81871811220000001" green="0.81871811220000001" blue="0.81871811220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="tintColor" red="0.73153409089999999" green="0.73153409089999999" blue="0.73153409089999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="SubmitButtonClicked:" destination="OE4-dc-Gk3" eventType="touchUpInside" id="Jy1-w3-TkI"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.79999999999999982" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6aO-M5-suv">
-                                <rect key="frame" x="3" y="550" width="1018" height="98"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <real key="value" value="0.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remarks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mE-XW-BRq">
-                                <rect key="frame" x="3" y="526" width="100" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a7m-Ej-8JF">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remarks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mE-XW-BRq">
+                                        <rect key="frame" x="8" y="512" width="100" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtP-FS-gcF">
+                                        <rect key="frame" x="398" y="642" width="228" height="55"/>
+                                        <color key="backgroundColor" red="0.81871811220000001" green="0.81871811220000001" blue="0.81871811220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="tintColor" red="0.73153409089999999" green="0.73153409089999999" blue="0.73153409089999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="SubmitButtonClicked:" destination="OE4-dc-Gk3" eventType="touchUpInside" id="Jy1-w3-TkI"/>
+                                        </connections>
+                                    </button>
+                                    <tableView clipsSubviews="YES" alpha="0.79999999999999982" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ees-E2-jRq">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="500"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="questionCell" id="cjM-la-0cS">
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cjM-la-0cS" id="kDU-sv-Hqd">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="OE4-dc-Gk3" id="wyL-Be-Xna"/>
+                                            <outlet property="delegate" destination="OE4-dc-Gk3" id="dzg-0r-B88"/>
+                                        </connections>
+                                    </tableView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.79999999999999982" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6aO-M5-suv">
+                                        <rect key="frame" x="0.0" y="534" width="1024" height="100"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <real key="value" value="0.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Please answer the following questions to continue" id="g9l-uu-gzQ"/>
+                    <navigationItem key="navigationItem" title="Please answer the following questions to continue" id="dBT-w7-KiH">
+                        <barButtonItem key="rightBarButtonItem" title="LOGOUT" id="3iB-th-qcW">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="modal" id="TpN-nD-Utm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
+                        <outlet property="mainScrollView" destination="a7m-Ej-8JF" id="BYM-kO-L1Y"/>
                         <outlet property="remarks" destination="6aO-M5-suv" id="ivp-ye-x0u"/>
                         <outlet property="submitSurvey" destination="WtP-FS-gcF" id="evE-H4-SX8"/>
                         <outlet property="tableView" destination="Ees-E2-jRq" id="7JT-Wb-kPB"/>
@@ -144,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mj5-HW-a8Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2532" y="-823"/>
+            <point key="canvasLocation" x="2527" y="-823"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6AI-6s-7ra">
@@ -288,7 +302,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="abc-Td-bLw"/>
+                    <navigationItem key="navigationItem" id="abc-Td-bLw">
+                        <barButtonItem key="rightBarButtonItem" title="LOGOUT" id="7U9-sx-DX9">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="modal" id="zxO-RG-nZj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
@@ -298,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t2f-3O-itY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3535" y="12"/>
+            <point key="canvasLocation" x="3831" y="110"/>
         </scene>
         <!--View Pictures-->
         <scene sceneID="42V-uJ-FTk">
@@ -341,7 +363,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="View Pictures" id="XyP-yX-o6B"/>
+                    <navigationItem key="navigationItem" title="View Pictures" id="XyP-yX-o6B">
+                        <barButtonItem key="rightBarButtonItem" title="LOGOUT" id="F7U-Q0-OaE">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="modal" id="192-4N-kw6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
@@ -366,23 +396,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWj-zU-kNS">
-                                <rect key="frame" x="186" y="673" width="75" height="30"/>
+                                <rect key="frame" x="475" y="660" width="75" height="30"/>
                                 <color key="backgroundColor" red="0.81871811220000001" green="0.81871811220000001" blue="0.81871811220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Upload">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="upload:" destination="JvG-91-bIT" eventType="touchUpInside" id="OvB-NN-uG8"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHa-21-hgE">
-                                <rect key="frame" x="743" y="673" width="100" height="30"/>
-                                <color key="backgroundColor" red="0.81871811220000001" green="0.81871811220000001" blue="0.81871811220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Email">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="email:" destination="JvG-91-bIT" eventType="touchUpInside" id="a2n-Rh-nV5"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5N-3f-e1L"/>
@@ -396,6 +417,7 @@
                                 <rect key="frame" x="426" y="125" width="172" height="30"/>
                                 <color key="backgroundColor" red="0.81871811220000001" green="0.81871811220000001" blue="0.81871811220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Cancel Upload">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -410,15 +432,26 @@
                                 <rect key="frame" x="326" y="215" width="373" height="296"/>
                             </imageView>
                             <button opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNZ-YM-YwP">
-                                <rect key="frame" x="881" y="37" width="127" height="31"/>
+                                <rect key="frame" x="897" y="28" width="127" height="31"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Continue &gt;">
+                                <state key="normal" title="LOGOUT &gt;">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="0qT-Ma-lJR" kind="presentation" id="7yJ-HB-Vbb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.84999999999999987" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCU-f9-aIm">
+                                <rect key="frame" x="897" y="660" width="78" height="30"/>
+                                <color key="backgroundColor" red="0.830374053" green="0.830374053" blue="0.830374053" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="CONTINUE">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="PPS-ml-Krh" kind="modal" id="FYT-rB-QCo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -432,7 +465,7 @@
                         <outlet property="activityView" destination="IyE-f5-ayh" id="gIh-sc-5r8"/>
                         <outlet property="back" destination="d4G-m8-7Dq" id="p1p-Fh-vM9"/>
                         <outlet property="continueNext" destination="vNZ-YM-YwP" id="MBa-MQ-P2a"/>
-                        <outlet property="email" destination="ZHa-21-hgE" id="Wzh-BI-0q3"/>
+                        <outlet property="continueToBeginning" destination="MCU-f9-aIm" id="ewc-lQ-akf"/>
                         <outlet property="image" destination="u4L-7w-pOM" id="uhM-BA-eJw"/>
                         <outlet property="uploadPicture" destination="dWj-zU-kNS" id="Lq9-CT-SNU"/>
                     </connections>
@@ -558,8 +591,9 @@
         <image name="logoTelevision.png" width="514" height="97"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Lnv-V8-FE2"/>
         <segue reference="nyr-Yo-nX3"/>
         <segue reference="vWO-zd-q7h"/>
+        <segue reference="FYT-rB-QCo"/>
+        <segue reference="uN2-q4-ePh"/>
     </inferredMetricsTieBreakers>
 </document>
