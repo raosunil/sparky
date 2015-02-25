@@ -2,7 +2,7 @@
 //  lastPageViewController.h
 //  Mayo-ipad
 //
-//  Created by Nagesh Kumar Uba on 11/15/14.
+//  Created by Sunil Rao, Nagesh Kumar Uba et al on 11/15/14.
 //  Copyright (c) 2014 rishabh srivastava. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  ViewController.m
 //  Mayo-ipad
 //
-//  Created by Rishabh Srivastava on 08/10/14.
+//  Created by Sunil Rao, Rishabh Srivastava et al on 08/10/14.
 //  Copyright (c) 2014 rishabh srivastava. All rights reserved.
 //
 

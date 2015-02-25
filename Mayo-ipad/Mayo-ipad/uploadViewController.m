@@ -2,7 +2,7 @@
 //  uploadViewController.m
 //  Mayo-ipad
 //
-//  Created by Sachin Dheeraj on 11/13/14.
+//  Created by Sunil Rao, Sachin Dheeraj et al on 11/13/14.
 //  Copyright (c) 2014 rishabh srivastava. All rights reserved.
 //
 
