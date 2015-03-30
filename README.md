@@ -1,4 +1,4 @@
-TeleVision CST 515
+DylosUSBReader
 ==========
 
-CST 515 iProject
+CST 517-593 iProject
