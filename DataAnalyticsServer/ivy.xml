@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="./config/ivy/ivy-doc.xsl"?>
+<ivy-module version="1.0">
+<info organisation="com" module="abc" />  
+  <dependencies>   
+    <dependency org="junit" name="junit" rev="4.8.2"/>   
+    <dependency org="log4j" name="log4j" rev="1.2.16"/>    
+    <dependency org="org.apache.struts" name="struts2-core" rev="2.2.3"/>    
+    <dependency org="org.apache.struts.xwork" name="xwork-core" rev="2.2.3"/>        
+    <dependency org="ognl" name="ognl" rev="3.0"/>
+    <dependency org="javassist" name="javassist" rev="3.8.0.GA"/>   
+    <dependency org="org.apache.commons" name="commons-io" rev="1.3.2"/>   
+    <dependency org="commons-collections" name="commons-collections" rev="3.2.1"/>
+    <dependency org="commons-fileupload" name="commons-fileupload" rev="1.2.2"/>
+     <dependency org="commons-logging" name="commons-logging" rev="1.1.1"/>
+     <dependency org="org.freemarker" name="freemarker" rev="2.3.16"/>
+      <dependency org="commons-logging" name="commons-logging-api" rev="1.1"/>
+     <dependency org="org.antlr" name="antlr-runtime" rev="3.3"/>
+     <dependency org="asm" name="asm" rev="3.0"/>     
+     <dependency org="commons-lang" name="commons-lang" rev="2.6"/>         
+     
+     <dependency org="org.apache.struts" name="struts2-spring-plugin" rev="2.2.3"/>
+     <dependency org="com.jgeppert.struts2.jquery" name="struts2-jquery-plugin" rev="3.1.0"/>
+     <dependency org="com.jgeppert.struts2.jquery" name="struts2-jquery-grid-plugin" rev="3.1.0"/>
+     <dependency org="org.apache.struts" name="struts2-json-plugin" rev="2.2.3.1"/>
+     <dependency org="org.apache.struts" name="struts2-sitemesh-plugin" rev="2.2.3"/>
+     <dependency org="net.sf.json-lib" name="json-lib" rev="2.4"/>
+     <dependency org="cglib" name="cglib" rev="2.2"/>
+     <dependency org="org.apache.commons" name="commons-math3" rev="3.2"/>
+     <dependency org="displaytag" name="displaytag" rev="1.2"/>
+     
+     
+    
+     <dependency org="opensymphony" name="sitemesh" rev="2.4.2"/>
+    
+     <dependency org="org.springframework" name="spring" rev="2.5.6"/> 
+     <dependency org="org.springframework" name="spring-web" rev="2.5.6"/>
+     <dependency org="org.springframework" name="spring-context" rev="2.5.6"/>
+     <dependency org="org.springframework.integration" name="spring-integration-core" rev="2.0.5.RELEASE"/>
+     
+     <dependency org="org.springframework.security" name="spring-security-core" rev="2.0.5.RELEASE"/>
+    <dependency org="mysql" name="mysql-connector-java" rev="5.1.17"/>
+     <dependency org="org.springframework.security" name="spring-security-acl" rev="2.0.5.RELEASE"/>
+     <dependency org="org.springframework.security" name="spring-security-core-tiger" rev="2.0.5.RELEASE"/>
+     <dependency org="org.springframework.security" name="spring-security-taglibs" rev="2.0.5.RELEASE"/>
+     <dependency org="org.aspectj" name="aspectjrt" rev="1.6.11"/>
+     <dependency org="org.aspectj" name="aspectjweaver" rev="1.6.11"/>
+     
+     <dependency org="asm" name="asm-commons" rev="3.0"/>
+     
+     <dependency org="commons-beanutils" name="commons-beanutils" rev="1.8.3"/>
+     
+     <dependency org="javax.mail" name="mail" rev="1.4.1"/>   
+    
+     
+     <dependency org="com.thoughtworks.xstream" name="xstream" rev="1.4.1"/>
+     
+	 
+     
+     <dependency org="org.apache.struts" name="struts2-rest-plugin" rev="2.2.3.1"/>
+     <dependency org="mockobjects" name="mockobjects-core" rev="0.09"/>
+     <dependency org="org.apache.struts" name="struts2-convention-plugin" rev="2.2.3.1"/>     
+     <dependency org="xpp3" name="xpp3_min" rev="1.1.4c"/>
+     <dependency org="net.sf.ezmorph" name="ezmorph" rev="1.0.6"/>
+	  
+
+	
+     
+   
+  </dependencies>
+</ivy-module>

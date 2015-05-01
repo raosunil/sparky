@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:security="http://www.springframework.org/schema/security"
+        xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-2.0.xsd">
+
+    <security:http auto-config="true">
+        <security:intercept-url pattern="/login*" filters="none" />
+        <security:intercept-url pattern="/rest*" filters="none" />            
+        <security:intercept-url pattern="/firstJSP*" filters="none" />
+        <security:intercept-url pattern="/getJSONAQMResult*" filters="none" />        
+        <security:intercept-url pattern="/register.html" filters="none" />
+        <security:intercept-url pattern="/**" access="ROLE_USER, ROLE_ADMIN" />
+        <security:form-login login-page="/firstJSP.jsp" authentication-failure-url="/firstJSP.jsp" default-target-url="/homepage" always-use-default-target="true"/>
+        <security:logout logout-url="/logout" logout-success-url="/logoutSuccess.jsp" />
+    </security:http>
+
+    <!-- Configure the authentication provider -->
+    <security:authentication-provider>
+        <security:user-service>
+          <security:user name="user"        password="user"         authorities="ROLE_USER" />
+          <security:user name="supervisor"  password="supervisor"   authorities="ROLE_SUPERVISOR" />
+          <security:user name="admin"       password="admin"        authorities="ROLE_ADMIN" />
+        </security:user-service>
+    </security:authentication-provider>
+</beans>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.1.dtd">
+ 
+<struts>
+
+
+<!--	
+<include file="struts-default.xml"/>
+-->
+<!-- Enable the composite action mapper. --> 
+<!-- 
+	<bean type="org.apache.struts2.rest.handler.ContentTypeHandler" name="myJson" class="com.s3web.util.CustomJsonLibHandler" />
+	<constant name="struts.rest.handlerOverride.json" value="myJson" />
+--> 
+
+	<constant name="struts.mapper.class" value="rest"/>
+
+	<!-- Provide action mappers for the composite mapper. Order is sensible.  
+	<constant name="struts.mapper.composite" value="struts,rest"/>
+	 -->
+	<!-- Overriding the configuration -->
+	
+	<constant name="struts.convention.package.locators" value="s3web"/>
+	<constant name="struts.convention.action.suffix" value="Controller"/>
+	<constant name="struts.convention.action.mapAllMatches" value="true"/>
+	<constant name="struts.convention.default.parent.package" value="rest-default"/>
+	
+	
+	<constant name="struts.mapper.indexMethodName" value="execute"/>
+	<constant name="struts.mapper.getMethodName" value="show"/>
+	<constant name="struts.mapper.postMethodName" value="create"/>
+	<constant name="struts.mapper.putMethodName" value="update"/>
+	<constant name="struts.mapper.deleteMethodName" value="destroy"/>
+	<constant name="struts.mapper.editMethodName" value="edit"/>
+	<constant name="struts.mapper.newMethodName" value="editNew"/>
+
+
+
+
+	<!-- Start commenting -->
+	<package name="default" namespace="/" extends="rest-default">
+
+		<default-interceptor-ref name="restDefaultStack" />
+		<action name="homepage" class="com.s3web.common.action.HomePageAction">
+			<result>/template/sample.jsp</result>
+		</action>
+
+
+	</package>
+
+	<package name="jsonaction" namespace="/" extends="json-default">
+		<action name="getJSONAQMResult" class="com.s3web.common.action.JSONAQMResultsAction">
+			<result type="json" />
+		</action>
+	</package>
+  
+
+  <package name="action" namespace="/action" extends="rest-default">
+  
+  	 <default-interceptor-ref name="restDefaultStack"/>
+ 
+	
+	
+	<action name="order" class="com.s3web.common.action.OrderAction">
+		<result>/template/action/order.jsp</result>
+	</action>
+	
+	<action name="about" class="com.s3web.common.action.AboutAction">
+		<result>/template/action/about.jsp</result>
+	</action>
+	<action name="configure" class="com.s3web.common.action.ConfigureAction">
+		<result>/template/action/configure.jsp</result>
+	</action>
+	
+	
+	
+  
+  
+  </package>
+  
+
+</struts>

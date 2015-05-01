@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+    xsi:schemaLocation="
+
+http://www.springframework.org/schema/beans
+
+http://www.springframework.org/schema/beans/spring-beans.xsd
+
+http://cxf.apache.org/jaxrs
+
+http://cxf.apache.org/schemas/jaxrs.xsd"
+    default-lazy-init="false">
+
+
+	
+       
+       
+      
+       
+          <!-- Application Context Provider -->
+    <bean id="applicationContextProvider" class="com.s3web.util.ApplicationContextProvider">
+    </bean>
+    
+    <!-- Property Placeholder Configurer -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>/WEB-INF/app.properties</value>
+		</property>
+	</bean> 
+	
+	<bean name="applicationproperties" class="java.util.HashMap">
+  		<constructor-arg index="0">
+    	<map>
+      		<entry key="numGroupsWithin1WayANOVA">
+        		<value>${numGroupsWithin1WayANOVA}</value>
+      		</entry>
+      		<entry key="sampleSizeForEachGroup">
+        		<value>${sampleSizeForEachGroup}</value>
+      		</entry>
+      		<entry key="startAnalysisEpochTimeinSec">
+        		<value>${startAnalysisEpochTimeinSec}</value>
+      		</entry>
+      		<entry key="averagehumidity">
+        		<value>${averagehumidity}</value>
+      		</entry>
+      		<entry key="correctionfactorforhumidity">
+        		<value>${correctionfactorforhumidity}</value>
+      		</entry>
+      		<entry key="rawinputURL">
+        		<value>${rawinputURL}</value>
+      		</entry>
+      		<entry key="avg_rh_factor">
+        		<value>${avg_rh_factor}</value>
+      		</entry>
+      		<entry key="avg_correction_for_rh">
+        		<value>${avg_correction_for_rh}</value>
+      		</entry>
+      		
+      				
+    	</map>
+ 		</constructor-arg>
+	</bean>
+    
+    
+     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+   		<property name="driverClassName">
+       		<value>com.mysql.jdbc.Driver</value>
+   		</property>
+   		<property name="url">
+       		<value>jdbc:mysql://localhost:3306/aqmtest</value>
+   		</property>
+   		<property name="username">
+       		<value>root</value>
+   		</property>
+   		<property name="password">
+       		<value>admin123</value>
+   		</property>
+   	</bean>
+   	
+
+   	
+   	<bean id="analyticDAO" class="com.s3web.common.dao.AnalyticDAO">
+   		<property name="dataSource" ref="dataSource" />   	
+   	</bean>
+   	
+   	<bean id="analyticService" class="com.s3web.common.service.AnalyticServiceImpl" init-method="initial">
+   		<property name="analyticDAO" ref="analyticDAO" />   	
+   	</bean>
+   	
+   	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+    </bean>  
+    
+    <bean id="transactionAttributes" class="org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource">
+    	<property name="properties">
+        <value>
+            create*=PROPAGATION_REQUIRED,-MyCheckedException
+            find*=PROPAGATION_REQUIRED, -MyNotFoundException, readOnly
+        </value>
+    	</property>
+	</bean>   
+   
+   <bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager">
+		<ref bean="transactionManager"/>
+		</property>
+		<property name="transactionAttributeSource">
+		<ref bean="transactionAttributes"/>
+		</property>
+	</bean>
+	
+	<bean id="autoProxyCreator" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="interceptorNames">
+        <value>transactionInterceptor</value>
+		</property>
+		<property name="beanNames">
+        	<value>*Service</value>
+		</property>
+	</bean>
+
+
+	<bean id="jobDetail1"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="analyticService" />
+		<property name="targetMethod" value="doAnalysis" />
+		<property name="concurrent" value="false" />
+	</bean>
+	<bean id="cronTrigger1" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="jobDetail1" />
+		<!-- run every 60 minutes -->
+		<property name="cronExpression" value="0 0,30 * * * ?" />
+	</bean>
+	<!-- 
+	<bean id="jobDetail2"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="analyticService" />
+		<property name="targetMethod" value="persistInputRawData" />
+		<property name="concurrent" value="false" />
+	</bean>
+	<bean id="cronTrigger2" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="jobDetail2" />
+		
+		<property name="cronExpression" value="0 15,30,45,0 * * * ?" />
+	</bean>
+	 -->
+	
+	
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger1" />
+				<!--  <ref bean="cronTrigger2" /> -->
+			</list>
+		</property>
+	</bean>
+	
+</beans>
+

@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="1" failures="0" hostname="Shruthis-MacBook-Pro.local" name="com.s3web.util.TestClent" skipped="0" tests="1" time="0.0" timestamp="2015-04-29T11:11:42">
+  <properties>
+    <property name="java.home.ivy.instance" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre" />
+    <property name="org.osgi.framework.os.version" value="10.9.5" />
+    <property name="ant.home.ivy.instance" value="/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.apache.ant_1.9.2.v201404171502" />
+    <property name="java.awt.graphicsenv.ivy.instance" value="sun.awt.CGraphicsEnvironment" />
+    <property name="java.awt.printerjob.ivy.instance" value="sun.lwawt.macosx.CPrinterJob" />
+    <property name="eclipse.product" value="org.eclipse.epp.package.jee.product" />
+    <property name="org.osgi.framework.system.packages" value="javax.accessibility,javax.activation,javax.activity,javax.annotation,javax.annotation.processing,javax.crypto,javax.crypto.interfaces,javax.crypto.spec,javax.imageio,javax.imageio.event,javax.imageio.metadata,javax.imageio.plugins.bmp,javax.imageio.plugins.jpeg,javax.imageio.spi,javax.imageio.stream,javax.jws,javax.jws.soap,javax.lang.model,javax.lang.model.element,javax.lang.model.type,javax.lang.model.util,javax.management,javax.management.loading,javax.management.modelmbean,javax.management.monitor,javax.management.openmbean,javax.management.relation,javax.management.remote,javax.management.remote.rmi,javax.management.timer,javax.naming,javax.naming.directory,javax.naming.event,javax.naming.ldap,javax.naming.spi,javax.net,javax.net.ssl,javax.print,javax.print.attribute,javax.print.attribute.standard,javax.print.event,javax.rmi,javax.rmi.CORBA,javax.rmi.ssl,javax.script,javax.security.auth,javax.security.auth.callback,javax.security.auth.kerberos,javax.security.auth.login,javax.security.auth.spi,javax.security.auth.x500,javax.security.cert,javax.security.sasl,javax.sound.midi,javax.sound.midi.spi,javax.sound.sampled,javax.sound.sampled.spi,javax.sql,javax.sql.rowset,javax.sql.rowset.serial,javax.sql.rowset.spi,javax.swing,javax.swing.border,javax.swing.colorchooser,javax.swing.event,javax.swing.filechooser,javax.swing.plaf,javax.swing.plaf.basic,javax.swing.plaf.metal,javax.swing.plaf.multi,javax.swing.plaf.nimbus,javax.swing.plaf.synth,javax.swing.table,javax.swing.text,javax.swing.text.html,javax.swing.text.html.parser,javax.swing.text.rtf,javax.swing.tree,javax.swing.undo,javax.tools,javax.transaction,javax.transaction.xa,javax.xml,javax.xml.bind,javax.xml.bind.annotation,javax.xml.bind.annotation.adapters,javax.xml.bind.attachment,javax.xml.bind.helpers,javax.xml.bind.util,javax.xml.crypto,javax.xml.crypto.dom,javax.xml.crypto.dsig,javax.xml.crypto.dsig.dom,javax.xml.crypto.dsig.keyinfo,javax.xml.crypto.dsig.spec,javax.xml.datatype,javax.xml.namespace,javax.xml.parsers,javax.xml.soap,javax.xml.stream,javax.xml.stream.events,javax.xml.stream.util,javax.xml.transform,javax.xml.transform.dom,javax.xml.transform.sax,javax.xml.transform.stax,javax.xml.transform.stream,javax.xml.validation,javax.xml.ws,javax.xml.ws.handler,javax.xml.ws.handler.soap,javax.xml.ws.http,javax.xml.ws.soap,javax.xml.ws.spi,javax.xml.ws.spi.http,javax.xml.ws.wsaddressing,javax.xml.xpath,org.ietf.jgss,org.omg.CORBA,org.omg.CORBA_2_3,org.omg.CORBA_2_3.portable,org.omg.CORBA.DynAnyPackage,org.omg.CORBA.ORBPackage,org.omg.CORBA.portable,org.omg.CORBA.TypeCodePackage,org.omg.CosNaming,org.omg.CosNaming.NamingContextExtPackage,org.omg.CosNaming.NamingContextPackage,org.omg.Dynamic,org.omg.DynamicAny,org.omg.DynamicAny.DynAnyFactoryPackage,org.omg.DynamicAny.DynAnyPackage,org.omg.IOP,org.omg.IOP.CodecFactoryPackage,org.omg.IOP.CodecPackage,org.omg.Messaging,org.omg.PortableInterceptor,org.omg.PortableInterceptor.ORBInitInfoPackage,org.omg.PortableServer,org.omg.PortableServer.CurrentPackage,org.omg.PortableServer.POAManagerPackage,org.omg.PortableServer.POAPackage,org.omg.PortableServer.portable,org.omg.PortableServer.ServantLocatorPackage,org.omg.SendingContext,org.omg.stub.java.rmi,org.w3c.dom,org.w3c.dom.bootstrap,org.w3c.dom.css,org.w3c.dom.events,org.w3c.dom.html,org.w3c.dom.ls,org.w3c.dom.ranges,org.w3c.dom.stylesheets,org.w3c.dom.traversal,org.w3c.dom.views,org.w3c.dom.xpath,org.xml.sax,org.xml.sax.ext,org.xml.sax.helpers" />
+    <property name="ant.library.dir" value="/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.apache.ant_1.9.2.v201404171502/lib" />
+    <property name="ant.core.lib" value="/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.apache.ant_1.9.2.v201404171502/lib/ant.jar" />
+    <property name="java.vm.info.ivy.instance" value="mixed mode" />
+    <property name="ivy.report.output.pattern.ivy.instance" value="[organisation]-[module]-[conf].[ext]" />
+    <property name="user.dir" value="/Users/shruthimurthy/Documents/softwares/eclipse/Eclipse.app/Contents/MacOS" />
+    <property name="osgi.compatibility.bootdelegation.ivy.instance" value="true" />
+    <property name="java.vm.version" value="24.79-b02" />
+    <property name="osgi.instance.area" value="file:/Users/shruthimurthy/Documents/workspace/" />
+    <property name="eclipse.running" value="true" />
+    <property name="osgi.splashLocation" value="/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.eclipse.platform_4.4.0.v20140606-1215/splash.bmp" />
+    <property name="ivy.lib.dir.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/lib" />
+    <property name="path.separator.ivy.instance" value=":" />
+    <property name="org.osgi.framework.os.name" value="MacOSX" />
+    <property name="eclipse.launcher.name.ivy.instance" value="Eclipse" />
+    <property name="java.library.path.ivy.instance" value="/Users/shruthimurthy/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+    <property name="org.osgi.framework.processor.ivy.instance" value="x86-64" />
+    <property name="ivy.resolve.default.type.filter.ivy.instance" value="*" />
+    <property name="java.version.ivy.instance" value="1.7.0_79" />
+    <property name="eclipse.application.ivy.instance" value="org.eclipse.ui.ide.workbench" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="osgi.bundles.ivy.instance" value="reference:file:org.eclipse.osgi.compatibility.state_1.0.0.v20140403-1907.jar,reference:file:org.eclipse.equinox.simpleconfigurator_1.1.0.v20131217-1203.jar@1:start" />
+    <property name="eclipse.buildId.ivy.instance" value="4.4.0.I20140606-1215" />
+    <property name="org.osgi.framework.executionenvironment" value="OSGi/Minimum-1.0,OSGi/Minimum-1.1,OSGi/Minimum-1.2,JRE-1.1,J2SE-1.2,J2SE-1.3,J2SE-1.4,J2SE-1.5,JavaSE-1.6,JavaSE-1.7" />
+    <property name="org.osgi.framework.version" value="1.8.0" />
+    <property name="osgi.ws.ivy.instance" value="cocoa" />
+    <property name="war.build.dir" value="build/DataAnalyticsServer" />
+    <property name="osgi.os.ivy.instance" value="macosx" />
+    <property name="org.osgi.framework.vendor" value="Eclipse" />
+    <property name="file.separator.ivy.instance" value="/" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="osgi.framework.extensions" value="reference:file:org.eclipse.osgi.compatibility.state_1.0.0.v20140403-1907.jar" />
+    <property name="org.eclipse.debug.ui.breakpoints.toggleFactoriesUsed" value="true" />
+    <property name="ivy.status" value="integration" />
+    <property name="ivy.install.version" value="2.1.0" />
+    <property name="org.osgi.framework.os.name.ivy.instance" value="MacOSX" />
+    <property name="ivy.settings.dir.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="eclipse.p2.data.area" value="@config.dir/../p2/" />
+    <property name="os.arch" value="x86_64" />
+    <property name="user.name" value="shruthimurthy" />
+    <property name="ivy.retrieve.pattern.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/lib/[artifact]-[revision](-[classifier]).[ext]" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner com.s3web.util.TestClent filtertrace=true haltOnError=false haltOnFailure=true formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/testreport/TEST-com.s3web.util.TestClent.xml crashfile=/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/junitvmwatcher4906247409152231715.properties propsfile=/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/junit2565999079249556837.properties" />
+    <property name="sun.arch.data.model.ivy.instance" value="64" />
+    <property name="org.osgi.framework.version.ivy.instance" value="1.8.0" />
+    <property name="org.osgi.framework.uuid" value="e0f49e09-eaed-0014-1ed2-a95e6addd10c" />
+    <property name="ivy.default.conf.dir" value="jar:file:/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/ivy/ivy.jar!/org/apache/ivy/core/settings" />
+    <property name="eclipse.commands" value="-os&#xa;macosx&#xa;-ws&#xa;cocoa&#xa;-arch&#xa;x86_64&#xa;-showsplash&#xa;-launcher&#xa;/Users/shruthimurthy/Documents/softwares/eclipse/Eclipse.app/Contents/MacOS/eclipse&#xa;-name&#xa;Eclipse&#xa;--launcher.library&#xa;/Users/shruthimurthy/Documents/softwares/eclipse/Eclipse.app/Contents/MacOS//../../../plugins/org.eclipse.equinox.launcher.cocoa.macosx.x86_64_1.1.200.v20140603-1326/eclipse_1601.so&#xa;-startup&#xa;/Users/shruthimurthy/Documents/softwares/eclipse/Eclipse.app/Contents/MacOS//../../../plugins/org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar&#xa;--launcher.appendVmargs&#xa;-product&#xa;org.eclipse.epp.package.jee.product&#xa;-keyring&#xa;/Users/shruthimurthy/.eclipse_keyring&#xa;-showlocation&#xa;-vm&#xa;/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/bin/../jre/lib/server/libjvm.dylib&#xa;" />
+    <property name="osgi.os" value="macosx" />
+    <property name="user.country" value="US" />
+    <property name="java.vm.specification.version.ivy.instance" value="1.7" />
+    <property name="org.eclipse.update.reconcile.ivy.instance" value="false" />
+    <property name="ivy.default.always.check.exact.revision" value="false" />
+    <property name="osgi.install.area" value="file:/Users/shruthimurthy/Documents/softwares/eclipse/" />
+    <property name="os.name.ivy.instance" value="Mac OS X" />
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/endorsed" />
+    <property name="java.endorsed.dirs.ivy.instance" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/endorsed" />
+    <property name="ivy.lib.dir" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/lib" />
+    <property name="osgi.nl" value="en_US" />
+    <property name="java.vm.specification.version" value="1.7" />
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="gopherProxySet.ivy.instance" value="false" />
+    <property name="ivy.settings.url" value="file:/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/ivysettings.xml" />
+    <property name="org.osgi.supports.framework.requirebundle" value="true" />
+    <property name="sun.awt.enableExtraMouseButtons.ivy.instance" value="true" />
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="sun.font.fontmanager" value="sun.font.CFontManager" />
+    <property name="user.dir.ivy.instance" value="/Users/shruthimurthy/Documents/softwares/eclipse/Eclipse.app/Contents/MacOS" />
+    <property name="ivy.default.settings.dir" value="jar:file:/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/ivy/ivy.jar!/org/apache/ivy/core/settings" />
+    <property name="ivy.settings.file" value="ivysettings.xml" />
+    <property name="java.runtime.name.ivy.instance" value="Java(TM) SE Runtime Environment" />
+    <property name="org.eclipse.debug.ui.debugViewToolbarVisible.ivy.instance" value="false" />
+    <property name="file.separator" value="/" />
+    <property name="ivy.jar.file" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/ivy/ivy.jar" />
+    <property name="ivy.cache.dir.ivy.instance" value="/Users/shruthimurthy/Documents/work/CST_517_593/cache" />
+    <property name="ivy.conf.file" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/ivysettings.xml" />
+    <property name="ivy.default.settings.dir.ivy.instance" value="jar:file:/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/ivy/ivy.jar!/org/apache/ivy/core/settings" />
+    <property name="org.eclipse.m2e.log.dir.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/.metadata/.plugins/org.eclipse.m2e.logback.configuration" />
+    <property name="org.osgi.framework.system.packages.ivy.instance" value="javax.accessibility,javax.activation,javax.activity,javax.annotation,javax.annotation.processing,javax.crypto,javax.crypto.interfaces,javax.crypto.spec,javax.imageio,javax.imageio.event,javax.imageio.metadata,javax.imageio.plugins.bmp,javax.imageio.plugins.jpeg,javax.imageio.spi,javax.imageio.stream,javax.jws,javax.jws.soap,javax.lang.model,javax.lang.model.element,javax.lang.model.type,javax.lang.model.util,javax.management,javax.management.loading,javax.management.modelmbean,javax.management.monitor,javax.management.openmbean,javax.management.relation,javax.management.remote,javax.management.remote.rmi,javax.management.timer,javax.naming,javax.naming.directory,javax.naming.event,javax.naming.ldap,javax.naming.spi,javax.net,javax.net.ssl,javax.print,javax.print.attribute,javax.print.attribute.standard,javax.print.event,javax.rmi,javax.rmi.CORBA,javax.rmi.ssl,javax.script,javax.security.auth,javax.security.auth.callback,javax.security.auth.kerberos,javax.security.auth.login,javax.security.auth.spi,javax.security.auth.x500,javax.security.cert,javax.security.sasl,javax.sound.midi,javax.sound.midi.spi,javax.sound.sampled,javax.sound.sampled.spi,javax.sql,javax.sql.rowset,javax.sql.rowset.serial,javax.sql.rowset.spi,javax.swing,javax.swing.border,javax.swing.colorchooser,javax.swing.event,javax.swing.filechooser,javax.swing.plaf,javax.swing.plaf.basic,javax.swing.plaf.metal,javax.swing.plaf.multi,javax.swing.plaf.nimbus,javax.swing.plaf.synth,javax.swing.table,javax.swing.text,javax.swing.text.html,javax.swing.text.html.parser,javax.swing.text.rtf,javax.swing.tree,javax.swing.undo,javax.tools,javax.transaction,javax.transaction.xa,javax.xml,javax.xml.bind,javax.xml.bind.annotation,javax.xml.bind.annotation.adapters,javax.xml.bind.attachment,javax.xml.bind.helpers,javax.xml.bind.util,javax.xml.crypto,javax.xml.crypto.dom,javax.xml.crypto.dsig,javax.xml.crypto.dsig.dom,javax.xml.crypto.dsig.keyinfo,javax.xml.crypto.dsig.spec,javax.xml.datatype,javax.xml.namespace,javax.xml.parsers,javax.xml.soap,javax.xml.stream,javax.xml.stream.events,javax.xml.stream.util,javax.xml.transform,javax.xml.transform.dom,javax.xml.transform.sax,javax.xml.transform.stax,javax.xml.transform.stream,javax.xml.validation,javax.xml.ws,javax.xml.ws.handler,javax.xml.ws.handler.soap,javax.xml.ws.http,javax.xml.ws.soap,javax.xml.ws.spi,javax.xml.ws.spi.http,javax.xml.ws.wsaddressing,javax.xml.xpath,org.ietf.jgss,org.omg.CORBA,org.omg.CORBA_2_3,org.omg.CORBA_2_3.portable,org.omg.CORBA.DynAnyPackage,org.omg.CORBA.ORBPackage,org.omg.CORBA.portable,org.omg.CORBA.TypeCodePackage,org.omg.CosNaming,org.omg.CosNaming.NamingContextExtPackage,org.omg.CosNaming.NamingContextPackage,org.omg.Dynamic,org.omg.DynamicAny,org.omg.DynamicAny.DynAnyFactoryPackage,org.omg.DynamicAny.DynAnyPackage,org.omg.IOP,org.omg.IOP.CodecFactoryPackage,org.omg.IOP.CodecPackage,org.omg.Messaging,org.omg.PortableInterceptor,org.omg.PortableInterceptor.ORBInitInfoPackage,org.omg.PortableServer,org.omg.PortableServer.CurrentPackage,org.omg.PortableServer.POAManagerPackage,org.omg.PortableServer.POAPackage,org.omg.PortableServer.portable,org.omg.PortableServer.ServantLocatorPackage,org.omg.SendingContext,org.omg.stub.java.rmi,org.w3c.dom,org.w3c.dom.bootstrap,org.w3c.dom.css,org.w3c.dom.events,org.w3c.dom.html,org.w3c.dom.ls,org.w3c.dom.ranges,org.w3c.dom.stylesheets,org.w3c.dom.traversal,org.w3c.dom.views,org.w3c.dom.xpath,org.xml.sax,org.xml.sax.ext,org.xml.sax.helpers" />
+    <property name="eclipse.stateSaveDelayInterval" value="30000" />
+    <property name="eclipse.launcher.ivy.instance" value="/Users/shruthimurthy/Documents/softwares/eclipse/Eclipse.app/Contents/MacOS/eclipse" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="java.io.tmpdir.ivy.instance" value="/var/folders/zr/y4zldp6s2sx27d5tfq5k17vm0000gn/T/" />
+    <property name="eclipse.vm.ivy.instance" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/bin/../jre/lib/server/libjvm.dylib" />
+    <property name="ant.home" value="/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.apache.ant_1.9.2.v201404171502" />
+    <property name="ivy.resolved.file" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/ivy.xml" />
+    <property name="ant.java.version" value="1.7" />
+    <property name="java.library.path" value="/Users/shruthimurthy/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+    <property name="src.war" value="WebContent" />
+    <property name="DSTAMP" value="2015-04-23" />
+    <property name="ivy.resolved.configurations" value="default" />
+    <property name="osgi.install.area.ivy.instance" value="file:/Users/shruthimurthy/Documents/softwares/eclipse/" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="basedir" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer" />
+    <property name="java.vendor.url.ivy.instance" value="http://java.oracle.com/" />
+    <property name="java.ext.dirs.ivy.instance" value="/Users/shruthimurthy/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java" />
+    <property name="ivy.version" value="2.1.0" />
+    <property name="org.eclipse.equinox.simpleconfigurator.configUrl.ivy.instance" value="file:org.eclipse.equinox.simpleconfigurator/bundles.info" />
+    <property name="path.separator" value=":" />
+    <property name="ivy.resolver.default.check.modified.ivy.instance" value="false" />
+    <property name="osgi.configuration.area.ivy.instance" value="file:/Users/shruthimurthy/Documents/softwares/eclipse/configuration/" />
+    <property name="sun.io.unicode.encoding" value="UnicodeBig" />
+    <property name="osgi.frameworkClassPath.ivy.instance" value="., file:/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.eclipse.osgi.compatibility.state_1.0.0.v20140403-1907.jar" />
+    <property name="ivy.conf.dir" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer" />
+    <property name="user.language" value="en" />
+    <property name="eclipse.pdebuild.home" value="/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20140415-2029/./" />
+    <property name="org.osgi.supports.framework.fragment.ivy.instance" value="true" />
+    <property name="java.vm.specification.vendor.ivy.instance" value="Oracle Corporation" />
+    <property name="org.osgi.framework.language.ivy.instance" value="en" />
+    <property name="war.build.dir.order" value="build/DataAnalyticsServer/order" />
+    <property name="org.eclipse.debug.ui.debugViewToolbarVisible" value="false" />
+    <property name="ant.project.invoked-targets" value="main" />
+    <property name="awt.toolkit.ivy.instance" value="sun.lwawt.macosx.LWCToolkit" />
+    <property name="org.osgi.framework.uuid.ivy.instance" value="e0f49e09-eaed-0014-1ed2-a95e6addd10c" />
+    <property name="gopherProxySet" value="false" />
+    <property name="ivy.report.output.pattern" value="[organisation]-[module]-[conf].[ext]" />
+    <property name="java.class.version" value="51.0" />
+    <property name="sun.boot.library.path.ivy.instance" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib" />
+    <property name="eclipse.home.location" value="file:/Users/shruthimurthy/Documents/softwares/eclipse/" />
+    <property name="os.version.ivy.instance" value="10.9.5" />
+    <property name="osgi.tracefile.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/.metadata/trace.log" />
+    <property name="org.osgi.framework.os.version.ivy.instance" value="10.9.5" />
+    <property name="ivy.project.dir.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="eclipse.p2.data.area.ivy.instance" value="@config.dir/../p2/" />
+    <property name="ivy.configurations.ivy.instance" value="*" />
+    <property name="eclipse.vmargs" value="-Dosgi.requiredJavaVersion=1.6&#xa;-XstartOnFirstThread&#xa;-Dorg.eclipse.swt.internal.carbon.smallFonts&#xa;-XX:MaxPermSize=256m&#xa;-Xms40m&#xa;-Xmx512m&#xa;-Xdock:icon=../Resources/Eclipse.icns&#xa;-XstartOnFirstThread&#xa;-Dorg.eclipse.swt.internal.carbon.smallFonts&#xa;-Djava.class.path=/Users/shruthimurthy/Documents/softwares/eclipse/Eclipse.app/Contents/MacOS//../../../plugins/org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar&#xa;" />
+    <property name="ivy.home.ivy.instance" value="/Users/shruthimurthy/.ivy2" />
+    <property name="eclipse.vmargs.ivy.instance" value="-Dosgi.requiredJavaVersion=1.6&#xa;-XstartOnFirstThread&#xa;-Dorg.eclipse.swt.internal.carbon.smallFonts&#xa;-XX:MaxPermSize=256m&#xa;-Xms40m&#xa;-Xmx512m&#xa;-Xdock:icon=../Resources/Eclipse.icns&#xa;-XstartOnFirstThread&#xa;-Dorg.eclipse.swt.internal.carbon.smallFonts&#xa;-Djava.class.path=/Users/shruthimurthy/Documents/softwares/eclipse/Eclipse.app/Contents/MacOS//../../../plugins/org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar&#xa;" />
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="equinox.use.ds.ivy.instance" value="true" />
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre" />
+    <property name="ant.project.default-target" value="main" />
+    <property name="osgi.framework.shape.ivy.instance" value="jar" />
+    <property name="ivy.status.ivy.instance" value="integration" />
+    <property name="ant.library.dir.ivy.instance" value="/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.apache.ant_1.9.2.v201404171502/lib" />
+    <property name="osgi.logfile.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/.metadata/.log" />
+    <property name="org.osgi.framework.language" value="en" />
+    <property name="osgi.bundles" value="reference:file:org.eclipse.osgi.compatibility.state_1.0.0.v20140403-1907.jar,reference:file:org.eclipse.equinox.simpleconfigurator_1.1.0.v20131217-1203.jar@1:start" />
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="build.war" value="build/DataAnalyticsServer.war" />
+    <property name="ivy.basedir.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer" />
+    <property name="java.vm.vendor.ivy.instance" value="Oracle Corporation" />
+    <property name="ivy.cache.ttl.default.ivy.instance" value="10s" />
+    <property name="build.classes" value="build/DataAnalyticsServer/WEB-INF/classes" />
+    <property name="ivy.default.conf.dir.ivy.instance" value="jar:file:/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/ivy/ivy.jar!/org/apache/ivy/core/settings" />
+    <property name="osgi.framework.shape" value="jar" />
+    <property name="ivy.settings.url.ivy.instance" value="file:/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/ivysettings.xml" />
+    <property name="eclipse.buildId" value="4.4.0.I20140606-1215" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="ant.file.DataAnalyticsServer" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/build.xml" />
+    <property name="build.clases.temp" value="build/DataAnalyticsServer/classes" />
+    <property name="osgi.framework.useSystemProperties.ivy.instance" value="true" />
+    <property name="ant.file" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/build.xml" />
+    <property name="osgi.instance.area.ivy.instance" value="file:/Users/shruthimurthy/Documents/workspace/" />
+    <property name="ivy.buildlist.ivyfilepath.ivy.instance" value="ivy.xml" />
+    <property name="eclipse.startTime.ivy.instance" value="1430255015913" />
+    <property name="user.country.ivy.instance" value="US" />
+    <property name="ivy.default.always.check.exact.revision.ivy.instance" value="false" />
+    <property name="org.apache.commons.logging.Log.ivy.instance" value="org.apache.commons.logging.impl.NoOpLog" />
+    <property name="org.osgi.supports.framework.fragment" value="true" />
+    <property name="sun.cpu.isalist.ivy.instance" value="" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="osgi.requiredJavaVersion.ivy.instance" value="1.6" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="eclipse.home.location.ivy.instance" value="file:/Users/shruthimurthy/Documents/softwares/eclipse/" />
+    <property name="java.io.tmpdir" value="/var/folders/zr/y4zldp6s2sx27d5tfq5k17vm0000gn/T/" />
+    <property name="file.encoding.ivy.instance" value="UTF-8" />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="eclipse.vm" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/bin/../jre/lib/server/libjvm.dylib" />
+    <property name="ivy.cache.ttl.default" value="10s" />
+    <property name="osgi.splashPath.ivy.instance" value="platform:/base/plugins/org.eclipse.platform" />
+    <property name="org.eclipse.m2e.log.dir" value="/Users/shruthimurthy/Documents/workspace/.metadata/.plugins/org.eclipse.m2e.logback.configuration" />
+    <property name="eclipse.launcher" value="/Users/shruthimurthy/Documents/softwares/eclipse/Eclipse.app/Contents/MacOS/eclipse" />
+    <property name="ivy.settings.file.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/ivysettings.xml" />
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib" />
+    <property name="jar.lib" value="WebContent/WEB-INF/lib" />
+    <property name="test.report.dir" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/testreport" />
+    <property name="file.encoding.pkg.ivy.instance" value="sun.io" />
+    <property name="org.osgi.supports.framework.extension" value="true" />
+    <property name="gosh.args" value="--nointeractive" />
+    <property name="ivy.resolver.default.check.modified" value="false" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="ant.project.name" value="DataAnalyticsServer" />
+    <property name="sun.management.compiler.ivy.instance" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="java.vendor.url.bug.ivy.instance" value="http://bugreport.sun.com/bugreport/" />
+    <property name="ivy.conf.dir.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer" />
+    <property name="ivy.buildlist.ivyfilepath" value="ivy.xml" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="ivy.default.ivy.user.dir" value="/Users/shruthimurthy/.ivy2" />
+    <property name="eclipse.startTime" value="1430255015913" />
+    <property name="java.runtime.version.ivy.instance" value="1.7.0_79-b15" />
+    <property name="user.home" value="/Users/shruthimurthy" />
+    <property name="org.osgi.framework.processor" value="x86-64" />
+    <property name="org.eclipse.debug.ui.breakpoints.toggleFactoriesUsed.ivy.instance" value="true" />
+    <property name="java.vm.version.ivy.instance" value="24.79-b02" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="ivy.dep.file" value="ivy.xml" />
+    <property name="osgi.configuration.area" value="file:/Users/shruthimurthy/Documents/softwares/eclipse/configuration/" />
+    <property name="user.timezone.ivy.instance" value="America/Phoenix" />
+    <property name="ivy.deliver.ivy.pattern.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/distrib/[type]s/[artifact]-[revision](-[classifier]).[ext]" />
+    <property name="ivy.conf.url" value="file:/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/ivysettings.xml" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="eclipse.p2.profile" value="epp.package.jee" />
+    <property name="ivy.deps.changed" value="false" />
+    <property name="org.eclipse.swt.internal.carbon.smallFonts" value="" />
+    <property name="java.version" value="1.7.0_79" />
+    <property name="sun.jnu.encoding.ivy.instance" value="UTF-8" />
+    <property name="sun.io.unicode.encoding.ivy.instance" value="UnicodeBig" />
+    <property name="ivy.conf.file.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/ivysettings.xml" />
+    <property name="eclipse.product.ivy.instance" value="org.eclipse.epp.package.jee.product" />
+    <property name="eclipse.pdebuild.templates" value="/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20140415-2029/templates/" />
+    <property name="basedir.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer" />
+    <property name="ivy.conf.url.ivy.instance" value="file:/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/ivysettings.xml" />
+    <property name="java.specification.vendor.ivy.instance" value="Oracle Corporation" />
+    <property name="test.dir" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/src" />
+    <property name="eclipse.home" value="/Users/shruthimurthy/Documents/softwares/eclipse" />
+    <property name="ivy.build.artifacts.dir.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/build/artifacts" />
+    <property name="org.apache.commons.logging.Log" value="org.apache.commons.logging.impl.NoOpLog" />
+    <property name="org.eclipse.equinox.launcher.splash.location.ivy.instance" value="/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.eclipse.platform_4.4.0.v20140606-1215/splash.bmp" />
+    <property name="osgi.framework.extensions.ivy.instance" value="reference:file:org.eclipse.osgi.compatibility.state_1.0.0.v20140403-1907.jar" />
+    <property name="ivy.cache.dir" value="/Users/shruthimurthy/Documents/work/CST_517_593/cache" />
+    <property name="org.osgi.framework.system.capabilities.ivy.instance" value="osgi.ee; osgi.ee=&quot;OSGi/Minimum&quot;; version:List&lt;Version&gt;=&quot;1.0, 1.1, 1.2&quot;,osgi.ee; osgi.ee=&quot;JRE&quot;; version:List&lt;Version&gt;=&quot;1.0, 1.1&quot;,osgi.ee; osgi.ee=&quot;JavaSE&quot;; version:List&lt;Version&gt;=&quot;1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7&quot;" />
+    <property name="user.language.ivy.instance" value="en" />
+    <property name="eclipse.commands.ivy.instance" value="-os&#xa;macosx&#xa;-ws&#xa;cocoa&#xa;-arch&#xa;x86_64&#xa;-showsplash&#xa;-launcher&#xa;/Users/shruthimurthy/Documents/softwares/eclipse/Eclipse.app/Contents/MacOS/eclipse&#xa;-name&#xa;Eclipse&#xa;--launcher.library&#xa;/Users/shruthimurthy/Documents/softwares/eclipse/Eclipse.app/Contents/MacOS//../../../plugins/org.eclipse.equinox.launcher.cocoa.macosx.x86_64_1.1.200.v20140603-1326/eclipse_1601.so&#xa;-startup&#xa;/Users/shruthimurthy/Documents/softwares/eclipse/Eclipse.app/Contents/MacOS//../../../plugins/org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar&#xa;--launcher.appendVmargs&#xa;-product&#xa;org.eclipse.epp.package.jee.product&#xa;-keyring&#xa;/Users/shruthimurthy/.eclipse_keyring&#xa;-showlocation&#xa;-vm&#xa;/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/bin/../jre/lib/server/libjvm.dylib&#xa;" />
+    <property name="java.class.path.ivy.instance" value="/Users/shruthimurthy/Documents/softwares/eclipse/Eclipse.app/Contents/MacOS//../../../plugins/org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar" />
+    <property name="org.osgi.framework.executionenvironment.ivy.instance" value="OSGi/Minimum-1.0,OSGi/Minimum-1.1,OSGi/Minimum-1.2,JRE-1.1,J2SE-1.2,J2SE-1.3,J2SE-1.4,J2SE-1.5,JavaSE-1.6,JavaSE-1.7" />
+    <property name="sun.cpu.endian.ivy.instance" value="little" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="java.specification.version" value="1.7" />
+    <property name="ivy.publish.src.artifacts.pattern" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/distrib/[type]s/[artifact]-[revision](-[classifier]).[ext]" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="ivy.retrieve.pattern" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/lib/[artifact]-[revision](-[classifier]).[ext]" />
+    <property name="osgi.framework.ivy.instance" value="file:/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.eclipse.osgi_3.10.0.v20140606-1445.jar" />
+    <property name="ivy.organisation" value="com" />
+    <property name="ftp.nonProxyHosts.ivy.instance" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="org.eclipse.swt.internal.carbon.smallFonts.ivy.instance" value="" />
+    <property name="ivy.targets.copied" value="false" />
+    <property name="ivy.jar.dir" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/ivy" />
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/classes" />
+    <property name="ivy.resolve.default.type.filter" value="*" />
+    <property name="osgi.nl.ivy.instance" value="en_US" />
+    <property name="java.specification.version.ivy.instance" value="1.7" />
+    <property name="build.jar" value="build/DataAnalyticsServer.jar" />
+    <property name="src.lib" value="WebContent/WEB-INF/lib" />
+    <property name="osgi.logfile" value="/Users/shruthimurthy/Documents/workspace/.metadata/.log" />
+    <property name="eclipse.pdebuild.scripts" value="/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.eclipse.pde.build_3.9.0.v20140415-2029/scripts/" />
+    <property name="src.dir" value="src" />
+    <property name="ivy.basedir" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer" />
+    <property name="ivy.log.modules.in.use.ivy.instance" value="false" />
+    <property name="osgi.arch.ivy.instance" value="x86_64" />
+    <property name="java.specification.name.ivy.instance" value="Java Platform API Specification" />
+    <property name="osgi.tracefile" value="/Users/shruthimurthy/Documents/workspace/.metadata/trace.log" />
+    <property name="line.separator.ivy.instance" value="&#xa;" />
+    <property name="user.home.ivy.instance" value="/Users/shruthimurthy" />
+    <property name="ivy.publish.src.artifacts.pattern.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/distrib/[type]s/[artifact]-[revision](-[classifier]).[ext]" />
+    <property name="ivy.deliver.ivy.pattern" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/distrib/[type]s/[artifact]-[revision](-[classifier]).[ext]" />
+    <property name="osgi.bundles.defaultStartLevel.ivy.instance" value="4" />
+    <property name="osgi.framework" value="file:/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.eclipse.osgi_3.10.0.v20140606-1445.jar" />
+    <property name="org.eclipse.update.reconcile" value="false" />
+    <property name="eclipse.p2.profile.ivy.instance" value="epp.package.jee" />
+    <property name="osgi.arch" value="x86_64" />
+    <property name="ivy.checksums.ivy.instance" value="sha1,md5" />
+    <property name="gosh.args.ivy.instance" value="--nointeractive" />
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob" />
+    <property name="osgi.splashLocation.ivy.instance" value="/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.eclipse.platform_4.4.0.v20140606-1215/splash.bmp" />
+    <property name="org.osgi.framework.system.capabilities" value="osgi.ee; osgi.ee=&quot;OSGi/Minimum&quot;; version:List&lt;Version&gt;=&quot;1.0, 1.1, 1.2&quot;,osgi.ee; osgi.ee=&quot;JRE&quot;; version:List&lt;Version&gt;=&quot;1.0, 1.1&quot;,osgi.ee; osgi.ee=&quot;JavaSE&quot;; version:List&lt;Version&gt;=&quot;1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7&quot;" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="ivy.default.ivy.user.dir.ivy.instance" value="/Users/shruthimurthy/.ivy2" />
+    <property name="osgi.frameworkClassPath" value="., file:/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.eclipse.osgi.compatibility.state_1.0.0.v20140403-1907.jar" />
+    <property name="org.eclipse.equinox.simpleconfigurator.configUrl" value="file:org.eclipse.equinox.simpleconfigurator/bundles.info" />
+    <property name="ivy.project.dir" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer" />
+    <property name="ivy.revision" value="working@Shruthis-MacBook-Pro.local" />
+    <property name="osgi.instance.area.default.ivy.instance" value="file:/Users/shruthimurthy/Documents/workspace/" />
+    <property name="java.runtime.version" value="1.7.0_79-b15" />
+    <property name="sun.boot.class.path.ivy.instance" value="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/classes" />
+    <property name="ivy.home" value="/Users/shruthimurthy/.ivy2" />
+    <property name="org.eclipse.equinox.launcher.splash.location" value="/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.eclipse.platform_4.4.0.v20140606-1215/splash.bmp" />
+    <property name="java.vendor.ivy.instance" value="Oracle Corporation" />
+    <property name="ivy.distrib.dir.ivy.instance" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/distrib" />
+    <property name="user.timezone" value="" />
+    <property name="osgi.ws" value="cocoa" />
+    <property name="java.vm.specification.name.ivy.instance" value="Java Virtual Machine Specification" />
+    <property name="ivy.dep.file.ivy.instance" value="ivy.xml" />
+    <property name="java.ext.dirs" value="/Users/shruthimurthy/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java" />
+    <property name="eclipse.launcher.name" value="Eclipse" />
+    <property name="sun.font.fontmanager.ivy.instance" value="sun.font.CFontManager" />
+    <property name="osgi.framework.useSystemProperties" value="true" />
+    <property name="osgi.syspath" value="/Users/shruthimurthy/Documents/softwares/eclipse/plugins" />
+    <property name="osgi.syspath.ivy.instance" value="/Users/shruthimurthy/Documents/softwares/eclipse/plugins" />
+    <property name="java.class.path" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/lib/junit-4.8.2.jar:/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.apache.ant_1.9.2.v201404171502/lib/ant-launcher.jar:/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.apache.ant_1.9.2.v201404171502/lib/ant.jar:/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.apache.ant_1.9.2.v201404171502/lib/ant-junit.jar:/Users/shruthimurthy/Documents/softwares/eclipse/plugins/org.apache.ant_1.9.2.v201404171502/lib/ant-junit4.jar" />
+    <property name="org.osgi.framework.vendor.ivy.instance" value="Eclipse" />
+    <property name="ivy.settings.dir" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer" />
+    <property name="osgi.splashPath" value="platform:/base/plugins/org.eclipse.platform" />
+    <property name="os.version" value="10.9.5" />
+    <property name="equinox.use.ds" value="true" />
+    <property name="applicationXMI.ivy.instance" value="org.eclipse.ui.workbench/LegacyIDE.e4xmi" />
+    <property name="sun.awt.enableExtraMouseButtons" value="true" />
+    <property name="java.class.version.ivy.instance" value="51.0" />
+    <property name="ivy.module" value="abc" />
+    <property name="os.arch.ivy.instance" value="x86_64" />
+    <property name="osgi.instance.area.default" value="file:/Users/shruthimurthy/Documents/workspace/" />
+    <property name="java.vm.name.ivy.instance" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="ivy.nb.targets.copied" value="0" />
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment" />
+    <property name="applicationXMI" value="org.eclipse.ui.workbench/LegacyIDE.e4xmi" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="ivy.log.modules.in.use" value="false" />
+    <property name="eclipse.application" value="org.eclipse.ui.ide.workbench" />
+    <property name="eclipse.stateSaveDelayInterval.ivy.instance" value="30000" />
+    <property name="socksNonProxyHosts.ivy.instance" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="osgi.bundles.defaultStartLevel" value="4" />
+    <property name="war.build.dir.styles" value="build/DataAnalyticsServer/styles" />
+    <property name="ivy.build.artifacts.dir" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/build/artifacts" />
+    <property name="org.osgi.supports.framework.extension.ivy.instance" value="true" />
+    <property name="ivy.checksums" value="" />
+    <property name="ant.file.type.DataAnalyticsServer" value="file" />
+    <property name="sun.os.patch.level.ivy.instance" value="unknown" />
+    <property name="build.dir" value="build" />
+    <property name="ivy.configurations" value="*" />
+    <property name="war.build.dir.decorators" value="build/DataAnalyticsServer/decorators" />
+    <property name="ivy.distrib.dir" value="/Users/shruthimurthy/Documents/workspace/DataAnalyticsServer/distrib" />
+    <property name="osgi.requiredJavaVersion" value="1.6" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.9.2 compiled on July 8 2013" />
+    <property name="org.osgi.supports.framework.requirebundle.ivy.instance" value="true" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
+    <property name="osgi.compatibility.bootdelegation" value="true" />
+    <property name="user.name.ivy.instance" value="shruthimurthy" />
+  </properties>
+  <error message="com.s3web.util.TestClent" type="java.lang.ClassNotFoundException">java.lang.ClassNotFoundException: com.s3web.util.TestClent
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:191)
+</error>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
