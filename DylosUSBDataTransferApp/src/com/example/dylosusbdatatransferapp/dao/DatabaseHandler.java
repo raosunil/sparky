@@ -1,10 +1,7 @@
 package com.example.dylosusbdatatransferapp.dao;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.Map;
-
-import com.example.dylosusbdatatransferapp.model.DylosReading;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -12,6 +9,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import com.example.dylosusbdatatransferapp.model.DylosReading;
 
 /**
  * @author Sunil
@@ -21,7 +20,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     // All Static variables
     // Database Version 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 6;
 
     // Database Name
     private static final String DATABASE_NAME = "dylosManager";
@@ -50,6 +49,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_GEOLATITUDE = "geoLatitude";
     private static final String KEY_GEOLONGITUDE = "geoLongitude";
     private static final String KEY_GEOMETHOD = "method";
+    private static final int MAX_ENTRIES = 2000;
    
     private final ArrayList<DylosReading> dylosFeed_list = new ArrayList<DylosReading>();
 
@@ -88,6 +88,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Adding new DylosFeed
     public void Add_DylosReading(DylosReading dr) {
     Log.d("DatabaseHandler","Inside Add_DylosReading");
+    
+    //Ensuring we don't bloat the space
+    if(Get_Total_DylosFeeds()>MAX_ENTRIES){
+    	Delete_DylosFeed(Get_Max_DylosFeeds() - MAX_ENTRIES);
+    	return;
+    }
     
     Map properties = dr.getProperties();
     double[] coordinates = (double[])dr.getGeometry().get("coordinates");
@@ -213,6 +219,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	SQLiteDatabase db = this.getReadableDatabase();
 	Cursor cursor = db.rawQuery(countQuery, null);
 	retValue = cursor.getCount();
+	cursor.close();	
+	db.close();
+	// return count
+	return retValue;
+    }
+    
+    // Getting max DylosFeeds id
+    public int Get_Max_DylosFeeds() {
+    int retValue = -1;   
+	String countQuery = "SELECT  max(" + KEY_ID + ") FROM " + TABLE_GENERIC;
+	SQLiteDatabase db = this.getReadableDatabase();
+	Cursor cursor = db.rawQuery(countQuery, null);
+	retValue = cursor.getInt(0);
 	cursor.close();	
 	db.close();
 	// return count

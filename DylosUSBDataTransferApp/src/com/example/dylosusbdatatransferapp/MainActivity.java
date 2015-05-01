@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.Properties;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -24,19 +23,20 @@ import android.hardware.usb.UsbManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.dylosusbdatatransferapp.service.AQMResultsFeedService;
 import com.example.dylosusbdatatransferapp.service.MonitorService;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements PlaceholderFragment.Callback{
 	
 	private static final String TAG = "MainActivity";
 	public static final int VENDOR_ID = 1027;
@@ -59,6 +59,9 @@ public class MainActivity extends Activity {
 	private String thread_size = null;
 	private String grace_period = null;
 	SharedPreferences prefs = null;
+	
+	private ImageView pulseView = null;
+	
 	
 	
 	
@@ -94,12 +97,7 @@ public class MainActivity extends Activity {
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
 	   
-	    //  Analytics Feed button
-	    Button btn_AnalyticsFeed = (Button) findViewById(R.id.btn_AnalyticsFeed);
-	  
-         
-      
-	     
+	   
 		//Request permission for accessing USB
 		mPermissionIntent = PendingIntent.getBroadcast(this, 0, new Intent(ACTION_USB_PERMISSION), 0);
 		IntentFilter filter = new IntentFilter(ACTION_USB_PERMISSION);
@@ -157,18 +155,38 @@ public class MainActivity extends Activity {
 	}
 	
 	
+	/**Handler for onResultFeedClicked button
+	 * @param v
+	 */
+	public void onResultFeedClicked(View v){
+		
+		Intent i = new Intent(getApplicationContext(),AQMResultsListViewActivity.class);
+		startActivity(i);
+		
+	}
+	
 	/**Handler for onToggleClicked button
 	 * @param v
 	 */
 	public void onToggleClicked(View v){
 		// Is the toggle on?
 	    boolean on = ((ToggleButton) v).isChecked();
+	   
 	    Intent i = new Intent(getApplicationContext(), MonitorService.class);
+	    //TODO - Uncomment after result feed works
+	    //temp remove - imp
+		//TODO
+	    pulseView.setVisibility(View.VISIBLE);
+		Animation pulse = AnimationUtils.loadAnimation(this, R.anim.pulse);
         if (on) {
-        	callAction(i);
+        	callAction(i);   
+    		//pulse.setDuration(1000);
+    		pulseView.startAnimation(pulse);	
+        	
 	    } else {
 	    	stopService(i);
-	    }
+	    	pulseView.clearAnimation();
+	    }	
 	}
 	
 	
@@ -264,29 +282,26 @@ public class MainActivity extends Activity {
     public void onDestroy() {
 		super.onDestroy();
 	}
-	
 
-	
-
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-		
-		public PlaceholderFragment() {
+	@Override
+	public void onSwitchButtonClicked(boolean callService) {
+		Intent i = new Intent(getApplicationContext(), AQMResultsFeedService.class);
+		if(callService){
+			startService(i);
+			Toast.makeText(getApplicationContext(), "AQM Result Feed is turned on",Toast.LENGTH_SHORT).show();
+		}else{
+			stopService(i);
+			Toast.makeText(getApplicationContext(), "AQM Result Feed is turned off",Toast.LENGTH_SHORT).show();
 		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main, container,
-					false);
-			
-			return rootView;
-		}
-		
 		
 	}
+
+	@Override
+	public void onCreateGetImgView(View v) {
+		// Say Thank you to Fragment
+		pulseView = (ImageView)v;
+	}
+	
 	
 	//Async task
 }

@@ -1,31 +1,3 @@
-<!--  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.dylosusbdatatransferapp.MainActivity$PlaceholderFragment" >
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="43dp"
-        android:onClick="postLogHandler"
-        android:text="PostLog" />
-
-</RelativeLayout>
-
--->
 
 <com.example.dylosusbdatatransferapp.DashboardLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -33,7 +5,7 @@
     android:layout_height="fill_parent"
     android:layout_weight="1"
     android:background="#f8f9fe" >
-    <!--  News Feed Button -->
+    <!--  Monitor  Button -->
     <ToggleButton
         android:id="@+id/btn_toggleMonitoring"
         style="@style/DashboardButton"
@@ -42,11 +14,29 @@
         android:drawableTop="@drawable/switch_btn"
         android:onClick="onToggleClicked"/>
 
-     
-    <!--  Friends Button -->
+    <!--  Result Feed Button -->
     <Button
         android:id="@+id/btn_AnalyticsFeed"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/greenhome"
+        android:onClick="onResultFeedClicked"
         android:text="Analytics Feed" />
+    
+    
+    <!-- Visual Display to indicate its capturing data -->
+      <ImageView
+        android:id="@+id/pulseview"
+        style="@style/DashboardButton"
+        android:src="@drawable/pulse"
+        />
+    
+    <!--  Trigger Result Feed Switch -->
+    <Switch 
+        android:id="@+id/sw_AnalyticFeed"
+        style="@style/DashboardButton"
+        android:text="Feed Fetcher Switch"
+        />
+    
+    
+  
     </com.example.dylosusbdatatransferapp.DashboardLayout>

@@ -44,7 +44,7 @@ public class MonitorService extends Service {
 		private UsbDevice tmpdevice = null;
 		
 		private static final Object lock = new Object();
-		private static boolean someoneDidTheHonor = false;
+		private static volatile boolean someoneDidTheHonor = false;
 		
 		private String deviceId = null;
 		private String userId = null;

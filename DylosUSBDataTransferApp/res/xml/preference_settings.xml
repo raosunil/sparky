@@ -54,4 +54,22 @@
                 android:summary="summary_periodic_delay_preference"
                 android:defaultValue="300000"
                 android:dialogTitle="dialog_periodic_delay_preference"/>
+        <EditTextPreference
+            android:key="ResultFeed_URL"
+            android:title="title_ResultFeed_URL_preference"
+                android:summary="summary_ResultFeed_URL_preference"
+                android:defaultValue="http://raostravelogue.com/getJSONAQMResult"
+                android:dialogTitle="dialog_ResultFeed_URL_preference"/>
+        <EditTextPreference
+            android:key="numGroupsWithin1WayANOVA"
+            android:title="title_numGroupsWithin1WayANOVA_preference"
+                android:summary="summary_numGroupsWithin1WayANOVA_preference"
+                android:defaultValue="2"
+                android:dialogTitle="dialog_numGroupsWithin1WayANOVA_preference"/>
+        <EditTextPreference
+            android:key="ResultFeed_Interval_Minutes"
+            android:title="title_ResultFeed_Interval_Minutes_preference"
+                android:summary="summary_ResultFeed_Interval_Minutes_preference"
+                android:defaultValue="4"
+                android:dialogTitle="dialog_ResultFeed_Interval_Minutes_preference"/>
     </PreferenceScreen>

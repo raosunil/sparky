@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="16"
+        android:minSdkVersion="14"
         android:targetSdkVersion="21"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -32,8 +32,19 @@
         <activity android:name=".SetPreferenceActivity"
             android:label="SetPreferenceActivity"
             />
+        <activity android:name="org.achartengine.GraphicalActivity" />
+        <activity android:name=".AQMResultsListViewActivity"
+            android:label="AQMResultsListViewActivity"
+            />
+        <activity android:name="com.example.dylosusbdatatransferapp.notification.LoopBackEventHandlerActivity"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+            />
          <service android:enabled="true" 
             android:name="com.example.dylosusbdatatransferapp.service.MonitorService"            
+            />
+         <service android:enabled="true" 
+            android:name="com.example.dylosusbdatatransferapp.service.AQMResultsFeedService"            
             />
     </application>
 
