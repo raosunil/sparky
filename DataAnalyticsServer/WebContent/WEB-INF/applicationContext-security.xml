@@ -22,9 +22,9 @@
     <!-- Configure the authentication provider -->
     <security:authentication-provider>
         <security:user-service>
-          <security:user name="user"        password="user"         authorities="ROLE_USER" />
-          <security:user name="supervisor"  password="supervisor"   authorities="ROLE_SUPERVISOR" />
-          <security:user name="admin"       password="admin"        authorities="ROLE_ADMIN" />
+          <security:user name="user"        password="*****"         authorities="ROLE_USER" />
+          <security:user name="supervisor"  password="******"   authorities="ROLE_SUPERVISOR" />
+          <security:user name="admin"       password="****"        authorities="ROLE_ADMIN" />
         </security:user-service>
     </security:authentication-provider>
 </beans>
