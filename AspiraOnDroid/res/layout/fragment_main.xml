@@ -1,0 +1,61 @@
+<com.example.aspiraondroid.DashboardLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1"
+    android:background="#f8f9fe" >
+
+    <!-- Monitor  Button -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/leftColumnLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/nextReadingLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NextReading"
+                android:textColor="#757575"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/editTextNextReading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="PM"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#212121"
+                android:textSize="25sp" />
+
+            <ToggleButton
+                android:id="@+id/btn_toggleMonitoring"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/switch_btn"
+                android:textOff="Monitor off"
+                android:textOn="Monitor on" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/traffic_signal_disconnected" />
+    </LinearLayout>
+
+ <com.example.aspiraondroid.view.ComplexDynamicView
+        android:id="@+id/firstColumnView"
+        style="@style/DashboardButton"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+</com.example.aspiraondroid.DashboardLayout>
