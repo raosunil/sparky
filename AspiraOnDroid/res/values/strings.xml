@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AspiraOnDroid</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="help_menu">Help</string>
+    <string name="app_config">App Config</string>
+    <string name="medication">Medication</string>
+    <string name="monitoring">Monitoring</string>
+    <string name="help_text_1">In case you need any assistance please contact the following person</string>
+    <string name="help_imgbtn_text1">Powering on device</string>
+    <string name="help_imgbtn_text2">Using a Spirometer</string>
+    <string name="help_imgbtn_text3">Record a reading</string>
+    <string name="help_imgbtn_text4">Steps to take reading</string>
+    <string name="help_imgbtn_text5">Spirometer Manual</string>
+    <string name="peflabel">PEF Value</string>
+    <string name="fevlabel">FEV Value</string>
+    <string name="symptomsquery">Are you having any symptoms?</string>
+	<string name="submit">Submit</string>
+	<string name="cancel">Cancel</string>
+</resources>
