@@ -80,7 +80,7 @@
             android:key="asthmaglobals.config.alertInfo.spiroReadingTime"
            android:title="title_asthmaglobals.config.alertInfo.spiroReadingTime_preference"
                 android:summary="summary_asthmaglobals.config.alertInfo.spiroReadingTime_preference"
-                android:defaultValue="0046,0049,0053,0057,0800,1300,1700,1930,2000"
+                android:defaultValue="0800,1300,1700,1930,2000"
                 android:dialogTitle="dialog_asthmaglobals.config.alertInfo.spiroReadingTime_preference"/>
               <EditTextPreference
             android:key="asthmaglobals.config.alertInfo.dynamicReadingAlertText"
@@ -195,7 +195,7 @@
             android:key="thread_size"
             android:title="title_thread_size_preference"
                 android:summary="summary_thread_size_preference"
-                android:defaultValue="2"
+                android:defaultValue="1"
                 android:dialogTitle="dialog_thread_size_preference"/>
         <EditTextPreference
             android:key="grace_period"
