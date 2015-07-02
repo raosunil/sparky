@@ -48,7 +48,7 @@ public class SpirometerReadingService extends Service{
 
 		try{
 			if(scheduledThreadPool==null)
-				scheduledThreadPool = Executors.newScheduledThreadPool(2);	
+				scheduledThreadPool = Executors.newScheduledThreadPool(1);	
 			long nextReadinginMiilis = Long.valueOf(prefs.getString("asthmaglobals.nextReadingTimeinMillis", "0"));
 			long periodic_delay = -1;
 			long time_now = new Date().getTime();

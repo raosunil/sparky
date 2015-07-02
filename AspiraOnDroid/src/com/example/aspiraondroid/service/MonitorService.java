@@ -88,7 +88,7 @@ public class MonitorService extends Service {
 			tmpdevice = DeviceHolder.getInstance().getDevice();
 			manager = (UsbManager)getApplicationContext().getSystemService(Context.USB_SERVICE);
 			prefs = getApplicationContext().getSharedPreferences(PreferenceSettings.CONFIG_NAME, MODE_PRIVATE);
-			thread_size = Integer.valueOf(prefs.getString("thread_size", "2"));
+			thread_size = Integer.valueOf(prefs.getString("thread_size", "1"));
 			grace_period = Integer.valueOf(prefs.getString("grace_period", "200"));
 			periodic_delay = Long.parseLong(prefs.getString("periodic_delay", "300000"));
 			deviceId = prefs.getString("deviceId", "aqm0");
