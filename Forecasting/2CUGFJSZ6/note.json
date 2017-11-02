@@ -1,0 +1,651 @@
+{
+  "paragraphs": [
+    {
+      "text": "val sparkSession \u003d org.apache.spark.sql.SparkSession.builder.getOrCreate",
+      "user": "admin",
+      "dateUpdated": "2017-10-26 14:20:55.367",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "sparkSession: org.apache.spark.sql.SparkSession \u003d org.apache.spark.sql.SparkSession@1c8c54a3\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1506451686756_-290038600",
+      "id": "20170926-114806_617541947",
+      "dateCreated": "2017-09-26 11:48:06.756",
+      "dateStarted": "2017-10-26 14:20:55.477",
+      "dateFinished": "2017-10-26 14:20:56.273",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val snotelDF \u003d sparkSession.read.format(\"csv\").option(\"inferSchema\",true).option(\"header\",true).load(\"/Users/shruthimurthy/data/SnotelData.csv\")",
+      "user": "admin",
+      "dateUpdated": "2017-10-26 14:20:55.470",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "snotelDF: org.apache.spark.sql.DataFrame \u003d [Date: timestamp, Bigelow_Camp_Precip_in: double ... 9 more fields]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d0",
+            "http://127.0.0.1:4040/jobs/job?id\u003d1"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1507314915597_-614329019",
+      "id": "20171006-113515_126324176",
+      "dateCreated": "2017-10-06 11:35:15.597",
+      "dateStarted": "2017-10-26 14:20:55.672",
+      "dateFinished": "2017-10-26 14:21:02.641",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "snotelDF.show()",
+      "user": "admin",
+      "dateUpdated": "2017-10-26 14:20:55.565",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------+----------------------+-------------------+------------------------+---------------------+--------------------+-----------------+----------------------+-------------------+-----------------------------+--------------------------+\n|               Date|Bigelow_Camp_Precip_in|Bigelow_Camp_SWE_in|Cascade_Summit_Precip_in|Cascade_Summit_SWE_in|Greenpoint_Precip_in|Greenpoint_SWE_in|Irish_Taylor_Precip_in|Irish_Taylor_SWE_in|Three_Creeks_Meadow_Precip_in|Three_Creeks_Meadow_SWE_in|\n+-------------------+----------------------+-------------------+------------------------+---------------------+--------------------+-----------------+----------------------+-------------------+-----------------------------+--------------------------+\n|1986-01-01 00:00:00|                  16.0|                5.5|                    21.5|                 11.3|                24.6|              9.6|                  23.3|               13.6|                         10.9|                       6.1|\n|1986-04-01 00:00:00|                  51.1|                0.0|                    49.9|                 26.8|                62.1|             17.3|                  54.2|               38.8|                         33.7|                      19.8|\n|1987-01-01 00:00:00|                  16.6|                2.7|                    19.1|                 12.8|                22.8|              5.1|                  19.3|               12.6|                         10.0|                       6.2|\n|1987-04-01 00:00:00|                  45.2|               13.6|                    39.9|                 30.6|                49.4|             12.6|                  39.9|               34.2|                         24.5|                      18.0|\n|1988-01-01 00:00:00|                  20.6|                8.6|                    19.1|                  8.6|                22.5|              4.1|                  18.8|               11.0|                         13.4|                       5.4|\n|1988-04-01 00:00:00|                  34.0|                0.0|                    41.9|                 25.7|                51.8|             15.7|                  43.1|               31.7|                         24.8|                      14.5|\n|1989-01-01 00:00:00|                  25.5|                7.2|                    25.3|                 18.6|                34.2|              9.4|                  26.9|               15.3|                         17.5|                       6.7|\n|1989-04-01 00:00:00|                  52.1|               16.6|                    50.9|                 47.0|                65.0|             25.8|                  55.6|               47.7|                         32.4|                      18.5|\n|1990-01-01 00:00:00|                  12.6|                0.0|                    10.4|                  3.3|                18.3|              0.8|                  12.8|                3.3|                          7.2|                       0.2|\n|1990-04-01 00:00:00|                  34.6|                0.6|                    35.5|                 24.9|                55.6|             14.9|                  41.6|               15.1|                         25.1|                       9.3|\n|1991-01-01 00:00:00|                  14.3|                3.0|                    21.8|                 11.4|                28.0|              6.8|                  23.1|                6.1|                          8.4|                       4.0|\n|1991-04-01 00:00:00|                  34.3|                5.1|                    40.5|                 20.7|                51.3|              7.1|                  42.9|               18.7|                         20.3|                       8.4|\n|1992-01-01 00:00:00|                  14.3|                1.6|                    27.7|                 10.6|                26.6|              1.9|                  27.9|                8.7|                         14.4|                       3.1|\n|1992-04-01 00:00:00|                  29.4|                0.0|                    37.9|                 11.3|                44.9|              0.0|                  38.3|               12.5|                         22.9|                       5.3|\n|1993-01-01 00:00:00|                  28.5|               16.0|                    31.7|                 21.5|                28.2|             17.4|                  29.7|               23.8|                         16.4|                       9.3|\n|1993-04-01 00:00:00|                  50.9|               26.4|                    54.7|                 35.6|                49.3|             23.6|                  53.1|               46.1|                         31.5|                      25.9|\n|1994-01-01 00:00:00|                  13.1|                3.2|                    12.4|                  8.8|                15.4|              5.1|                  11.6|                7.9|                          7.2|                       4.9|\n|1994-04-01 00:00:00|                  28.7|                0.0|                    29.2|                 21.4|                38.5|             15.3|                  31.9|               23.7|                         17.6|                      10.9|\n|1995-01-01 00:00:00|                  23.2|               11.3|                    24.7|                 15.7|                39.2|             10.8|                  31.4|               20.6|                         16.5|                      10.2|\n|1995-04-01 00:00:00|                  67.4|               11.4|                    51.9|                 25.2|                69.0|             12.4|                  61.2|               36.4|                         38.1|                      19.4|\n+-------------------+----------------------+-------------------+------------------------+---------------------+--------------------+-----------------+----------------------+-------------------+-----------------------------+--------------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d2"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1507315399631_-1096681546",
+      "id": "20171006-114319_635952369",
+      "dateCreated": "2017-10-06 11:43:19.631",
+      "dateStarted": "2017-10-26 14:20:56.298",
+      "dateFinished": "2017-10-26 14:21:03.378",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "admin",
+      "dateUpdated": "2017-10-26 14:20:55.671",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1507331483838_2107377746",
+      "id": "20171006-161123_1511111273",
+      "dateCreated": "2017-10-06 16:11:23.838",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "snotelDF.describe().show()\nsnotelDF.columns.foreach(println)",
+      "user": "admin",
+      "dateUpdated": "2017-10-26 14:20:55.829",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+----------------------+-------------------+------------------------+---------------------+--------------------+-----------------+----------------------+-------------------+-----------------------------+--------------------------+\n|summary|Bigelow_Camp_Precip_in|Bigelow_Camp_SWE_in|Cascade_Summit_Precip_in|Cascade_Summit_SWE_in|Greenpoint_Precip_in|Greenpoint_SWE_in|Irish_Taylor_Precip_in|Irish_Taylor_SWE_in|Three_Creeks_Meadow_Precip_in|Three_Creeks_Meadow_SWE_in|\n+-------+----------------------+-------------------+------------------------+---------------------+--------------------+-----------------+----------------------+-------------------+-----------------------------+--------------------------+\n|  count|                    64|                 64|                      64|                   64|                  64|               64|                    64|                 64|                           64|                        64|\n|   mean|     39.31718749999999|  8.570312499999998|      37.818749999999994|   21.568749999999998|   44.51718749999999|       11.9984375|     38.29062500000001|         24.0671875|           24.932812499999997|        12.382812500000002|\n| stddev|    19.634740467704862|   8.32459884514201|      16.260399602657223|   12.118015907062077|   18.38538545458028|8.368487606576744|    16.219826381843394| 13.492938243410002|           12.204943763973107|         8.322880199872431|\n|    min|                   6.1|                0.0|                    10.4|                  2.6|                15.3|              0.0|                  11.6|                3.3|                          7.2|                       0.0|\n|    max|                  99.1|               38.6|                    81.6|                 49.9|                89.8|             35.1|                  77.4|               59.4|                         64.5|                      42.9|\n+-------+----------------------+-------------------+------------------------+---------------------+--------------------+-----------------+----------------------+-------------------+-----------------------------+--------------------------+\n\nDate\nBigelow_Camp_Precip_in\nBigelow_Camp_SWE_in\nCascade_Summit_Precip_in\nCascade_Summit_SWE_in\nGreenpoint_Precip_in\nGreenpoint_SWE_in\nIrish_Taylor_Precip_in\nIrish_Taylor_SWE_in\nThree_Creeks_Meadow_Precip_in\nThree_Creeks_Meadow_SWE_in\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d3"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1507315418499_-1228544500",
+      "id": "20171006-114338_1410815503",
+      "dateCreated": "2017-10-06 11:43:38.499",
+      "dateStarted": "2017-10-26 14:21:03.187",
+      "dateFinished": "2017-10-26 14:21:06.082",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val list \u003d  snotelDF.stat.approxQuantile(\"Bigelow_Camp_Precip_in\",Array(0.25,0.5,0.75),0.0)",
+      "user": "admin",
+      "dateUpdated": "2017-10-26 14:20:55.921",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "list: Array[Double] \u003d Array(25.3, 34.1, 52.2)\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d4"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1507316076376_-1674316878",
+      "id": "20171006-115436_945487068",
+      "dateCreated": "2017-10-06 11:54:36.376",
+      "dateStarted": "2017-10-26 14:21:03.404",
+      "dateFinished": "2017-10-26 14:21:06.700",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import org.apache.spark.ml.feature.StandardScaler\nimport org.apache.spark.ml.linalg.Vectors\nimport org.apache.spark.ml.linalg.Vector\nimport org.apache.spark.ml.feature.VectorAssembler\n\nval assembler \u003d new VectorAssembler().setInputCols(Array(\"Bigelow_Camp_Precip_in\",\"Bigelow_Camp_SWE_in\",\"Cascade_Summit_Precip_in\",\"Cascade_Summit_SWE_in\",\n\"Greenpoint_Precip_in\",\"Greenpoint_SWE_in\",\"Irish_Taylor_Precip_in\",\"Irish_Taylor_SWE_in\",\"Three_Creeks_Meadow_Precip_in\",\"Three_Creeks_Meadow_SWE_in\")).setOutputCol(\"features\")\n\nval outputDF \u003d assembler.transform(snotelDF)\nval scaler \u003d new StandardScaler().setInputCol(\"features\").setOutputCol(\"scaledFeatures\")\n\nval scalerModel \u003d scaler.fit(outputDF)\n\nval scaledDataF \u003d scalerModel.transform(outputDF)",
+      "user": "admin",
+      "dateUpdated": "2017-10-26 14:20:56.067",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.ml.feature.StandardScaler\nimport org.apache.spark.ml.linalg.Vectors\nimport org.apache.spark.ml.linalg.Vector\nimport org.apache.spark.ml.feature.VectorAssembler\nassembler: org.apache.spark.ml.feature.VectorAssembler \u003d vecAssembler_02a23c6b51d1\noutputDF: org.apache.spark.sql.DataFrame \u003d [Date: timestamp, Bigelow_Camp_Precip_in: double ... 10 more fields]\nscaler: org.apache.spark.ml.feature.StandardScaler \u003d stdScal_2c4386c906e7\nscalerModel: org.apache.spark.ml.feature.StandardScalerModel \u003d stdScal_2c4386c906e7\nscaledDataF: org.apache.spark.sql.DataFrame \u003d [Date: timestamp, Bigelow_Camp_Precip_in: double ... 11 more fields]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d5"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1507317087821_-804178498",
+      "id": "20171006-121127_1840008338",
+      "dateCreated": "2017-10-06 12:11:27.821",
+      "dateStarted": "2017-10-26 14:21:06.634",
+      "dateFinished": "2017-10-26 14:21:09.715",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "scaledDataF.select(\"features\",\"scaledFeatures\").show()",
+      "user": "admin",
+      "dateUpdated": "2017-10-26 14:20:56.169",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+--------------------+\n|            features|      scaledFeatures|\n+--------------------+--------------------+\n|[16.0,5.5,21.5,11...|[0.81488217408917...|\n|[51.1,0.0,49.9,26...|[2.60252994349729...|\n|[16.6,2.7,19.1,12...|[0.84544025561751...|\n|[45.2,13.6,39.9,3...|[2.30204214180191...|\n|[20.6,8.6,19.1,8....|[1.04916079913981...|\n|[34.0,0.0,41.9,25...|[1.73162461993949...|\n|[25.5,7.2,25.3,18...|[1.29871846495461...|\n|[52.1,16.6,50.9,4...|[2.65346007937786...|\n|[12.6,0.0,10.4,3....|[0.64171971209522...|\n|[34.6,0.6,35.5,24...|[1.76218270146783...|\n|[14.3,3.0,21.8,11...|[0.72830094309219...|\n|[34.3,5.1,40.5,20...|[1.74690366070366...|\n|[14.3,1.6,27.7,10...|[0.72830094309219...|\n|[29.4,0.0,37.9,11...|[1.49734599488885...|\n|[28.5,16.0,31.7,2...|[1.45150887259633...|\n|[50.9,26.4,54.7,3...|[2.59234391632118...|\n|[13.1,3.2,12.4,8....|[0.66718478003551...|\n|[28.7,0.0,29.2,21...|[1.46169489977245...|\n|[23.2,11.3,24.7,1...|[1.18157915242930...|\n|[67.4,11.4,51.9,2...|[3.43269115835064...|\n+--------------------+--------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d6"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1507323354807_1863818086",
+      "id": "20171006-135554_1746672255",
+      "dateCreated": "2017-10-06 13:55:54.807",
+      "dateStarted": "2017-10-26 14:21:07.236",
+      "dateFinished": "2017-10-26 14:21:10.172",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import org.apache.spark.mllib.linalg.distributed.RowMatrix\nimport org.apache.spark.sql._\nimport org.apache.spark.mllib.linalg.Vectors\nimport org.apache.spark.mllib.linalg.Matrix\nimport org.apache.spark.mllib.linalg.Vectors\nimport org.apache.spark.mllib.linalg.distributed.RowMatrix\n\n",
+      "user": "admin",
+      "dateUpdated": "2017-10-26 14:20:56.297",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.mllib.linalg.distributed.RowMatrix\nimport org.apache.spark.sql._\nimport org.apache.spark.mllib.linalg.Vectors\nimport org.apache.spark.mllib.linalg.Matrix\nimport org.apache.spark.mllib.linalg.Vectors\nimport org.apache.spark.mllib.linalg.distributed.RowMatrix\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1507326325911_-912682171",
+      "id": "20171006-144525_2056109801",
+      "dateCreated": "2017-10-06 14:45:25.911",
+      "dateStarted": "2017-10-26 14:21:10.203",
+      "dateFinished": "2017-10-26 14:21:11.384",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val scaledDataFRDDVector \u003d scaledDataF.select(\"scaledFeatures\").rdd.map{r:Row \u003d\u003e r.getAs[org.apache.spark.ml.linalg.Vector](0)}\nscaledDataFRDDVector.collect().take(10)\n//val scaledDataFRDDVectorMllib \u003d org.apache.spark.mllib.linalg.Vectors.fromML(scaledDataFRDDVector)\nval scaledDataMllibVectors \u003d scaledDataFRDDVector.map{\n    mlVector:org.apache.spark.ml.linalg.Vector \u003d\u003e org.apache.spark.mllib.linalg.Vectors.fromML(mlVector)\n}\n",
+      "user": "admin",
+      "dateUpdated": "2017-10-26 14:20:56.428",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "scaledDataFRDDVector: org.apache.spark.rdd.RDD[org.apache.spark.ml.linalg.Vector] \u003d MapPartitionsRDD[34] at map at \u003cconsole\u003e:60\nres4: Array[org.apache.spark.ml.linalg.Vector] \u003d Array([0.8148821740891729,0.6606924972978894,1.322230727742173,0.9324958876654587,1.3380192686616477,1.147160687966535,1.43651352680829,1.0079346510492098,0.8930807229259772,0.732919356461901], [2.602529943497296,0.0,3.0688052704341593,2.2115831672065744,3.37768278796294,2.0672791564396933,3.3415894057085547,2.8755782691698046,2.7611761800555445,2.378984140646826], [0.8454402556175169,0.3243399532189639,1.174632879063977,1.0562785276210505,1.2401154197351856,0.6094291154822217,1.1899017625493562,0.9338218090602973,0.8193401127761258,0.7449344278793092], [2.3020421418019135,1.633712356954781,2.453814234275009,2.525165855094074,2.6869167427595686,1.5056484029560773,2.4599523484828656,2.5346591960208076,2.0073832763015083,2.162712855133478],...scaledDataMllibVectors: org.apache.spark.rdd.RDD[org.apache.spark.mllib.linalg.Vector] \u003d MapPartitionsRDD[35] at map at \u003cconsole\u003e:62\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d7"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1507331074435_362747800",
+      "id": "20171006-160434_1777048197",
+      "dateCreated": "2017-10-06 16:04:34.435",
+      "dateStarted": "2017-10-26 14:21:10.706",
+      "dateFinished": "2017-10-26 14:21:12.670",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import org.apache.spark.mllib.linalg.distributed.RowMatrix\nimport org.apache.spark.mllib.linalg.Matrix\nimport org.apache.spark.mllib.linalg.Matrix\nimport org.apache.spark.ml.linalg.Vectors\nimport org.apache.spark.mllib.linalg.distributed.RowMatrix\n\nval mat: RowMatrix \u003d new RowMatrix(scaledDataMllibVectors)\nval pc: Matrix \u003d mat.computePrincipalComponents(6)\nval projected : RowMatrix \u003d mat.multiply(pc)\nprintln(pc.numRows + \" PC Num Rows \" + pc.numCols + \" and its columns count\")",
+      "user": "admin",
+      "dateUpdated": "2017-10-26 14:20:56.513",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.mllib.linalg.distributed.RowMatrix\nimport org.apache.spark.mllib.linalg.Matrix\nimport org.apache.spark.mllib.linalg.Matrix\nimport org.apache.spark.ml.linalg.Vectors\nimport org.apache.spark.mllib.linalg.distributed.RowMatrix\nmat: org.apache.spark.mllib.linalg.distributed.RowMatrix \u003d org.apache.spark.mllib.linalg.distributed.RowMatrix@5cadb8e0\npc: org.apache.spark.mllib.linalg.Matrix \u003d\n-0.3183929093407101   0.22137792926522093   ... (6 total)\n-0.23888013387561752  -0.6074685210856172   ...\n-0.3327338795980112   0.2715668936347617    ...\n-0.32395012329442346  -0.26345563230317465  ...\n-0.32120410454395726  0.34221638386143766   ...\n-0.29932555366013996  -0.28546207336321244  ...\n-0.33685621165754515  0.20915949660996425   ...\n-0.3329252136339339   -0.16194036946603968  ...\n-0.32265019071062007  0.332992484435476     ...\n-0.3236115036357657   -0.24363772024489966  ...\nprojected: org.apache.spark.mllib.linalg.distributed.RowMatrix \u003d org.apache.spark.mllib.linalg.distributed.RowMatrix@448c632b\n10 PC Num Rows 6 and its columns count\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d8",
+            "http://127.0.0.1:4040/jobs/job?id\u003d9",
+            "http://127.0.0.1:4040/jobs/job?id\u003d10"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1507475299294_-615361097",
+      "id": "20171008-080819_1627161745",
+      "dateCreated": "2017-10-08 08:08:19.294",
+      "dateStarted": "2017-10-26 14:21:11.910",
+      "dateFinished": "2017-10-26 14:21:15.914",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "\n//println(projected.numRows + \" Projected Num Rows \" + projected.numCols + \" and its columns count\")\n\n//import org.apache.spark.mllib.linalg.distributed._;\n\n//val indexedRM \u003d new IndexedRowMatrix(projected.rows.zipWithIndex.map{\n//    case(row, idx) \u003d\u003e new IndexedRow(idx,row)\n    \n//})\n\n//val transposed \u003d indexedRM.toCoordinateMatrix().transpose.toIndexedRowMatrix()\n\n//val projected_hat \u003d new RowMatrix(transposed.rows.map(idxRow \u003d\u003e (idxRow.index, idxRow.vector)).sortByKey().map(_._2))\n\n//println(projected_hat.numRows + \" projected_hat Num Rows \" + projected_hat.numCols + \" and its columns count\")\n\n",
+      "user": "admin",
+      "dateUpdated": "2017-10-26 14:20:56.608",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1507505388713_2067635016",
+      "id": "20171008-162948_882133412",
+      "dateCreated": "2017-10-08 16:29:48.713",
+      "dateStarted": "2017-10-26 14:21:13.197",
+      "dateFinished": "2017-10-26 14:21:16.093",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import org.apache.spark.mllib.linalg.SingularValueDecomposition\n\nval svd : SingularValueDecomposition[RowMatrix, Matrix] \u003d mat.computeSVD(10, computeU \u003d true)\nval s : org.apache.spark.mllib.linalg.Vector \u003d svd.s\n\nprintln(svd.s.toArray.length + \" Length of S \")",
+      "user": "admin",
+      "dateUpdated": "2017-10-26 14:20:56.677",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.mllib.linalg.SingularValueDecomposition\nsvd: org.apache.spark.mllib.linalg.SingularValueDecomposition[org.apache.spark.mllib.linalg.distributed.RowMatrix,org.apache.spark.mllib.linalg.Matrix] \u003d\nSingularValueDecomposition(org.apache.spark.mllib.linalg.distributed.RowMatrix@1f4199bd,[53.38276027282969,8.548859070839548,4.550822157188216,3.3878087421193914,2.9341293302183353,2.658717738300616,1.763687041223621,1.5250759673890386,1.401960982396623,1.0853238086010346],-0.32955861065083725  0.1628751634090747    ... (10 total)\n-0.18083231854255694  -0.6051519917129718   ...\n-0.37627000996254195  0.23709440956385375   ...\n-0.29891265567282865  -0.2911003257297289   ...\n-0.38745902548860184  0.323399227491529     ...\n-0.2472953397475558   -0.3380923816974328   ...\n-0.3815975369723145   0.18488326251602377   ...\n-0.30127157007147     ...s: org.apache.spark.mllib.linalg.Vector \u003d [53.38276027282969,8.548859070839548,4.550822157188216,3.3878087421193914,2.9341293302183353,2.658717738300616,1.763687041223621,1.5250759673890386,1.401960982396623,1.0853238086010346]\n10 Length of S \n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d11"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1507641008972_-919416305",
+      "id": "20171010-061008_877754639",
+      "dateCreated": "2017-10-10 06:10:08.972",
+      "dateStarted": "2017-10-26 14:21:16.113",
+      "dateFinished": "2017-10-26 14:21:17.938",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "var i:Int \u003d 0\nvar sumVal:Double \u003d 0\nwhile(i \u003c svd.s.toArray.length){\n     sumVal +\u003d svd.s.toArray(i)\n    i +\u003d 1\n}\nprintln(sumVal + \" Total value of all eigen values\")\nprintln (\"Variance explained by 1st PC \"+svd.s.toArray(0)/sumVal )\nprintln (\"Variance explained by 6 PCs \"+(svd.s.toArray(0) + svd.s.toArray(1) + svd.s.toArray(2) + svd.s.toArray(3) + svd.s.toArray(4) + svd.s.toArray(5))/sumVal )",
+      "user": "admin",
+      "dateUpdated": "2017-10-26 14:20:56.803",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "i: Int \u003d 0\nsumVal: Double \u003d 0.0\n81.23914511110611 Total value of all eigen values\nVariance explained by 1st PC 0.6571063764866205\nVariance explained by 6 PCs 0.9289006821562347\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1507763349163_-1866146240",
+      "id": "20171011-160909_1410220869",
+      "dateCreated": "2017-10-11 16:09:09.163",
+      "dateStarted": "2017-10-26 14:21:16.615",
+      "dateFinished": "2017-10-26 14:21:20.230",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "admin",
+      "dateUpdated": "2017-10-26 14:20:56.879",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1507763779455_160707676",
+      "id": "20171011-161619_1239398389",
+      "dateCreated": "2017-10-11 16:16:19.455",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "MultimodelEnsemble",
+  "id": "2CUGFJSZ6",
+  "angularObjects": {
+    "2CQBZRAUD:shared_process": [],
+    "2CR3Z79TN:shared_process": [],
+    "2CPRN8S87:shared_process": [],
+    "2CQ5AG16H:shared_process": [],
+    "2CQ25EC9M:shared_process": [],
+    "2CT66XUSW:shared_process": [],
+    "2CPRDBP2N:shared_process": [],
+    "2CT684WGK:shared_process": [],
+    "2CR65K48E:shared_process": [],
+    "2CQ3HS2GM:shared_process": [],
+    "2CT8TU8HX:shared_process": [],
+    "2CQUGD56B:shared_process": [],
+    "2CSFQERRA:shared_process": [],
+    "2CQ8CCQ1P:shared_process": [],
+    "2CQGDU1WC:shared_process": [],
+    "2CRFYYC5J:shared_process": [],
+    "2CQV1UQ37:shared_process": [],
+    "2CRGVTXD9:shared_process": [],
+    "2CQ22FJC1:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

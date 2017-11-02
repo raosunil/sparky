@@ -1,0 +1,43 @@
+{
+  "paragraphs": [
+    {
+      "user": "admin",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1509475029247_860025785",
+      "id": "20171031-113709_1452994131",
+      "dateCreated": "2017-10-31 11:37:09.247",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "SnotelTimeSeries",
+  "id": "2CZ9KNQQ8",
+  "angularObjects": {
+    "2CQBZRAUD:shared_process": [],
+    "2CR3Z79TN:shared_process": [],
+    "2CPRN8S87:shared_process": [],
+    "2CQ5AG16H:shared_process": [],
+    "2CQ25EC9M:shared_process": [],
+    "2CT66XUSW:shared_process": [],
+    "2CPRDBP2N:shared_process": [],
+    "2CT684WGK:shared_process": [],
+    "2CR65K48E:shared_process": [],
+    "2CQ3HS2GM:shared_process": [],
+    "2CT8TU8HX:shared_process": [],
+    "2CQUGD56B:shared_process": [],
+    "2CSFQERRA:shared_process": [],
+    "2CQ8CCQ1P:shared_process": [],
+    "2CQGDU1WC:shared_process": [],
+    "2CRFYYC5J:shared_process": [],
+    "2CQV1UQ37:shared_process": [],
+    "2CRGVTXD9:shared_process": [],
+    "2CQ22FJC1:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

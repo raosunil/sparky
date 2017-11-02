@@ -1,0 +1,1063 @@
+{
+  "paragraphs": [
+    {
+      "text": "import org.apache.spark.sql.types._\nimport sys.process._\nimport org.apache.spark.sql._\nimport org.apache.spark.mllib.regression.LabeledPoint\nimport org.apache.spark.mllib.regression.LinearRegressionModel\nimport org.apache.spark.mllib.regression.LinearRegressionWithSGD\nimport org.apache.spark.ml.regression.GeneralizedLinearRegressionModel\nimport org.apache.spark.ml.regression.GeneralizedLinearRegression\nimport org.apache.spark.mllib.linalg.Vectors\nimport  org.apache.spark.mllib.linalg.Vector\n\nimport org.apache.spark.ml.linalg.{Vectors \u003d\u003e mlVectors}\nimport  org.apache.spark.ml.linalg.{Vector \u003d\u003e mlVector}",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:56.096",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.types._\nimport sys.process._\nimport org.apache.spark.sql._\nimport org.apache.spark.mllib.regression.LabeledPoint\nimport org.apache.spark.mllib.regression.LinearRegressionModel\nimport org.apache.spark.mllib.regression.LinearRegressionWithSGD\nimport org.apache.spark.ml.regression.GeneralizedLinearRegressionModel\nimport org.apache.spark.ml.regression.GeneralizedLinearRegression\nimport org.apache.spark.mllib.linalg.Vectors\nimport org.apache.spark.mllib.linalg.Vector\nimport org.apache.spark.ml.linalg.{Vectors\u003d\u003emlVectors}\nimport org.apache.spark.ml.linalg.{Vector\u003d\u003emlVector}\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1502456393970_947047115",
+      "id": "20170811-055953_2082068957",
+      "dateCreated": "2017-08-11 05:59:53.970",
+      "dateStarted": "2017-10-09 21:16:56.167",
+      "dateFinished": "2017-10-09 21:17:00.096",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val sqlContext \u003d new SQLContext(sc)\nval noHeader \u003d rawBlocks.filter(x \u003d\u003e !isHeader(x))",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:56.155",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "warning: there was one deprecation warning; re-run with -deprecation for details\nsqlContext: org.apache.spark.sql.SQLContext \u003d org.apache.spark.sql.SQLContext@69aef47c\n\u003cconsole\u003e:103: error: not found: value rawBlocks\n       val noHeader \u003d rawBlocks.filter(x \u003d\u003e !isHeader(x))\n                      ^\n\u003cconsole\u003e:103: error: not found: value isHeader\n       val noHeader \u003d rawBlocks.filter(x \u003d\u003e !isHeader(x))\n                                             ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1502456450222_-1919054711",
+      "id": "20170811-060050_60909513",
+      "dateCreated": "2017-08-11 06:00:50.222",
+      "dateStarted": "2017-10-09 21:16:56.365",
+      "dateFinished": "2017-10-09 21:17:00.421",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val schema \u003d StructType(Array(\n     | StructField(\"symboling\",DoubleType,true),\n     | StructField(\"normalized-losses\",DoubleType,true),\n     | StructField(\"make\",StringType,true),\n     | StructField(\"fuel-type\",StringType,true),\n     | StructField(\"aspiration\",StringType,true),\n     | StructField(\"num-of-doors\",StringType,true),\n     | StructField(\"body-style\",StringType,true),\n     | StructField(\"drive-wheels\",StringType,true),\n     | StructField(\"engine-location\",StringType,true),\n     | StructField(\"wheel-base\",DoubleType,true),\n     | StructField(\"length\",DoubleType,true),\n     | StructField(\"width\",DoubleType,true),\n     | StructField(\"height\",DoubleType,true),\n     | StructField(\"curb-weight\",DoubleType,true),\n     | StructField(\"engine-type\",DoubleType,true),\n     | StructField(\"num-of-cylinders\",DoubleType,true),\n     | StructField(\"engine-size\",DoubleType,true),\n     | StructField(\"fuel-system\",DoubleType,true),\n     | StructField(\"bore\",DoubleType,true),\n     | StructField(\"stroke\",DoubleType,true),\n     | StructField(\"compression-ratio\",DoubleType,true),\n     | StructField(\"horsepower\",DoubleType,true),\n     | StructField(\"peak-rpm\",DoubleType,true),\n     | StructField(\"city-mpg\",DoubleType,true),\n     | StructField(\"highway-mpg\",DoubleType,true),\n     | StructField(\"price\",DoubleType,true)))\n\n\n",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:56.232",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "schema: org.apache.spark.sql.types.StructType \u003d StructType(StructField(symboling,DoubleType,true), StructField(normalized-losses,DoubleType,true), StructField(make,StringType,true), StructField(fuel-type,StringType,true), StructField(aspiration,StringType,true), StructField(num-of-doors,StringType,true), StructField(body-style,StringType,true), StructField(drive-wheels,StringType,true), StructField(engine-location,StringType,true), StructField(wheel-base,DoubleType,true), StructField(length,DoubleType,true), StructField(width,DoubleType,true), StructField(height,DoubleType,true), StructField(curb-weight,DoubleType,true), StructField(engine-type,DoubleType,true), StructField(num-of-cylinders,DoubleType,true), StructField(engine-size,DoubleType,true), StructField(fuel-system,DoubleType,tr..."
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1502456475221_1259786674",
+      "id": "20170811-060115_480741865",
+      "dateCreated": "2017-08-11 06:01:15.221",
+      "dateStarted": "2017-10-09 21:17:00.459",
+      "dateFinished": "2017-10-09 21:17:01.176",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val spark \u003d org.apache.spark.sql.SparkSession.builder.getOrCreate",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:56.288",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "spark: org.apache.spark.sql.SparkSession \u003d org.apache.spark.sql.SparkSession@6a825c42\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1502456654365_-2131361128",
+      "id": "20170811-060414_2001200475",
+      "dateCreated": "2017-08-11 06:04:14.365",
+      "dateStarted": "2017-10-09 21:17:00.960",
+      "dateFinished": "2017-10-09 21:17:01.446",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val dfAutoAttribs \u003d spark.read.format(\"csv\").option(\"header\",true).option(\"inferschema\",true)\n.load(\"/Users/shruthimurthy/data/simplenew.csv\")",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:56.353",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "lineNumbers": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "dfAutoAttribs: org.apache.spark.sql.DataFrame \u003d [symboling: int, normalized-losses: int ... 24 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1502456668682_-636581003",
+      "id": "20170811-060428_400156142",
+      "dateCreated": "2017-08-11 06:04:28.682",
+      "dateStarted": "2017-10-09 21:17:01.490",
+      "dateFinished": "2017-10-09 21:17:02.167",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "dfAutoAttribs.registerTempTable(\"Automobiles\")\ndfAutoAttribs.columns",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:56.427",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "warning: there was one deprecation warning; re-run with -deprecation for details\nres10: Array[String] \u003d Array(symboling, normalized-losses, make, fuel-type, aspiration, num-of-doors, body-style, drive-wheels, engine-location, wheel-base, length, width, height, curb-weight, engine-type, num-of-cylinders, engine-size, fuel-system, bore, stroke, compression-ratio, horsepower, peak-rpm, city-mpg, highway-mpg, price)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1502456680279_981688195",
+      "id": "20170811-060440_305338016",
+      "dateCreated": "2017-08-11 06:04:40.279",
+      "dateStarted": "2017-10-09 21:17:01.991",
+      "dateFinished": "2017-10-09 21:17:02.909",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql SELECT * FROM Automobiles ",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:56.491",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "symboling": "string",
+                      "normalized-losses": "string",
+                      "make": "string",
+                      "fuel-type": "string",
+                      "aspiration": "string",
+                      "num-of-doors": "string",
+                      "body-style": "string",
+                      "drive-wheels": "string",
+                      "engine-location": "string",
+                      "wheel-base": "string",
+                      "length": "string",
+                      "width": "string",
+                      "height": "string",
+                      "curb-weight": "string",
+                      "engine-type": "string",
+                      "num-of-cylinders": "string",
+                      "engine-size": "string",
+                      "fuel-system": "string",
+                      "bore": "string",
+                      "stroke": "string",
+                      "compression-ratio": "string",
+                      "horsepower": "string",
+                      "peak-rpm": "string",
+                      "city-mpg": "string",
+                      "highway-mpg": "string",
+                      "price": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "symboling",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "normalized-losses",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "symboling\tnormalized-losses\tmake\tfuel-type\taspiration\tnum-of-doors\tbody-style\tdrive-wheels\tengine-location\twheel-base\tlength\twidth\theight\tcurb-weight\tengine-type\tnum-of-cylinders\tengine-size\tfuel-system\tbore\tstroke\tcompression-ratio\thorsepower\tpeak-rpm\tcity-mpg\thighway-mpg\tprice\n3\t0\talfa-romero\tgas\tstd\ttwo\tconvertible\trwd\tfront\t88.6\t168.8\t64.1\t48.8\t2548\tdohc\tfour\t130\tmpfi\t3.47\t2.68\t9.0\t111\t5000\t21\t27\t13495\n3\t0\talfa-romero\tgas\tstd\ttwo\tconvertible\trwd\tfront\t88.6\t168.8\t64.1\t48.8\t2548\tdohc\tfour\t130\tmpfi\t3.47\t2.68\t9.0\t111\t5000\t21\t27\t16500\n1\t0\talfa-romero\tgas\tstd\ttwo\thatchback\trwd\tfront\t94.5\t171.2\t65.5\t52.4\t2823\tohcv\tsix\t152\tmpfi\t2.68\t3.47\t9.0\t154\t5000\t19\t26\t16500\n2\t164\taudi\tgas\tstd\tfour\tsedan\tfwd\tfront\t99.8\t176.6\t66.2\t54.3\t2337\tohc\tfour\t109\tmpfi\t3.19\t3.40\t10.0\t102\t5500\t24\t30\t13950\n2\t164\taudi\tgas\tstd\tfour\tsedan\t4wd\tfront\t99.4\t176.6\t66.4\t54.3\t2824\tohc\tfive\t136\tmpfi\t3.19\t3.40\t8.0\t115\t5500\t18\t22\t17450\n2\t0\taudi\tgas\tstd\ttwo\tsedan\tfwd\tfront\t99.8\t177.3\t66.3\t53.1\t2507\tohc\tfive\t136\tmpfi\t3.19\t3.40\t8.5\t110\t5500\t19\t25\t15250\n1\t158\taudi\tgas\tstd\tfour\tsedan\tfwd\tfront\t105.8\t192.7\t71.4\t55.7\t2844\tohc\tfive\t136\tmpfi\t3.19\t3.40\t8.5\t110\t5500\t19\t25\t17710\n1\t0\taudi\tgas\tstd\tfour\twagon\tfwd\tfront\t105.8\t192.7\t71.4\t55.7\t2954\tohc\tfive\t136\tmpfi\t3.19\t3.40\t8.5\t110\t5500\t19\t25\t18920\n1\t158\taudi\tgas\tturbo\tfour\tsedan\tfwd\tfront\t105.8\t192.7\t71.4\t55.9\t3086\tohc\tfive\t131\tmpfi\t3.13\t3.40\t8.3\t140\t5500\t17\t20\t23875\n0\t0\taudi\tgas\tturbo\ttwo\thatchback\t4wd\tfront\t99.5\t178.2\t67.9\t52.0\t3053\tohc\tfive\t131\tmpfi\t3.13\t3.40\t7.0\t160\t5500\t16\t22\t \n2\t192\tbmw\tgas\tstd\ttwo\tsedan\trwd\tfront\t101.2\t176.8\t64.8\t54.3\t2395\tohc\tfour\t108\tmpfi\t3.5\t2.80\t8.8\t101\t5800\t23\t29\t16430\n0\t192\tbmw\tgas\tstd\tfour\tsedan\trwd\tfront\t101.2\t176.8\t64.8\t54.3\t2395\tohc\tfour\t108\tmpfi\t3.5\t2.80\t8.8\t101\t5800\t23\t29\t16925\n0\t188\tbmw\tgas\tstd\ttwo\tsedan\trwd\tfront\t101.2\t176.8\t64.8\t54.3\t2710\tohc\tsix\t164\tmpfi\t3.31\t3.19\t9.0\t121\t4250\t21\t28\t20970\n0\t188\tbmw\tgas\tstd\tfour\tsedan\trwd\tfront\t101.2\t176.8\t64.8\t54.3\t2765\tohc\tsix\t164\tmpfi\t3.31\t3.19\t9.0\t121\t4250\t21\t28\t21105\n1\t0\tbmw\tgas\tstd\tfour\tsedan\trwd\tfront\t103.5\t189.0\t66.9\t55.7\t3055\tohc\tsix\t164\tmpfi\t3.31\t3.19\t9.0\t121\t4250\t20\t25\t24565\n0\t0\tbmw\tgas\tstd\tfour\tsedan\trwd\tfront\t103.5\t189.0\t66.9\t55.7\t3230\tohc\tsix\t209\tmpfi\t3.62\t3.39\t8.0\t182\t5400\t16\t22\t30760\n0\t0\tbmw\tgas\tstd\ttwo\tsedan\trwd\tfront\t103.5\t193.8\t67.9\t53.7\t3380\tohc\tsix\t209\tmpfi\t3.62\t3.39\t8.0\t182\t5400\t16\t22\t41315\n0\t0\tbmw\tgas\tstd\tfour\tsedan\trwd\tfront\t110.0\t197.0\t70.9\t56.3\t3505\tohc\tsix\t209\tmpfi\t3.62\t3.39\t8.0\t182\t5400\t15\t20\t36880\n2\t121\tchevrolet\tgas\tstd\ttwo\thatchback\tfwd\tfront\t88.4\t141.1\t60.3\t53.2\t1488\tl\tthree\t61\t2bbl\t2.91\t3.03\t9.5\t48\t5100\t47\t53\t5151\n1\t98\tchevrolet\tgas\tstd\ttwo\thatchback\tfwd\tfront\t94.5\t155.9\t63.6\t52.0\t1874\tohc\tfour\t90\t2bbl\t3.03\t3.11\t9.6\t70\t5400\t38\t43\t6295\n0\t81\tchevrolet\tgas\tstd\tfour\tsedan\tfwd\tfront\t94.5\t158.8\t63.6\t52.0\t1909\tohc\tfour\t90\t2bbl\t3.03\t3.11\t9.6\t70\t5400\t38\t43\t6575\n1\t118\tdodge\tgas\tstd\ttwo\thatchback\tfwd\tfront\t93.7\t157.3\t63.8\t50.8\t1876\tohc\tfour\t90\t2bbl\t2.97\t3.23\t9.41\t68\t5500\t37\t41\t5572\n1\t118\tdodge\tgas\tstd\ttwo\thatchback\tfwd\tfront\t93.7\t157.3\t63.8\t50.8\t1876\tohc\tfour\t90\t2bbl\t2.97\t3.23\t9.4\t68\t5500\t31\t38\t6377\n1\t118\tdodge\tgas\tturbo\ttwo\thatchback\tfwd\tfront\t93.7\t157.3\t63.8\t50.8\t2128\tohc\tfour\t98\tmpfi\t3.03\t3.39\t7.6\t102\t5500\t24\t30\t7957\n1\t148\tdodge\tgas\tstd\tfour\thatchback\tfwd\tfront\t93.7\t157.3\t63.8\t50.6\t1967\tohc\tfour\t90\t2bbl\t2.97\t3.23\t9.4\t68\t5500\t31\t38\t6229\n1\t148\tdodge\tgas\tstd\tfour\tsedan\tfwd\tfront\t93.7\t157.3\t63.8\t50.6\t1989\tohc\tfour\t90\t2bbl\t2.97\t3.23\t9.4\t68\t5500\t31\t38\t6692\n1\t148\tdodge\tgas\tstd\tfour\tsedan\tfwd\tfront\t93.7\t157.3\t63.8\t50.6\t1989\tohc\tfour\t90\t2bbl\t2.97\t3.23\t9.4\t68\t5500\t31\t38\t7609\n1\t148\tdodge\tgas\tturbo\t0\tsedan\tfwd\tfront\t93.7\t157.3\t63.8\t50.6\t2191\tohc\tfour\t98\tmpfi\t3.03\t3.39\t7.6\t102\t5500\t24\t30\t8558\n-1\t110\tdodge\tgas\tstd\tfour\twagon\tfwd\tfront\t103.3\t174.6\t64.6\t59.8\t2535\tohc\tfour\t122\t2bbl\t3.34\t3.46\t8.5\t88\t5000\t24\t30\t8921\n3\t145\tdodge\tgas\tturbo\ttwo\thatchback\tfwd\tfront\t95.9\t173.2\t66.3\t50.2\t2811\tohc\tfour\t156\tmfi\t3.6\t3.90\t7.0\t145\t5000\t19\t24\t12964\n2\t137\thonda\tgas\tstd\ttwo\thatchback\tfwd\tfront\t86.6\t144.6\t63.9\t50.8\t1713\tohc\tfour\t92\t1bbl\t2.91\t3.41\t9.6\t58\t4800\t49\t54\t6479\n2\t137\thonda\tgas\tstd\ttwo\thatchback\tfwd\tfront\t86.6\t144.6\t63.9\t50.8\t1819\tohc\tfour\t92\t1bbl\t2.91\t3.41\t9.2\t76\t6000\t31\t38\t6855\n1\t101\thonda\tgas\tstd\ttwo\thatchback\tfwd\tfront\t93.7\t150.0\t64.0\t52.6\t1837\tohc\tfour\t79\t1bbl\t2.91\t3.07\t10.1\t60\t5500\t38\t42\t5399\n1\t101\thonda\tgas\tstd\ttwo\thatchback\tfwd\tfront\t93.7\t150.0\t64.0\t52.6\t1940\tohc\tfour\t92\t1bbl\t2.91\t3.41\t9.2\t76\t6000\t30\t34\t6529\n1\t101\thonda\tgas\tstd\ttwo\thatchback\tfwd\tfront\t93.7\t150.0\t64.0\t52.6\t1956\tohc\tfour\t92\t1bbl\t2.91\t3.41\t9.2\t76\t6000\t30\t34\t7129\n0\t110\thonda\tgas\tstd\tfour\tsedan\tfwd\tfront\t96.5\t163.4\t64.0\t54.5\t2010\tohc\tfour\t92\t1bbl\t2.91\t3.41\t9.2\t76\t6000\t30\t34\t7295\n0\t78\thonda\tgas\tstd\tfour\twagon\tfwd\tfront\t96.5\t157.1\t63.9\t58.3\t2024\tohc\tfour\t92\t1bbl\t2.92\t3.41\t9.2\t76\t6000\t30\t34\t7295\n0\t106\thonda\tgas\tstd\ttwo\thatchback\tfwd\tfront\t96.5\t167.5\t65.2\t53.3\t2236\tohc\tfour\t110\t1bbl\t3.15\t3.58\t9.0\t86\t5800\t27\t33\t7895\n0\t106\thonda\tgas\tstd\ttwo\thatchback\tfwd\tfront\t96.5\t167.5\t65.2\t53.3\t2289\tohc\tfour\t110\t1bbl\t3.15\t3.58\t9.0\t86\t5800\t27\t33\t9095\n0\t85\thonda\tgas\tstd\tfour\tsedan\tfwd\tfront\t96.5\t175.4\t65.2\t54.1\t2304\tohc\tfour\t110\t1bbl\t3.15\t3.58\t9.0\t86\t5800\t27\t33\t8845\n0\t85\thonda\tgas\tstd\tfour\tsedan\tfwd\tfront\t96.5\t175.4\t62.5\t54.1\t2372\tohc\tfour\t110\t1bbl\t3.15\t3.58\t9.0\t86\t5800\t27\t33\t10295\n0\t85\thonda\tgas\tstd\tfour\tsedan\tfwd\tfront\t96.5\t175.4\t65.2\t54.1\t2465\tohc\tfour\t110\tmpfi\t3.15\t3.58\t9.0\t101\t5800\t24\t28\t12945\n1\t107\thonda\tgas\tstd\ttwo\tsedan\tfwd\tfront\t96.5\t169.1\t66.0\t51.0\t2293\tohc\tfour\t110\t2bbl\t3.15\t3.58\t9.1\t100\t5500\t25\t31\t10345\n0\t0\tisuzu\tgas\tstd\tfour\tsedan\trwd\tfront\t94.3\t170.7\t61.8\t53.5\t2337\tohc\tfour\t111\t2bbl\t3.31\t3.23\t8.5\t78\t4800\t24\t29\t6785\n1\t0\tisuzu\tgas\tstd\ttwo\tsedan\tfwd\tfront\t94.5\t155.9\t63.6\t52.0\t1874\tohc\tfour\t90\t2bbl\t3.03\t3.11\t9.6\t70\t5400\t38\t43\t \n0\t0\tisuzu\tgas\tstd\tfour\tsedan\tfwd\tfront\t94.5\t155.9\t63.6\t52.0\t1909\tohc\tfour\t90\t2bbl\t3.03\t3.11\t9.6\t70\t5400\t38\t43\t \n2\t0\tisuzu\tgas\tstd\ttwo\thatchback\trwd\tfront\t96.0\t172.6\t65.2\t51.4\t2734\tohc\tfour\t119\tspfi\t3.43\t3.23\t9.2\t90\t5000\t24\t29\t11048\n0\t145\tjaguar\tgas\tstd\tfour\tsedan\trwd\tfront\t113.0\t199.6\t69.6\t52.8\t4066\tdohc\tsix\t258\tmpfi\t3.63\t4.17\t8.1\t176\t4750\t15\t19\t32250\n0\t0\tjaguar\tgas\tstd\tfour\tsedan\trwd\tfront\t113.0\t199.6\t69.6\t52.8\t4066\tdohc\tsix\t258\tmpfi\t3.63\t4.17\t8.1\t176\t4750\t15\t19\t35550\n0\t0\tjaguar\tgas\tstd\ttwo\tsedan\trwd\tfront\t102.0\t191.7\t70.6\t47.8\t3950\tohcv\ttwelve\t326\tmpfi\t3.54\t2.76\t11.5\t262\t5000\t13\t17\t36000\n1\t104\tmazda\tgas\tstd\ttwo\thatchback\tfwd\tfront\t93.1\t159.1\t64.2\t54.1\t1890\tohc\tfour\t91\t2bbl\t3.03\t3.15\t9.0\t68\t5000\t30\t31\t5195\n1\t104\tmazda\tgas\tstd\ttwo\thatchback\tfwd\tfront\t93.1\t159.1\t64.2\t54.1\t1900\tohc\tfour\t91\t2bbl\t3.03\t3.15\t9.0\t68\t5000\t31\t38\t6095\n1\t104\tmazda\tgas\tstd\ttwo\thatchback\tfwd\tfront\t93.1\t159.1\t64.2\t54.1\t1905\tohc\tfour\t91\t2bbl\t3.03\t3.15\t9.0\t68\t5000\t31\t38\t6795\n1\t113\tmazda\tgas\tstd\tfour\tsedan\tfwd\tfront\t93.1\t166.8\t64.2\t54.1\t1945\tohc\tfour\t91\t2bbl\t3.03\t3.15\t9.0\t68\t5000\t31\t38\t6695\n1\t113\tmazda\tgas\tstd\tfour\tsedan\tfwd\tfront\t93.1\t166.8\t64.2\t54.1\t1950\tohc\tfour\t91\t2bbl\t3.08\t3.15\t9.0\t68\t5000\t31\t38\t7395\n3\t150\tmazda\tgas\tstd\ttwo\thatchback\trwd\tfront\t95.3\t169.0\t65.7\t49.6\t2380\trotor\ttwo\t70\t4bbl\t0.0\t \t9.4\t101\t6000\t17\t23\t10945\n3\t150\tmazda\tgas\tstd\ttwo\thatchback\trwd\tfront\t95.3\t169.0\t65.7\t49.6\t2380\trotor\ttwo\t70\t4bbl\t0.0\t \t9.4\t101\t6000\t17\t23\t11845\n3\t150\tmazda\tgas\tstd\ttwo\thatchback\trwd\tfront\t95.3\t169.0\t65.7\t49.6\t2385\trotor\ttwo\t70\t4bbl\t0.0\t \t9.4\t101\t6000\t17\t23\t13645\n3\t150\tmazda\tgas\tstd\ttwo\thatchback\trwd\tfront\t95.3\t169.0\t65.7\t49.6\t2500\trotor\ttwo\t80\tmpfi\t0.0\t \t9.4\t135\t6000\t16\t23\t15645\n1\t129\tmazda\tgas\tstd\ttwo\thatchback\tfwd\tfront\t98.8\t177.8\t66.5\t53.7\t2385\tohc\tfour\t122\t2bbl\t3.39\t3.39\t8.6\t84\t4800\t26\t32\t8845\n0\t115\tmazda\tgas\tstd\tfour\tsedan\tfwd\tfront\t98.8\t177.8\t66.5\t55.5\t2410\tohc\tfour\t122\t2bbl\t3.39\t3.39\t8.6\t84\t4800\t26\t32\t8495\n1\t129\tmazda\tgas\tstd\ttwo\thatchback\tfwd\tfront\t98.8\t177.8\t66.5\t53.7\t2385\tohc\tfour\t122\t2bbl\t3.39\t3.39\t8.6\t84\t4800\t26\t32\t10595\n0\t115\tmazda\tgas\tstd\tfour\tsedan\tfwd\tfront\t98.8\t177.8\t66.5\t55.5\t2410\tohc\tfour\t122\t2bbl\t3.39\t3.39\t8.6\t84\t4800\t26\t32\t10245\n0\t0\tmazda\tdiesel\tstd\t0\tsedan\tfwd\tfront\t98.8\t177.8\t66.5\t55.5\t2443\tohc\tfour\t122\tidi\t3.39\t3.39\t22.7\t64\t4650\t36\t42\t10795\n0\t115\tmazda\tgas\tstd\tfour\thatchback\tfwd\tfront\t98.8\t177.8\t66.5\t55.5\t2425\tohc\tfour\t122\t2bbl\t3.39\t3.39\t8.6\t84\t4800\t26\t32\t11245\n0\t118\tmazda\tgas\tstd\tfour\tsedan\trwd\tfront\t104.9\t175.0\t66.1\t54.4\t2670\tohc\tfour\t140\tmpfi\t3.76\t3.16\t8.0\t120\t5000\t19\t27\t18280\n0\t0\tmazda\tdiesel\tstd\tfour\tsedan\trwd\tfront\t104.9\t175.0\t66.1\t54.4\t2700\tohc\tfour\t134\tidi\t3.43\t3.64\t22.0\t72\t4200\t31\t39\t18344\n-1\t93\tmercedes-benz\tdiesel\tturbo\tfour\tsedan\trwd\tfront\t110.0\t190.9\t70.3\t56.5\t3515\tohc\tfive\t183\tidi\t3.58\t3.64\t21.5\t123\t4350\t22\t25\t25552\n-1\t93\tmercedes-benz\tdiesel\tturbo\tfour\twagon\trwd\tfront\t110.0\t190.9\t70.3\t58.7\t3750\tohc\tfive\t183\tidi\t3.58\t3.64\t21.5\t123\t4350\t22\t25\t28248\n0\t93\tmercedes-benz\tdiesel\tturbo\ttwo\thardtop\trwd\tfront\t106.7\t187.5\t70.3\t54.9\t3495\tohc\tfive\t183\tidi\t3.58\t3.64\t21.5\t123\t4350\t22\t25\t28176\n-1\t93\tmercedes-benz\tdiesel\tturbo\tfour\tsedan\trwd\tfront\t115.6\t202.6\t71.7\t56.3\t3770\tohc\tfive\t183\tidi\t3.58\t3.64\t21.5\t123\t4350\t22\t25\t31600\n-1\t0\tmercedes-benz\tgas\tstd\tfour\tsedan\trwd\tfront\t115.6\t202.6\t71.7\t56.5\t3740\tohcv\teight\t234\tmpfi\t3.46\t3.10\t8.3\t155\t4750\t16\t18\t34184\n3\t142\tmercedes-benz\tgas\tstd\ttwo\tconvertible\trwd\tfront\t96.6\t180.3\t70.5\t50.8\t3685\tohcv\teight\t234\tmpfi\t3.46\t3.10\t8.3\t155\t4750\t16\t18\t35056\n0\t0\tmercedes-benz\tgas\tstd\tfour\tsedan\trwd\tfront\t120.9\t208.1\t71.7\t56.7\t3900\tohcv\teight\t308\tmpfi\t3.8\t3.35\t8.0\t184\t4500\t14\t16\t40960\n1\t0\tmercedes-benz\tgas\tstd\ttwo\thardtop\trwd\tfront\t112.0\t199.2\t72.0\t55.4\t3715\tohcv\teight\t304\tmpfi\t3.8\t3.35\t8.0\t184\t4500\t14\t16\t45400\n1\t0\tmercury\tgas\tturbo\ttwo\thatchback\trwd\tfront\t102.7\t178.4\t68.0\t54.8\t2910\tohc\tfour\t140\tmpfi\t3.78\t3.12\t8.0\t175\t5000\t19\t24\t16503\n2\t161\tmitsubishi\tgas\tstd\ttwo\thatchback\tfwd\tfront\t93.7\t157.3\t64.4\t50.8\t1918\tohc\tfour\t92\t2bbl\t2.97\t3.23\t9.4\t68\t5500\t37\t41\t5389\n2\t161\tmitsubishi\tgas\tstd\ttwo\thatchback\tfwd\tfront\t93.7\t157.3\t64.4\t50.8\t1944\tohc\tfour\t92\t2bbl\t2.97\t3.23\t9.4\t68\t5500\t31\t38\t6189\n2\t161\tmitsubishi\tgas\tstd\ttwo\thatchback\tfwd\tfront\t93.7\t157.3\t64.4\t50.8\t2004\tohc\tfour\t92\t2bbl\t2.97\t3.23\t9.4\t68\t5500\t31\t38\t6669\n1\t161\tmitsubishi\tgas\tturbo\ttwo\thatchback\tfwd\tfront\t93.0\t157.3\t63.8\t50.8\t2145\tohc\tfour\t98\tspdi\t3.03\t3.39\t7.6\t102\t5500\t24\t30\t7689\n3\t153\tmitsubishi\tgas\tturbo\ttwo\thatchback\tfwd\tfront\t96.3\t173.0\t65.4\t49.4\t2370\tohc\tfour\t110\tspdi\t3.17\t3.46\t7.5\t116\t5500\t23\t30\t9959\n3\t153\tmitsubishi\tgas\tstd\ttwo\thatchback\tfwd\tfront\t96.3\t173.0\t65.4\t49.4\t2328\tohc\tfour\t122\t2bbl\t3.35\t3.46\t8.5\t88\t5000\t25\t32\t8499\n3\t0\tmitsubishi\tgas\tturbo\ttwo\thatchback\tfwd\tfront\t95.9\t173.2\t66.3\t50.2\t2833\tohc\tfour\t156\tspdi\t3.58\t3.86\t7.0\t145\t5000\t19\t24\t12629\n3\t0\tmitsubishi\tgas\tturbo\ttwo\thatchback\tfwd\tfront\t95.9\t173.2\t66.3\t50.2\t2921\tohc\tfour\t156\tspdi\t3.59\t3.86\t7.0\t145\t5000\t19\t24\t14869\n3\t0\tmitsubishi\tgas\tturbo\ttwo\thatchback\tfwd\tfront\t95.9\t173.2\t66.3\t50.2\t2926\tohc\tfour\t156\tspdi\t3.59\t3.86\t7.0\t145\t5000\t19\t24\t14489\n1\t125\tmitsubishi\tgas\tstd\tfour\tsedan\tfwd\tfront\t96.3\t172.4\t65.4\t51.6\t2365\tohc\tfour\t122\t2bbl\t3.35\t3.46\t8.5\t88\t5000\t25\t32\t6989\n1\t125\tmitsubishi\tgas\tstd\tfour\tsedan\tfwd\tfront\t96.3\t172.4\t65.4\t51.6\t2405\tohc\tfour\t122\t2bbl\t3.35\t3.46\t8.5\t88\t5000\t25\t32\t8189\n1\t125\tmitsubishi\tgas\tturbo\tfour\tsedan\tfwd\tfront\t96.3\t172.4\t65.4\t51.6\t2403\tohc\tfour\t110\tspdi\t3.17\t3.46\t7.5\t116\t5500\t23\t30\t9279\n-1\t137\tmitsubishi\tgas\tstd\tfour\tsedan\tfwd\tfront\t96.3\t172.4\t65.4\t51.6\t2403\tohc\tfour\t110\tspdi\t3.17\t3.46\t7.5\t116\t5500\t23\t30\t9279\n1\t128\tnissan\tgas\tstd\ttwo\tsedan\tfwd\tfront\t94.5\t165.3\t63.8\t54.5\t1889\tohc\tfour\t97\t2bbl\t3.15\t3.29\t9.4\t69\t5200\t31\t37\t5499\n1\t128\tnissan\tdiesel\tstd\ttwo\tsedan\tfwd\tfront\t94.5\t165.3\t63.8\t54.5\t2017\tohc\tfour\t103\tidi\t2.99\t3.47\t21.9\t55\t4800\t45\t50\t7099\n1\t128\tnissan\tgas\tstd\ttwo\tsedan\tfwd\tfront\t94.5\t165.3\t63.8\t54.5\t1918\tohc\tfour\t97\t2bbl\t3.15\t3.29\t9.4\t69\t5200\t31\t37\t6649\n1\t122\tnissan\tgas\tstd\tfour\tsedan\tfwd\tfront\t94.5\t165.3\t63.8\t54.5\t1938\tohc\tfour\t97\t2bbl\t3.15\t3.29\t9.4\t69\t5200\t31\t37\t6849\n1\t103\tnissan\tgas\tstd\tfour\twagon\tfwd\tfront\t94.5\t170.2\t63.8\t53.5\t2024\tohc\tfour\t97\t2bbl\t3.15\t3.29\t9.4\t69\t5200\t31\t37\t7349\n1\t128\tnissan\tgas\tstd\ttwo\tsedan\tfwd\tfront\t94.5\t165.3\t63.8\t54.5\t1951\tohc\tfour\t97\t2bbl\t3.15\t3.29\t9.4\t69\t5200\t31\t37\t7299\n1\t128\tnissan\tgas\tstd\ttwo\thatchback\tfwd\tfront\t94.5\t165.6\t63.8\t53.3\t2028\tohc\tfour\t97\t2bbl\t3.15\t3.29\t9.4\t69\t5200\t31\t37\t7799\n1\t122\tnissan\tgas\tstd\tfour\tsedan\tfwd\tfront\t94.5\t165.3\t63.8\t54.5\t1971\tohc\tfour\t97\t2bbl\t3.15\t3.29\t9.4\t69\t5200\t31\t37\t7499\n1\t103\tnissan\tgas\tstd\tfour\twagon\tfwd\tfront\t94.5\t170.2\t63.8\t53.5\t2037\tohc\tfour\t97\t2bbl\t3.15\t3.29\t9.4\t69\t5200\t31\t37\t7999\n2\t168\tnissan\tgas\tstd\ttwo\thardtop\tfwd\tfront\t95.1\t162.4\t63.8\t53.3\t2008\tohc\tfour\t97\t2bbl\t3.15\t3.29\t9.4\t69\t5200\t31\t37\t8249\n0\t106\tnissan\tgas\tstd\tfour\thatchback\tfwd\tfront\t97.2\t173.4\t65.2\t54.7\t2324\tohc\tfour\t120\t2bbl\t3.33\t3.47\t8.5\t97\t5200\t27\t34\t8949\n0\t106\tnissan\tgas\tstd\tfour\tsedan\tfwd\tfront\t97.2\t173.4\t65.2\t54.7\t2302\tohc\tfour\t120\t2bbl\t3.33\t3.47\t8.5\t97\t5200\t27\t34\t9549\n0\t128\tnissan\tgas\tstd\tfour\tsedan\tfwd\tfront\t100.4\t181.7\t66.5\t55.1\t3095\tohcv\tsix\t181\tmpfi\t3.43\t3.27\t9.0\t152\t5200\t17\t22\t13499\n0\t108\tnissan\tgas\tstd\tfour\twagon\tfwd\tfront\t100.4\t184.6\t66.5\t56.1\t3296\tohcv\tsix\t181\tmpfi\t3.43\t3.27\t9.0\t152\t5200\t17\t22\t14399\n0\t108\tnissan\tgas\tstd\tfour\tsedan\tfwd\tfront\t100.4\t184.6\t66.5\t55.1\t3060\tohcv\tsix\t181\tmpfi\t3.43\t3.27\t9.0\t152\t5200\t19\t25\t13499\n3\t194\tnissan\tgas\tstd\ttwo\thatchback\trwd\tfront\t91.3\t170.7\t67.9\t49.7\t3071\tohcv\tsix\t181\tmpfi\t3.43\t3.27\t9.0\t160\t5200\t19\t25\t17199\n3\t194\tnissan\tgas\tturbo\ttwo\thatchback\trwd\tfront\t91.3\t170.7\t67.9\t49.7\t3139\tohcv\tsix\t181\tmpfi\t3.43\t3.27\t7.8\t200\t5200\t17\t23\t19699\n1\t231\tnissan\tgas\tstd\ttwo\thatchback\trwd\tfront\t99.2\t178.5\t67.9\t49.7\t3139\tohcv\tsix\t181\tmpfi\t3.43\t3.27\t9.0\t160\t5200\t19\t25\t18399\n0\t161\tpeugot\tgas\tstd\tfour\tsedan\trwd\tfront\t107.9\t186.7\t68.4\t56.7\t3020\tl\tfour\t120\tmpfi\t3.46\t3.19\t8.4\t97\t5000\t19\t24\t11900\n0\t161\tpeugot\tdiesel\tturbo\tfour\tsedan\trwd\tfront\t107.9\t186.7\t68.4\t56.7\t3197\tl\tfour\t152\tidi\t3.7\t3.52\t21.0\t95\t4150\t28\t33\t13200\n0\t0\tpeugot\tgas\tstd\tfour\twagon\trwd\tfront\t114.2\t198.9\t68.4\t58.7\t3230\tl\tfour\t120\tmpfi\t3.46\t3.19\t8.4\t97\t5000\t19\t24\t12440\n0\t0\tpeugot\tdiesel\tturbo\tfour\twagon\trwd\tfront\t114.2\t198.9\t68.4\t58.7\t3430\tl\tfour\t152\tidi\t3.7\t3.52\t21.0\t95\t4150\t25\t25\t13860\n0\t161\tpeugot\tgas\tstd\tfour\tsedan\trwd\tfront\t107.9\t186.7\t68.4\t56.7\t3075\tl\tfour\t120\tmpfi\t3.46\t2.19\t8.4\t95\t5000\t19\t24\t15580\n0\t161\tpeugot\tdiesel\tturbo\tfour\tsedan\trwd\tfront\t107.9\t186.7\t68.4\t56.7\t3252\tl\tfour\t152\tidi\t3.7\t3.52\t21.0\t95\t4150\t28\t33\t16900\n0\t0\tpeugot\tgas\tstd\tfour\twagon\trwd\tfront\t114.2\t198.9\t68.4\t56.7\t3285\tl\tfour\t120\tmpfi\t3.46\t2.19\t8.4\t95\t5000\t19\t24\t16695\n0\t0\tpeugot\tdiesel\tturbo\tfour\twagon\trwd\tfront\t114.2\t198.9\t68.4\t58.7\t3485\tl\tfour\t152\tidi\t3.7\t3.52\t21.0\t95\t4150\t25\t25\t17075\n0\t161\tpeugot\tgas\tstd\tfour\tsedan\trwd\tfront\t107.9\t186.7\t68.4\t56.7\t3075\tl\tfour\t120\tmpfi\t3.46\t3.19\t8.4\t97\t5000\t19\t24\t16630\n0\t161\tpeugot\tdiesel\tturbo\tfour\tsedan\trwd\tfront\t107.9\t186.7\t68.4\t56.7\t3252\tl\tfour\t152\tidi\t3.7\t3.52\t21.0\t95\t4150\t28\t33\t17950\n0\t161\tpeugot\tgas\tturbo\tfour\tsedan\trwd\tfront\t108.0\t186.7\t68.3\t56.0\t3130\tl\tfour\t134\tmpfi\t3.61\t3.21\t7.0\t142\t5600\t18\t24\t18150\n1\t119\tplymouth\tgas\tstd\ttwo\thatchback\tfwd\tfront\t93.7\t157.3\t63.8\t50.8\t1918\tohc\tfour\t90\t2bbl\t2.97\t3.23\t9.4\t68\t5500\t37\t41\t5572\n1\t119\tplymouth\tgas\tturbo\ttwo\thatchback\tfwd\tfront\t93.7\t157.3\t63.8\t50.8\t2128\tohc\tfour\t98\tspdi\t3.03\t3.39\t7.6\t102\t5500\t24\t30\t7957\n1\t154\tplymouth\tgas\tstd\tfour\thatchback\tfwd\tfront\t93.7\t157.3\t63.8\t50.6\t1967\tohc\tfour\t90\t2bbl\t2.97\t3.23\t9.4\t68\t5500\t31\t38\t6229\n1\t154\tplymouth\tgas\tstd\tfour\tsedan\tfwd\tfront\t93.7\t167.3\t63.8\t50.8\t1989\tohc\tfour\t90\t2bbl\t2.97\t3.23\t9.4\t68\t5500\t31\t38\t6692\n1\t154\tplymouth\tgas\tstd\tfour\tsedan\tfwd\tfront\t93.7\t167.3\t63.8\t50.8\t2191\tohc\tfour\t98\t2bbl\t2.97\t3.23\t9.4\t68\t5500\t31\t38\t7609\n-1\t74\tplymouth\tgas\tstd\tfour\twagon\tfwd\tfront\t103.3\t174.6\t64.6\t59.8\t2535\tohc\tfour\t122\t2bbl\t3.35\t3.46\t8.5\t88\t5000\t24\t30\t8921\n3\t0\tplymouth\tgas\tturbo\ttwo\thatchback\trwd\tfront\t95.9\t173.2\t66.3\t50.2\t2818\tohc\tfour\t156\tspdi\t3.59\t3.86\t7.0\t145\t5000\t19\t24\t12764\n3\t186\tporsche\tgas\tstd\ttwo\thatchback\trwd\tfront\t94.5\t168.9\t68.3\t50.2\t2778\tohc\tfour\t151\tmpfi\t3.94\t3.11\t9.5\t143\t5500\t19\t27\t22018\n3\t0\tporsche\tgas\tstd\ttwo\thardtop\trwd\trear\t89.5\t168.9\t65.0\t51.6\t2756\tohcf\tsix\t194\tmpfi\t3.74\t2.90\t9.5\t207\t5900\t17\t25\t32528\n3\t0\tporsche\tgas\tstd\ttwo\thardtop\trwd\trear\t89.5\t168.9\t65.0\t51.6\t2756\tohcf\tsix\t194\tmpfi\t3.74\t2.90\t9.5\t207\t5900\t17\t25\t34028\n3\t0\tporsche\tgas\tstd\ttwo\tconvertible\trwd\trear\t89.5\t168.9\t65.0\t51.6\t2800\tohcf\tsix\t194\tmpfi\t3.74\t2.90\t9.5\t207\t5900\t17\t25\t37028\n1\t0\tporsche\tgas\tstd\ttwo\thatchback\trwd\tfront\t98.4\t175.7\t72.3\t50.5\t3366\tdohcv\teight\t203\tmpfi\t3.94\t3.11\t10.0\t288\t5750\t17\t28\t \n0\t0\trenault\tgas\tstd\tfour\twagon\tfwd\tfront\t96.1\t181.5\t66.5\t55.2\t2579\tohc\tfour\t132\tmpfi\t3.46\t3.90\t8.7\t0\t \t23\t31\t9295\n2\t0\trenault\tgas\tstd\ttwo\thatchback\tfwd\tfront\t96.1\t176.8\t66.6\t50.5\t2460\tohc\tfour\t132\tmpfi\t3.46\t3.90\t8.7\t0\t \t23\t31\t9895\n3\t150\tsaab\tgas\tstd\ttwo\thatchback\tfwd\tfront\t99.1\t186.6\t66.5\t56.1\t2658\tohc\tfour\t121\tmpfi\t3.54\t3.07\t9.31\t110\t5250\t21\t28\t11850\n2\t104\tsaab\tgas\tstd\tfour\tsedan\tfwd\tfront\t99.1\t186.6\t66.5\t56.1\t2695\tohc\tfour\t121\tmpfi\t3.54\t3.07\t9.3\t110\t5250\t21\t28\t12170\n3\t150\tsaab\tgas\tstd\ttwo\thatchback\tfwd\tfront\t99.1\t186.6\t66.5\t56.1\t2707\tohc\tfour\t121\tmpfi\t2.54\t2.07\t9.3\t110\t5250\t21\t28\t15040\n2\t104\tsaab\tgas\tstd\tfour\tsedan\tfwd\tfront\t99.1\t186.6\t66.5\t56.1\t2758\tohc\tfour\t121\tmpfi\t3.54\t3.07\t9.3\t110\t5250\t21\t28\t15510\n3\t150\tsaab\tgas\tturbo\ttwo\thatchback\tfwd\tfront\t99.1\t186.6\t66.5\t56.1\t2808\tdohc\tfour\t121\tmpfi\t3.54\t3.07\t9.0\t160\t5500\t19\t26\t18150\n2\t104\tsaab\tgas\tturbo\tfour\tsedan\tfwd\tfront\t99.1\t186.6\t66.5\t56.1\t2847\tdohc\tfour\t121\tmpfi\t3.54\t3.07\t9.0\t160\t5500\t19\t26\t18620\n2\t83\tsubaru\tgas\tstd\ttwo\thatchback\tfwd\tfront\t93.7\t156.9\t63.4\t53.7\t2050\tohcf\tfour\t97\t2bbl\t3.62\t2.36\t9.0\t69\t4900\t31\t36\t5118\n2\t83\tsubaru\tgas\tstd\ttwo\thatchback\tfwd\tfront\t93.7\t157.9\t63.6\t53.7\t2120\tohcf\tfour\t108\t2bbl\t3.62\t2.64\t8.7\t73\t4400\t26\t31\t7053\n2\t83\tsubaru\tgas\tstd\ttwo\thatchback\t4wd\tfront\t93.3\t157.3\t63.8\t55.7\t2240\tohcf\tfour\t108\t2bbl\t3.62\t2.64\t8.7\t73\t4400\t26\t31\t7603\n0\t102\tsubaru\tgas\tstd\tfour\tsedan\tfwd\tfront\t97.2\t172.0\t65.4\t52.5\t2145\tohcf\tfour\t108\t2bbl\t3.62\t2.64\t9.5\t82\t4800\t32\t37\t7126\n0\t102\tsubaru\tgas\tstd\tfour\tsedan\tfwd\tfront\t97.2\t172.0\t65.4\t52.5\t2190\tohcf\tfour\t108\t2bbl\t3.62\t2.64\t9.5\t82\t4400\t28\t33\t7775\n0\t102\tsubaru\tgas\tstd\tfour\tsedan\tfwd\tfront\t97.2\t172.0\t65.4\t52.5\t2340\tohcf\tfour\t108\tmpfi\t3.62\t2.64\t9.0\t94\t5200\t26\t32\t9960\n0\t102\tsubaru\tgas\tstd\tfour\tsedan\t4wd\tfront\t97.0\t172.0\t65.4\t54.3\t2385\tohcf\tfour\t108\t2bbl\t3.62\t2.64\t9.0\t82\t4800\t24\t25\t9233\n0\t102\tsubaru\tgas\tturbo\tfour\tsedan\t4wd\tfront\t97.0\t172.0\t65.4\t54.3\t2510\tohcf\tfour\t108\tmpfi\t3.62\t2.64\t7.7\t111\t4800\t24\t29\t11259\n0\t89\tsubaru\tgas\tstd\tfour\twagon\tfwd\tfront\t97.0\t173.5\t65.4\t53.0\t2290\tohcf\tfour\t108\t2bbl\t3.62\t2.64\t9.0\t82\t4800\t28\t32\t7463\n0\t89\tsubaru\tgas\tstd\tfour\twagon\tfwd\tfront\t97.0\t173.5\t65.4\t53.0\t2455\tohcf\tfour\t108\tmpfi\t3.62\t2.64\t9.0\t94\t5200\t25\t31\t10198\n0\t85\tsubaru\tgas\tstd\tfour\twagon\t4wd\tfront\t96.9\t173.6\t65.4\t54.9\t2420\tohcf\tfour\t108\t2bbl\t3.62\t2.64\t9.0\t82\t4800\t23\t29\t8013\n0\t85\tsubaru\tgas\tturbo\tfour\twagon\t4wd\tfront\t96.9\t173.6\t65.4\t54.9\t2650\tohcf\tfour\t108\tmpfi\t3.62\t2.64\t7.7\t111\t4800\t23\t23\t11694\n1\t87\ttoyota\tgas\tstd\ttwo\thatchback\tfwd\tfront\t95.7\t158.7\t63.6\t54.5\t1985\tohc\tfour\t92\t2bbl\t3.05\t3.03\t9.0\t62\t4800\t35\t39\t5348\n1\t87\ttoyota\tgas\tstd\ttwo\thatchback\tfwd\tfront\t95.7\t158.7\t63.6\t54.5\t2040\tohc\tfour\t92\t2bbl\t3.05\t3.03\t9.0\t62\t4800\t31\t38\t6338\n1\t74\ttoyota\tgas\tstd\tfour\thatchback\tfwd\tfront\t95.7\t158.7\t63.6\t54.5\t2015\tohc\tfour\t92\t2bbl\t3.05\t3.03\t9.0\t62\t4800\t31\t38\t6488\n0\t77\ttoyota\tgas\tstd\tfour\twagon\tfwd\tfront\t95.7\t169.7\t63.6\t59.1\t2280\tohc\tfour\t92\t2bbl\t3.05\t3.03\t9.0\t62\t4800\t31\t37\t6918\n0\t81\ttoyota\tgas\tstd\tfour\twagon\t4wd\tfront\t95.7\t169.7\t63.6\t59.1\t2290\tohc\tfour\t92\t2bbl\t3.05\t3.03\t9.0\t62\t4800\t27\t32\t7898\n0\t91\ttoyota\tgas\tstd\tfour\twagon\t4wd\tfront\t95.7\t169.7\t63.6\t59.1\t3110\tohc\tfour\t92\t2bbl\t3.05\t3.03\t9.0\t62\t4800\t27\t32\t8778\n0\t91\ttoyota\tgas\tstd\tfour\tsedan\tfwd\tfront\t95.7\t166.3\t64.4\t53.0\t2081\tohc\tfour\t98\t2bbl\t3.19\t3.03\t9.0\t70\t4800\t30\t37\t6938\n0\t91\ttoyota\tgas\tstd\tfour\thatchback\tfwd\tfront\t95.7\t166.3\t64.4\t52.8\t2109\tohc\tfour\t98\t2bbl\t3.19\t3.03\t9.0\t70\t4800\t30\t37\t7198\n0\t91\ttoyota\tdiesel\tstd\tfour\tsedan\tfwd\tfront\t95.7\t166.3\t64.4\t53.0\t2275\tohc\tfour\t110\tidi\t3.27\t3.35\t22.5\t56\t4500\t34\t36\t7898\n0\t91\ttoyota\tdiesel\tstd\tfour\thatchback\tfwd\tfront\t95.7\t166.3\t64.4\t52.8\t2275\tohc\tfour\t110\tidi\t3.27\t3.35\t22.5\t56\t4500\t38\t47\t7788\n0\t91\ttoyota\tgas\tstd\tfour\tsedan\tfwd\tfront\t95.7\t166.3\t64.4\t53.0\t2094\tohc\tfour\t98\t2bbl\t3.19\t3.03\t9.0\t70\t4800\t38\t47\t7738\n0\t91\ttoyota\tgas\tstd\tfour\thatchback\tfwd\tfront\t95.7\t166.3\t64.4\t52.8\t2122\tohc\tfour\t98\t2bbl\t3.19\t3.03\t9.0\t70\t4800\t28\t34\t8358\n0\t91\ttoyota\tgas\tstd\tfour\tsedan\tfwd\tfront\t95.7\t166.3\t64.4\t52.8\t2140\tohc\tfour\t98\t2bbl\t3.19\t3.03\t9.0\t70\t4800\t28\t34\t9258\n1\t168\ttoyota\tgas\tstd\ttwo\tsedan\trwd\tfront\t94.5\t168.7\t64.0\t52.6\t2169\tohc\tfour\t98\t2bbl\t3.19\t3.03\t9.0\t70\t4800\t29\t34\t8058\n1\t168\ttoyota\tgas\tstd\ttwo\thatchback\trwd\tfront\t94.5\t168.7\t64.0\t52.6\t2204\tohc\tfour\t98\t2bbl\t3.19\t3.03\t9.0\t70\t4800\t29\t34\t8238\n1\t168\ttoyota\tgas\tstd\ttwo\tsedan\trwd\tfront\t94.5\t168.7\t64.0\t52.6\t2265\tdohc\tfour\t98\tmpfi\t3.24\t3.08\t9.4\t112\t6600\t26\t29\t9298\n1\t168\ttoyota\tgas\tstd\ttwo\thatchback\trwd\tfront\t94.5\t168.7\t64.0\t52.6\t2300\tdohc\tfour\t98\tmpfi\t3.24\t3.08\t9.4\t112\t6600\t26\t29\t9538\n2\t134\ttoyota\tgas\tstd\ttwo\thardtop\trwd\tfront\t98.4\t176.2\t65.6\t52.0\t2540\tohc\tfour\t146\tmpfi\t3.62\t3.50\t9.3\t116\t4800\t24\t30\t8449\n2\t134\ttoyota\tgas\tstd\ttwo\thardtop\trwd\tfront\t98.4\t176.2\t65.6\t52.0\t2536\tohc\tfour\t146\tmpfi\t3.62\t3.50\t9.3\t116\t4800\t24\t30\t9639\n2\t134\ttoyota\tgas\tstd\ttwo\thatchback\trwd\tfront\t98.4\t176.2\t65.6\t52.0\t2551\tohc\tfour\t146\tmpfi\t3.62\t3.50\t9.3\t116\t4800\t24\t30\t9989\n2\t134\ttoyota\tgas\tstd\ttwo\thardtop\trwd\tfront\t98.4\t176.2\t65.6\t52.0\t2679\tohc\tfour\t146\tmpfi\t3.62\t3.50\t9.3\t116\t4800\t24\t30\t11199\n2\t134\ttoyota\tgas\tstd\ttwo\thatchback\trwd\tfront\t98.4\t176.2\t65.6\t52.0\t2714\tohc\tfour\t146\tmpfi\t3.62\t3.50\t9.3\t116\t4800\t24\t30\t11549\n2\t134\ttoyota\tgas\tstd\ttwo\tconvertible\trwd\tfront\t98.4\t176.2\t65.6\t53.0\t2975\tohc\tfour\t146\tmpfi\t3.62\t3.50\t9.3\t116\t4800\t24\t30\t17669\n-1\t65\ttoyota\tgas\tstd\tfour\tsedan\tfwd\tfront\t102.4\t175.6\t66.5\t54.9\t2326\tohc\tfour\t122\tmpfi\t3.31\t3.54\t8.7\t92\t4200\t29\t34\t8948\n-1\t65\ttoyota\tdiesel\tturbo\tfour\tsedan\tfwd\tfront\t102.4\t175.6\t66.5\t54.9\t2480\tohc\tfour\t110\tidi\t3.27\t3.35\t22.5\t73\t4500\t30\t33\t10698\n-1\t65\ttoyota\tgas\tstd\tfour\thatchback\tfwd\tfront\t102.4\t175.6\t66.5\t53.9\t2414\tohc\tfour\t122\tmpfi\t3.31\t3.54\t8.7\t92\t4200\t27\t32\t9988\n-1\t65\ttoyota\tgas\tstd\tfour\tsedan\tfwd\tfront\t102.4\t175.6\t66.5\t54.9\t2414\tohc\tfour\t122\tmpfi\t3.31\t3.54\t8.7\t92\t4200\t27\t32\t10898\n-1\t65\ttoyota\tgas\tstd\tfour\thatchback\tfwd\tfront\t102.4\t175.6\t66.5\t53.9\t2458\tohc\tfour\t122\tmpfi\t3.31\t3.54\t8.7\t92\t4200\t27\t32\t11248\n3\t197\ttoyota\tgas\tstd\ttwo\thatchback\trwd\tfront\t102.9\t183.5\t67.7\t52.0\t2976\tdohc\tsix\t171\tmpfi\t3.27\t3.35\t9.3\t161\t5200\t20\t24\t16558\n3\t197\ttoyota\tgas\tstd\ttwo\thatchback\trwd\tfront\t102.9\t183.5\t67.7\t52.0\t3016\tdohc\tsix\t171\tmpfi\t3.27\t3.35\t9.3\t161\t5200\t19\t24\t15998\n-1\t90\ttoyota\tgas\tstd\tfour\tsedan\trwd\tfront\t104.5\t187.8\t66.5\t54.1\t3131\tdohc\tsix\t171\tmpfi\t3.27\t3.35\t9.2\t156\t5200\t20\t24\t15690\n-1\t0\ttoyota\tgas\tstd\tfour\twagon\trwd\tfront\t104.5\t187.8\t66.5\t54.1\t3151\tdohc\tsix\t161\tmpfi\t3.27\t3.35\t9.2\t156\t5200\t19\t24\t15750\n2\t122\tvolkswagen\tdiesel\tstd\ttwo\tsedan\tfwd\tfront\t97.3\t171.7\t65.5\t55.7\t2261\tohc\tfour\t97\tidi\t3.01\t3.40\t23.0\t52\t4800\t37\t46\t7775\n2\t122\tvolkswagen\tgas\tstd\ttwo\tsedan\tfwd\tfront\t97.3\t171.7\t65.5\t55.7\t2209\tohc\tfour\t109\tmpfi\t3.19\t3.40\t9.0\t85\t5250\t27\t34\t7975\n2\t94\tvolkswagen\tdiesel\tstd\tfour\tsedan\tfwd\tfront\t97.3\t171.7\t65.5\t55.7\t2264\tohc\tfour\t97\tidi\t3.01\t3.40\t23.0\t52\t4800\t37\t46\t7995\n2\t94\tvolkswagen\tgas\tstd\tfour\tsedan\tfwd\tfront\t97.3\t171.7\t65.5\t55.7\t2212\tohc\tfour\t109\tmpfi\t3.19\t3.40\t9.0\t85\t5250\t27\t34\t8195\n2\t94\tvolkswagen\tgas\tstd\tfour\tsedan\tfwd\tfront\t97.3\t171.7\t65.5\t55.7\t2275\tohc\tfour\t109\tmpfi\t3.19\t3.40\t9.0\t85\t5250\t27\t34\t8495\n2\t94\tvolkswagen\tdiesel\tturbo\tfour\tsedan\tfwd\tfront\t97.3\t171.7\t65.5\t55.7\t2319\tohc\tfour\t97\tidi\t3.01\t3.40\t23.0\t68\t4500\t37\t42\t9495\n2\t94\tvolkswagen\tgas\tstd\tfour\tsedan\tfwd\tfront\t97.3\t171.7\t65.5\t55.7\t2300\tohc\tfour\t109\tmpfi\t3.19\t3.40\t10.0\t100\t5500\t26\t32\t9995\n3\t0\tvolkswagen\tgas\tstd\ttwo\tconvertible\tfwd\tfront\t94.5\t159.3\t64.2\t55.6\t2254\tohc\tfour\t109\tmpfi\t3.19\t3.40\t8.5\t90\t5500\t24\t29\t11595\n3\t256\tvolkswagen\tgas\tstd\ttwo\thatchback\tfwd\tfront\t94.5\t165.7\t64.0\t51.4\t2221\tohc\tfour\t109\tmpfi\t3.19\t3.40\t8.5\t90\t5500\t24\t29\t9980\n0\t0\tvolkswagen\tgas\tstd\tfour\tsedan\tfwd\tfront\t100.4\t180.2\t66.9\t55.1\t2661\tohc\tfive\t136\tmpfi\t3.19\t3.40\t8.5\t110\t5500\t19\t24\t13295\n0\t0\tvolkswagen\tdiesel\tturbo\tfour\tsedan\tfwd\tfront\t100.4\t180.2\t66.9\t55.1\t2579\tohc\tfour\t97\tidi\t3.01\t3.40\t23.0\t68\t4500\t33\t38\t13845\n0\t0\tvolkswagen\tgas\tstd\tfour\twagon\tfwd\tfront\t100.4\t183.1\t66.9\t55.1\t2563\tohc\tfour\t109\tmpfi\t3.19\t3.40\t9.0\t88\t5500\t25\t31\t12290\n-2\t103\tvolvo\tgas\tstd\tfour\tsedan\trwd\tfront\t104.3\t188.8\t67.2\t56.2\t2912\tohc\tfour\t141\tmpfi\t3.78\t3.15\t9.5\t114\t5400\t23\t28\t12940\n-1\t74\tvolvo\tgas\tstd\tfour\twagon\trwd\tfront\t104.3\t188.8\t67.2\t57.5\t3034\tohc\tfour\t141\tmpfi\t3.78\t3.15\t9.5\t114\t5400\t23\t28\t13415\n-2\t103\tvolvo\tgas\tstd\tfour\tsedan\trwd\tfront\t104.3\t188.8\t67.2\t56.2\t2935\tohc\tfour\t141\tmpfi\t3.78\t3.15\t9.5\t114\t5400\t24\t28\t15985\n-1\t74\tvolvo\tgas\tstd\tfour\twagon\trwd\tfront\t104.3\t188.8\t67.2\t57.5\t3042\tohc\tfour\t141\tmpfi\t3.78\t3.15\t9.5\t114\t5400\t24\t28\t16515\n-2\t103\tvolvo\tgas\tturbo\tfour\tsedan\trwd\tfront\t104.3\t188.8\t67.2\t56.2\t3045\tohc\tfour\t130\tmpfi\t3.62\t3.15\t7.5\t162\t5100\t17\t22\t18420\n-1\t74\tvolvo\tgas\tturbo\tfour\twagon\trwd\tfront\t104.3\t188.8\t67.2\t57.5\t3157\tohc\tfour\t130\tmpfi\t3.62\t3.15\t7.5\t162\t5100\t17\t22\t18950\n-1\t95\tvolvo\tgas\tstd\tfour\tsedan\trwd\tfront\t109.1\t188.8\t68.9\t55.5\t2952\tohc\tfour\t141\tmpfi\t3.78\t3.15\t9.5\t114\t5400\t23\t28\t16845\n-1\t95\tvolvo\tgas\tturbo\tfour\tsedan\trwd\tfront\t109.1\t188.8\t68.8\t55.5\t3049\tohc\tfour\t141\tmpfi\t3.78\t3.15\t8.7\t160\t5300\t19\t25\t19045\n-1\t95\tvolvo\tgas\tstd\tfour\tsedan\trwd\tfront\t109.1\t188.8\t68.9\t55.5\t3012\tohcv\tsix\t173\tmpfi\t3.58\t2.87\t8.8\t134\t5500\t18\t23\t21485\n-1\t95\tvolvo\tdiesel\tturbo\tfour\tsedan\trwd\tfront\t109.1\t188.8\t68.9\t55.5\t3217\tohc\tsix\t145\tidi\t3.01\t3.40\t23.0\t106\t4800\t26\t27\t22470\n-1\t95\tvolvo\tgas\tturbo\tfour\tsedan\trwd\tfront\t109.1\t188.8\t68.9\t55.5\t3062\tohc\tfour\t141\tmpfi\t3.78\t3.15\t9.5\t114\t5400\t19\t25\t22625\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1502456694899_-545364865",
+      "id": "20170811-060454_545663393",
+      "dateCreated": "2017-08-11 06:04:54.899",
+      "dateStarted": "2017-10-09 21:17:02.210",
+      "dateFinished": "2017-10-09 21:17:03.161",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql select count(1),`fuel-type` from Automobiles group by `fuel-type` order by `fuel-type`",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:56.556",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "count(1)",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "fuel-type",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 0.0,
+                          "direction": "asc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "count(1)": "string",
+                      "fuel-type": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "count(1)",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "fuel-type",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "count(1)\tfuel-type\n20\tdiesel\n185\tgas\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1502456709970_-242720722",
+      "id": "20170811-060509_619442845",
+      "dateCreated": "2017-08-11 06:05:09.970",
+      "dateStarted": "2017-10-09 21:17:02.959",
+      "dateFinished": "2017-10-09 21:17:04.664",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql  select `fuel-type` , count(1) from Automobiles group by `fuel-type` order by `fuel-type`\n",
+      "user": "admin",
+      "dateUpdated": "2017-11-02 06:23:45.034",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "fuel-type": "string",
+                      "count(1)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "fuel-type",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count(1)",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "fuel-type\tcount(1)\ndiesel\t20\ngas\t185\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1502456938150_-703559604",
+      "id": "20170811-060858_2069959905",
+      "dateCreated": "2017-08-11 06:08:58.150",
+      "dateStarted": "2017-10-09 21:17:03.210",
+      "dateFinished": "2017-10-09 21:17:05.486",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql select make,count(1) from Automobiles group by make order by make\n",
+      "user": "admin",
+      "dateUpdated": "2017-10-28 13:15:08.304",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "make": "string",
+                      "count(1)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "make",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count(1)",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "make\tcount(1)\nalfa-romero\t3\naudi\t7\nbmw\t8\nchevrolet\t3\ndodge\t9\nhonda\t13\nisuzu\t4\njaguar\t3\nmazda\t17\nmercedes-benz\t8\nmercury\t1\nmitsubishi\t13\nnissan\t18\npeugot\t11\nplymouth\t7\nporsche\t5\nrenault\t2\nsaab\t6\nsubaru\t12\ntoyota\t32\nvolkswagen\t12\nvolvo\t11\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1502457061479_634428505",
+      "id": "20170811-061101_799017525",
+      "dateCreated": "2017-08-11 06:11:01.479",
+      "dateStarted": "2017-10-09 21:17:05.216",
+      "dateFinished": "2017-10-09 21:17:06.280",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val labeled \u003d dfAutoAttribs.rdd.map(row \u003d\u003e LabeledPoint(row.getAs(\"city-mpg\").toString.toDouble,Vectors.dense(row.getAs(\"horsepower\")\n.toString.split(\u0027 \u0027).\nmap(_.toDouble))))\n\n//labeled.collect().map( point \u003d\u003e println(\" Point label and features  \u003d  \"+point.label+ \" : \" + point.features))",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:56.732",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "labeled: org.apache.spark.rdd.RDD[org.apache.spark.mllib.regression.LabeledPoint] \u003d MapPartitionsRDD[100] at map at \u003cconsole\u003e:107\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1502457207811_-1474613369",
+      "id": "20170811-061327_1820013150",
+      "dateCreated": "2017-08-11 06:13:27.811",
+      "dateStarted": "2017-10-09 21:17:05.555",
+      "dateFinished": "2017-10-09 21:17:07.003",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "//val numIterations \u003d 300\n//val stepSize \u003d 0.001\n//val model \u003d LinearRegressionWithSGD.train(labeled,numIterations,stepSize)\n\nimport org.apache.spark.ml.feature.VectorAssembler\n\nval glr \u003d new GeneralizedLinearRegression().setFamily(\"gaussian\").setLink(\"identity\").setMaxIter(10).setRegParam(0.3)\n\n\nval assembler \u003d new VectorAssembler().setInputCols(Array(\"horsepower\")).setOutputCol(\"features\")\n\nval subDF1 \u003d dfAutoAttribs.select(\"city-mpg\",\"horsepower\")\nval subDF2 \u003d subDF1.withColumnRenamed(\"city-mpg\",\"id\");\nval subDF3 \u003d assembler.transform(subDF2)\nval subDF4 \u003d subDF3.withColumn(\"label\",monotonicallyIncreasingId)\nval subDF5 \u003d subDF4.drop(\"horsepower\")\nsubDF5.show()\n//val subDF3 \u003d  subDF2.withColumnRenamed(\"horsepower\",\"features\");\nval model \u003d glr.fit(subDF5)\nval summary \u003d model.summary;\nval resultDF_new \u003d model.transform(subDF5)\nresultDF_new.show()\nprintln(model.toString())\nprintln(\"Coeffecients : \"+ model.coefficients)\nprintln(\" Intercept : \" + model.intercept)",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:56.800",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.ml.feature.VectorAssembler\nglr: org.apache.spark.ml.regression.GeneralizedLinearRegression \u003d glm_d73d4c19a382\nassembler: org.apache.spark.ml.feature.VectorAssembler \u003d vecAssembler_133ee8b35e23\nsubDF1: org.apache.spark.sql.DataFrame \u003d [city-mpg: int, horsepower: int]\nsubDF2: org.apache.spark.sql.DataFrame \u003d [id: int, horsepower: int]\nsubDF3: org.apache.spark.sql.DataFrame \u003d [id: int, horsepower: int ... 1 more field]\nwarning: there was one deprecation warning; re-run with -deprecation for details\nsubDF4: org.apache.spark.sql.DataFrame \u003d [id: int, horsepower: int ... 2 more fields]\nsubDF5: org.apache.spark.sql.DataFrame \u003d [id: int, features: vector ... 1 more field]\n+---+--------+-----+\n| id|features|label|\n+---+--------+-----+\n| 21| [111.0]|    0|\n| 21| [111.0]|    1|\n| 19| [154.0]|    2|\n| 24| [102.0]|    3|\n| 18| [115.0]|    4|\n| 19| [110.0]|    5|\n| 19| [110.0]|    6|\n| 19| [110.0]|    7|\n| 17| [140.0]|    8|\n| 16| [160.0]|    9|\n| 23| [101.0]|   10|\n| 23| [101.0]|   11|\n| 21| [121.0]|   12|\n| 21| [121.0]|   13|\n| 20| [121.0]|   14|\n| 16| [182.0]|   15|\n| 16| [182.0]|   16|\n| 15| [182.0]|   17|\n| 47|  [48.0]|   18|\n| 38|  [70.0]|   19|\n+---+--------+-----+\nonly showing top 20 rows\n\nmodel: org.apache.spark.ml.regression.GeneralizedLinearRegressionModel \u003d glm_d73d4c19a382\nsummary: org.apache.spark.ml.regression.GeneralizedLinearRegressionTrainingSummary \u003d org.apache.spark.ml.regression.GeneralizedLinearRegressionTrainingSummary@7437c66a\nresultDF_new: org.apache.spark.sql.DataFrame \u003d [id: int, features: vector ... 2 more fields]\n+---+--------+-----+------------------+\n| id|features|label|        prediction|\n+---+--------+-----+------------------+\n| 21| [111.0]|    0|101.72050625708816|\n| 21| [111.0]|    1|101.72050625708816|\n| 19| [154.0]|    2|100.17195984365775|\n| 24| [102.0]|    3|102.04462062268989|\n| 18| [115.0]|    4|101.57645542793185|\n| 19| [110.0]|    5|101.75651896437725|\n| 19| [110.0]|    6|101.75651896437725|\n| 19| [110.0]|    7|101.75651896437725|\n| 17| [140.0]|    8|100.67613774570485|\n| 16| [160.0]|    9| 99.95588359992325|\n| 23| [101.0]|   10|102.08063332997897|\n| 23| [101.0]|   11|102.08063332997897|\n| 21| [121.0]|   12|101.36037918419737|\n| 21| [121.0]|   13|101.36037918419737|\n| 20| [121.0]|   14|101.36037918419737|\n| 16| [182.0]|   15| 99.16360403956351|\n| 16| [182.0]|   16| 99.16360403956351|\n| 15| [182.0]|   17| 99.16360403956351|\n| 47|  [48.0]|   18|103.98930681630019|\n| 38|  [70.0]|   19|103.19702725594044|\n+---+--------+-----+------------------+\nonly showing top 20 rows\n\nglm_d73d4c19a382\nCoeffecients : [-0.03601270728907973]\n Intercept : 105.71791676617602\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1506362619144_937681452",
+      "id": "20170925-110339_161544377",
+      "dateCreated": "2017-09-25 11:03:39.144",
+      "dateStarted": "2017-10-09 21:17:06.325",
+      "dateFinished": "2017-10-09 21:17:13.222",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val valuesAndPreds \u003d labeled.map{ point \u003d\u003e \nval prediction \u003d model.predict(point.features)\n(point.label, prediction)\n}\nval MSE \u003d valuesAndPreds.map{\n    case(v,p) \u003d\u003e math.pow((v - p), 2) \n    \n}.mean() \nprintln(\" Training MSE \u003d \" + MSE)\nprintln(\" Model weights and intercept : \"+ model.weights + \" : \"+ model.intercept)\n\n//model.save(sc,\"/Users/shruthimurthy/data/target/tmp/scalaLinearRegressionWithSGDModel\")\n//val sameModel \u003d LinearRegressionModel.load(sc,\"/Users/shruthimurthy/data/target/tmp/scalaLinearRegressionWithSGDModel\")\n\n",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:56.867",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:127: error: method predict in class GeneralizedLinearRegressionModel cannot be accessed in org.apache.spark.ml.regression.GeneralizedLinearRegressionModel\n Access to protected method predict not permitted because\n enclosing class $iw is not a subclass of\n class GeneralizedLinearRegressionModel in package regression where target is defined\n       val prediction \u003d model.predict(point.features)\n                              ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1506362908531_-1439683646",
+      "id": "20170925-110828_1716413099",
+      "dateCreated": "2017-09-25 11:08:28.531",
+      "dateStarted": "2017-10-09 21:17:07.049",
+      "dateFinished": "2017-10-09 21:17:13.313",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "println( \" valuesAndPreds  : \"+ valuesAndPreds)\nprintln(model.intercept)",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:56.941",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:105: error: not found: value valuesAndPreds\n       println( \" valuesAndPreds  : \"+ valuesAndPreds)\n                                       ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1506364818533_-439746446",
+      "id": "20170925-114018_1596859574",
+      "dateCreated": "2017-09-25 11:40:18.533",
+      "dateStarted": "2017-10-09 21:17:13.345",
+      "dateFinished": "2017-10-09 21:17:13.404",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "valuesAndPreds.collect().foreach(println)",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:57.000",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:105: error: not found: value valuesAndPreds\n       valuesAndPreds.collect().foreach(println)\n       ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1506364927732_1216902408",
+      "id": "20170925-114207_2065615452",
+      "dateCreated": "2017-09-25 11:42:07.732",
+      "dateStarted": "2017-10-09 21:17:13.438",
+      "dateFinished": "2017-10-09 21:17:13.486",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val resultdf \u003d valuesAndPreds.toDF(\"city-mpg\",\"pred-city-mpg\")",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:57.042",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:104: error: not found: value valuesAndPreds\n       val resultdf \u003d valuesAndPreds.toDF(\"city-mpg\",\"pred-city-mpg\")\n                      ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1506365007970_-808877172",
+      "id": "20170925-114327_702493720",
+      "dateCreated": "2017-09-25 11:43:27.970",
+      "dateStarted": "2017-10-09 21:17:13.519",
+      "dateFinished": "2017-10-09 21:17:13.566",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val finalDF \u003d dfAutoAttribs.join(resultdf, \"city-mpg\")\nfinalDF.show()\nfinalDF.registerTempTable(\"finalDFTable\")",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:57.107",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:108: error: not found: value resultdf\n       val finalDF \u003d dfAutoAttribs.join(resultdf, \"city-mpg\")\n                                        ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1506531299495_-97130174",
+      "id": "20170927-095459_1107235213",
+      "dateCreated": "2017-09-27 09:54:59.495",
+      "dateStarted": "2017-10-09 21:17:13.614",
+      "dateFinished": "2017-10-09 21:17:13.714",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql select horsepower,`pred-city-mpg` from finalDFTable order by `pred-city-mpg` desc",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:57.178",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "scatterChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "horsepower": "string",
+                      "pred-city-mpg": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [],
+              "groups": [],
+              "values": []
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Table or view not found: finalDFTable; line 1 pos 39\nset zeppelin.spark.sql.stacktrace \u003d true to see full stacktrace"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1506531366190_-855226714",
+      "id": "20170927-095606_1493731857",
+      "dateCreated": "2017-09-27 09:56:06.190",
+      "dateStarted": "2017-10-09 21:17:13.755",
+      "dateFinished": "2017-10-09 21:17:13.777",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "\n",
+      "user": "admin",
+      "dateUpdated": "2017-10-09 21:16:57.234",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1506531544641_-1603469735",
+      "id": "20170927-095904_238276865",
+      "dateCreated": "2017-09-27 09:59:04.641",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "SimpleHelloe",
+  "id": "2CT62P518",
+  "angularObjects": {
+    "2CQBZRAUD:shared_process": [],
+    "2CR3Z79TN:shared_process": [],
+    "2CPRN8S87:shared_process": [],
+    "2CQ5AG16H:shared_process": [],
+    "2CQ25EC9M:shared_process": [],
+    "2CT66XUSW:shared_process": [],
+    "2CPRDBP2N:shared_process": [],
+    "2CT684WGK:shared_process": [],
+    "2CR65K48E:shared_process": [],
+    "2CQ3HS2GM:shared_process": [],
+    "2CT8TU8HX:shared_process": [],
+    "2CQUGD56B:shared_process": [],
+    "2CSFQERRA:shared_process": [],
+    "2CQ8CCQ1P:shared_process": [],
+    "2CQGDU1WC:shared_process": [],
+    "2CRFYYC5J:shared_process": [],
+    "2CQV1UQ37:shared_process": [],
+    "2CRGVTXD9:shared_process": [],
+    "2CQ22FJC1:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

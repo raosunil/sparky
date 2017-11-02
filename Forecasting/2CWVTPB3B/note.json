@@ -1,0 +1,595 @@
+{
+  "paragraphs": [
+    {
+      "text": "val spark \u003d org.apache.spark.sql.SparkSession.builder.getOrCreate",
+      "user": "admin",
+      "dateUpdated": "2017-10-05 16:51:21.819",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "spark: org.apache.spark.sql.SparkSession \u003d org.apache.spark.sql.SparkSession@568d4675\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1506635593949_-1569536168",
+      "id": "20170928-145313_2078375809",
+      "dateCreated": "2017-09-28 14:53:13.949",
+      "dateStarted": "2017-10-05 16:51:21.876",
+      "dateFinished": "2017-10-05 16:51:22.726",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val dfHousing \u003d spark.read.format(\"csv\").option(\"header\",true).option(\"inferschema\",true).load(\"/Users/shruthimurthy/data/housing88.txt\")",
+      "user": "admin",
+      "dateUpdated": "2017-10-05 16:51:21.873",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "dfHousing: org.apache.spark.sql.DataFrame \u003d [”sno”: int, ”assess\": double ... 11 more fields]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d2084",
+            "http://127.0.0.1:4040/jobs/job?id\u003d2085"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1506635666632_2127454716",
+      "id": "20170928-145426_166221478",
+      "dateCreated": "2017-09-28 14:54:26.632",
+      "dateStarted": "2017-10-05 16:51:22.005",
+      "dateFinished": "2017-10-05 16:51:23.638",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "dfHousing.show()",
+      "user": "admin",
+      "dateUpdated": "2017-10-05 16:51:21.926",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----+----------------+-----+-------+-----+--------+----------------+----------------+----------------+----------------+-----+----------------+---------+\n|”sno”|        ”assess\"|bdrms|lotsize|sqrft|colonial|          lprice|         lassess|        llotsize|          lsqrft|bedsq|         lnrooms|   hprice|\n+-----+----------------+-----+-------+-----+--------+----------------+----------------+----------------+----------------+-----+----------------+---------+\n|    1|349.100006103516|    4|   6126| 2438|       1|5.70378255844116|5.85535860061646|8.72029685974121|7.79893350601196|   16| 1.3862943649292| 435000.0|\n|    2|           351.5|    3|   9903| 2076|       1|5.91350317001343|5.86220979690552|9.20059299468994| 7.6381983757019|    9| 1.0986123085022| 536500.0|\n|    3|217.699996948242|    3|   5200| 1374|       0|5.25227355957031|5.38311815261841| 8.5564136505127|7.22548151016235|    9| 1.0986123085022| 276950.0|\n|    4|231.800003051758|    3|   4600| 1448|       1|5.27299976348877|5.44587516784668|8.43381118774414|7.27793836593628|    9| 1.0986123085022| 282750.0|\n|    5|319.100006103516|    4|   6095| 2514|       1| 5.9215784072876|5.76550436019897|8.71522426605225|7.82963037490845|   16| 1.3862943649292| 540850.0|\n|    6|           414.5|    5|   8566| 2754|       1|  6.144775390625|6.02707290649414|9.05555629730225|7.92080974578857|   25|1.60943794250488|676098.75|\n|    7|367.799987792969|    3|   9000| 2067|       1|5.80663967132568|5.90753936767578|9.10497951507568|7.63385343551636|    9| 1.0986123085022| 482125.0|\n|    8|300.200012207031|    3|   6210| 1731|       1|5.75257253646851|5.70444917678833|8.73391628265381|7.45645475387573|    9| 1.0986123085022| 456750.0|\n|    9|236.100006103516|    3|   6000| 1767|       0|5.32787609100342|5.46425533294678|8.69951438903809|7.47703838348389|    9| 1.0986123085022| 298700.0|\n|   10|256.299987792969|    3|   2892| 1890|       0|5.48063898086548|5.54634857177734|7.96970367431641| 7.5443320274353|    9| 1.0986123085022| 348000.0|\n|   11|           314.0|    4|   6000| 2336|       1|5.65248918533325|5.74939298629761|8.69951438903809|7.75619554519653|   16| 1.3862943649292| 413250.0|\n|   12|           416.5|    5|   7047| 2634|       1|5.70378255844116| 6.0318865776062| 8.8603572845459|7.87625885009766|   25|1.60943794250488| 435000.0|\n|   13|           434.0|    3|  12237| 3375|       1|6.00388717651367|6.07304430007935|9.41221904754639|8.12415027618408|    9| 1.0986123085022| 587250.0|\n|   14|279.299987792969|    3|   6460| 1899|       0|5.35658645629883| 5.6322865486145| 8.7733850479126|7.54908275604248|    9| 1.0986123085022| 307400.0|\n|   15|           287.5|    3|   6519| 2312|       1|5.57973003387451| 5.6612229347229| 8.7824764251709|7.74586820602417|    9| 1.0986123085022| 384250.0|\n|   16|232.899993896484|    4|   3597| 1760|       1|5.42671060562134|5.45060920715332|8.18785572052002|  7.473069190979|   16| 1.3862943649292| 329730.0|\n|   17|303.799987792969|    4|   5922| 2000|       0|5.48063898086548|5.71636962890625|8.68642997741699|7.60090255737305|   16| 1.3862943649292| 348000.0|\n|   18|305.600006103516|    3|   7123| 1774|       1|5.65248918533325|5.72227716445923|8.87108421325684|7.48099231719971|    9| 1.0986123085022| 413250.0|\n|   19|266.700012207031|    3|   5642| 1376|       1|5.59098720550537|5.58612442016602|8.63799381256104|7.22693586349487|    9| 1.0986123085022| 388600.0|\n|   20|           326.0|    4|   8602| 1835|       1|  5.736572265625| 5.7868971824646|9.05974960327148|7.51479959487915|   16| 1.3862943649292| 449500.0|\n+-----+----------------+-----+-------+-----+--------+----------------+----------------+----------------+----------------+-----+----------------+---------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d2086"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1506635750570_-600724758",
+      "id": "20170928-145550_1444669843",
+      "dateCreated": "2017-09-28 14:55:50.570",
+      "dateStarted": "2017-10-05 16:51:23.279",
+      "dateFinished": "2017-10-05 16:51:24.518",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import org.apache.spark.ml.feature.VectorAssembler\nimport org.apache.spark.sql.types._\nimport sys.process._\nimport org.apache.spark.sql._\nimport org.apache.spark.mllib.regression.LabeledPoint\nimport org.apache.spark.mllib.regression.LinearRegressionModel\nimport org.apache.spark.ml.regression.LinearRegression\nimport org.apache.spark.mllib.regression.LinearRegressionWithSGD\nimport org.apache.spark.ml.regression.GeneralizedLinearRegressionModel\nimport org.apache.spark.ml.regression.GeneralizedLinearRegression\nimport org.apache.spark.mllib.linalg.Vectors\nimport  org.apache.spark.mllib.linalg.Vector\nimport org.apache.spark.ml.feature.RFormula\n\nimport org.apache.spark.ml.linalg.{Vectors \u003d\u003e mlVectors}\nimport  org.apache.spark.ml.linalg.{Vector \u003d\u003e mlVector}",
+      "user": "admin",
+      "dateUpdated": "2017-10-05 16:51:22.003",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.ml.feature.VectorAssembler\nimport org.apache.spark.sql.types._\nimport sys.process._\nimport org.apache.spark.sql._\nimport org.apache.spark.mllib.regression.LabeledPoint\nimport org.apache.spark.mllib.regression.LinearRegressionModel\nimport org.apache.spark.ml.regression.LinearRegression\nimport org.apache.spark.mllib.regression.LinearRegressionWithSGD\nimport org.apache.spark.ml.regression.GeneralizedLinearRegressionModel\nimport org.apache.spark.ml.regression.GeneralizedLinearRegression\nimport org.apache.spark.mllib.linalg.Vectors\nimport org.apache.spark.mllib.linalg.Vector\nimport org.apache.spark.ml.feature.RFormula\nimport org.apache.spark.ml.linalg.{Vectors\u003d\u003emlVectors}\nimport org.apache.spark.ml.linalg.{Vector\u003d\u003emlVector}\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1506635767712_1589296630",
+      "id": "20170928-145607_894797221",
+      "dateCreated": "2017-09-28 14:56:07.712",
+      "dateStarted": "2017-10-05 16:51:23.704",
+      "dateFinished": "2017-10-05 16:51:36.459",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "\nval lr \u003d new LinearRegression().setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8)\nval formula \u003d new RFormula().setFormula(\"hprice ~ bdrms\").setFeaturesCol(\"features\").setLabelCol(\"label\")",
+      "user": "admin",
+      "dateUpdated": "2017-10-05 16:51:22.076",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "lr: org.apache.spark.ml.regression.LinearRegression \u003d linReg_c6f7f7dd19c3\nformula: org.apache.spark.ml.feature.RFormula \u003d RFormula(hprice ~ bdrms) (uid\u003drFormula_fc0bc0841ee0)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1506637647621_-214308812",
+      "id": "20170928-152727_1841117168",
+      "dateCreated": "2017-09-28 15:27:27.621",
+      "dateStarted": "2017-10-05 16:51:25.051",
+      "dateFinished": "2017-10-05 16:51:37.979",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "\nval subDF1 \u003d dfHousing.select(\"bdrms\",\"hprice\")\nval train \u003d formula.fit(subDF1).transform(subDF1)\ntrain.show()\nval model \u003d lr.fit(train)\n\n//val subDF3 \u003d  subDF2.withColumnRenamed(\"horsepower\",\"features\");\n//val model \u003d glr.fit(subDF5)\n//val summary \u003d model.summary;\n//val resultDF_new \u003d model.transform(subDF5)\n//resultDF_new.show()\n//println(model.toString())\n//println(\"Coeffecients : \"+ model.coefficients)\n//println(\" Intercept : \" + model.intercept)\n//println(\"model aparms : \"+model.explainParams)",
+      "user": "admin",
+      "dateUpdated": "2017-10-05 16:51:22.166",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "subDF1: org.apache.spark.sql.DataFrame \u003d [bdrms: int, hprice: double]\ntrain: org.apache.spark.sql.DataFrame \u003d [bdrms: int, hprice: double ... 2 more fields]\n+-----+---------+--------+---------+\n|bdrms|   hprice|features|    label|\n+-----+---------+--------+---------+\n|    4| 435000.0|   [4.0]| 435000.0|\n|    3| 536500.0|   [3.0]| 536500.0|\n|    3| 276950.0|   [3.0]| 276950.0|\n|    3| 282750.0|   [3.0]| 282750.0|\n|    4| 540850.0|   [4.0]| 540850.0|\n|    5|676098.75|   [5.0]|676098.75|\n|    3| 482125.0|   [3.0]| 482125.0|\n|    3| 456750.0|   [3.0]| 456750.0|\n|    3| 298700.0|   [3.0]| 298700.0|\n|    3| 348000.0|   [3.0]| 348000.0|\n|    4| 413250.0|   [4.0]| 413250.0|\n|    5| 435000.0|   [5.0]| 435000.0|\n|    3| 587250.0|   [3.0]| 587250.0|\n|    3| 307400.0|   [3.0]| 307400.0|\n|    3| 384250.0|   [3.0]| 384250.0|\n|    4| 329730.0|   [4.0]| 329730.0|\n|    4| 348000.0|   [4.0]| 348000.0|\n|    3| 413250.0|   [3.0]| 413250.0|\n|    3| 388600.0|   [3.0]| 388600.0|\n|    4| 449500.0|   [4.0]| 449500.0|\n+-----+---------+--------+---------+\nonly showing top 20 rows\n\nmodel: org.apache.spark.ml.regression.LinearRegressionModel \u003d linReg_c6f7f7dd19c3\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d2087",
+            "http://127.0.0.1:4040/jobs/job?id\u003d2088",
+            "http://127.0.0.1:4040/jobs/job?id\u003d2089",
+            "http://127.0.0.1:4040/jobs/job?id\u003d2090",
+            "http://127.0.0.1:4040/jobs/job?id\u003d2091",
+            "http://127.0.0.1:4040/jobs/job?id\u003d2092"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1506637670952_-797942245",
+      "id": "20170928-152750_804895618",
+      "dateCreated": "2017-09-28 15:27:50.952",
+      "dateStarted": "2017-10-05 16:51:36.990",
+      "dateFinished": "2017-10-05 16:51:41.661",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val valuesAndPreds \u003d labeled.map{ point \u003d\u003e \nval prediction \u003d model.predict(point.features)\n(point.label, prediction, point.features)\n}\nval MSE \u003d valuesAndPreds.map{\n    case(v,p,q) \u003d\u003e math.pow((v - p), 2) \n    \n}.mean() \nprintln(\" Training MSE \u003d \" + MSE)\nprintln(\" Model weights and intercept : \"+ model.weights + \" : \"+ model.intercept)",
+      "user": "admin",
+      "dateUpdated": "2017-10-05 16:51:22.255",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:304: error: method predict in class LinearRegressionModel cannot be accessed in org.apache.spark.ml.regression.LinearRegressionModel\n Access to protected method predict not permitted because\n enclosing class $iw is not a subclass of\n class LinearRegressionModel in package regression where target is defined\n       val prediction \u003d model.predict(point.features)\n                              ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1506641599799_-1521277876",
+      "id": "20170928-163319_462034955",
+      "dateCreated": "2017-09-28 16:33:19.799",
+      "dateStarted": "2017-10-05 16:51:38.506",
+      "dateFinished": "2017-10-05 16:51:41.823",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val trainingSummary \u003d model.summary\ntrainingSummary.residuals.show(10)\ntrainingSummary.predictions.show(10)\nval resultDF \u003d trainingSummary.predictions.toDF()\nresultDF.registerTempTable(\"Results\")\ntrainingSummary.r2\ntrainingSummary.rootMeanSquaredError",
+      "user": "admin",
+      "dateUpdated": "2017-10-05 16:51:22.310",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "trainingSummary: org.apache.spark.ml.regression.LinearRegressionTrainingSummary \u003d org.apache.spark.ml.regression.LinearRegressionTrainingSummary@4d852de1\n+-------------------+\n|          residuals|\n+-------------------+\n|-29477.445176768815|\n| 161957.84973916947|\n| -97592.15026083053|\n| -91792.15026083053|\n|  76372.55482323118|\n| 121686.00990729278|\n| 107582.84973916947|\n|  82207.84973916947|\n| -75842.15026083053|\n| -26542.15026083053|\n+-------------------+\nonly showing top 10 rows\n\n+-----+---------+--------+---------+------------------+\n|bdrms|   hprice|features|    label|        prediction|\n+-----+---------+--------+---------+------------------+\n|    4| 435000.0|   [4.0]| 435000.0| 464477.4451767688|\n|    3| 536500.0|   [3.0]| 536500.0|374542.15026083053|\n|    3| 276950.0|   [3.0]| 276950.0|374542.15026083053|\n|    3| 282750.0|   [3.0]| 282750.0|374542.15026083053|\n|    4| 540850.0|   [4.0]| 540850.0| 464477.4451767688|\n|    5|676098.75|   [5.0]|676098.75| 554412.7400927072|\n|    3| 482125.0|   [3.0]| 482125.0|374542.15026083053|\n|    3| 456750.0|   [3.0]| 456750.0|374542.15026083053|\n|    3| 298700.0|   [3.0]| 298700.0|374542.15026083053|\n|    3| 348000.0|   [3.0]| 348000.0|374542.15026083053|\n+-----+---------+--------+---------+------------------+\nonly showing top 10 rows\n\nresultDF: org.apache.spark.sql.DataFrame \u003d [bdrms: int, hprice: double ... 3 more fields]\nwarning: there was one deprecation warning; re-run with -deprecation for details\nres167: Double \u003d 0.25814886169305074\nres168: Double \u003d 127547.50629269687\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d2093",
+            "http://127.0.0.1:4040/jobs/job?id\u003d2094"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1506703276676_1712192331",
+      "id": "20170929-094116_171988615",
+      "dateCreated": "2017-09-29 09:41:16.676",
+      "dateStarted": "2017-10-05 16:51:41.841",
+      "dateFinished": "2017-10-05 16:51:49.772",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val resultDFnew \u003d resultDF.select( resultDF(\"bdrms\").cast(IntegerType).as(\"bdrmsInt\"), resultDF(\"hprice\"), resultDF(\"prediction\"))\nresultDFnew.registerTempTable(\"ResultsNew\")",
+      "user": "admin",
+      "dateUpdated": "2017-10-05 16:51:22.378",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "prediction": "string",
+                      "bdrms": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [],
+              "groups": [],
+              "values": []
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "resultDFnew: org.apache.spark.sql.DataFrame \u003d [bdrmsInt: int, hprice: double ... 1 more field]\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1506641928626_-632216757",
+      "id": "20170928-163848_650946530",
+      "dateCreated": "2017-09-28 16:38:48.626",
+      "dateStarted": "2017-10-05 16:51:42.341",
+      "dateFinished": "2017-10-05 16:51:51.594",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql select prediction, bdrmsInt from ResultsNew\n",
+      "user": "admin",
+      "dateUpdated": "2017-10-05 16:51:22.429",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "scatterChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "prediction": "string",
+                      "bdrmsInt": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "prediction",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "bdrmsInt",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "prediction\tbdrmsInt\n464477.4451767688\t4\n374542.15026083053\t3\n374542.15026083053\t3\n374542.15026083053\t3\n464477.4451767688\t4\n554412.7400927072\t5\n374542.15026083053\t3\n374542.15026083053\t3\n374542.15026083053\t3\n374542.15026083053\t3\n464477.4451767688\t4\n554412.7400927072\t5\n374542.15026083053\t3\n374542.15026083053\t3\n374542.15026083053\t3\n464477.4451767688\t4\n464477.4451767688\t4\n374542.15026083053\t3\n374542.15026083053\t3\n464477.4451767688\t4\n374542.15026083053\t3\n374542.15026083053\t3\n374542.15026083053\t3\n464477.4451767688\t4\n374542.15026083053\t3\n374542.15026083053\t3\n374542.15026083053\t3\n374542.15026083053\t3\n734283.3299245839\t7\n464477.4451767688\t4\n464477.4451767688\t4\n464477.4451767688\t4\n374542.15026083053\t3\n464477.4451767688\t4\n464477.4451767688\t4\n464477.4451767688\t4\n464477.4451767688\t4\n554412.7400927072\t5\n464477.4451767688\t4\n284606.85534489213\t2\n374542.15026083053\t3\n554412.7400927072\t5\n464477.4451767688\t4\n374542.15026083053\t3\n554412.7400927072\t5\n374542.15026083053\t3\n374542.15026083053\t3\n464477.4451767688\t4\n374542.15026083053\t3\n464477.4451767688\t4\n374542.15026083053\t3\n284606.85534489213\t2\n374542.15026083053\t3\n374542.15026083053\t3\n374542.15026083053\t3\n464477.4451767688\t4\n464477.4451767688\t4\n464477.4451767688\t4\n374542.15026083053\t3\n464477.4451767688\t4\n374542.15026083053\t3\n464477.4451767688\t4\n644348.0350086456\t6\n554412.7400927072\t5\n464477.4451767688\t4\n464477.4451767688\t4\n464477.4451767688\t4\n464477.4451767688\t4\n464477.4451767688\t4\n374542.15026083053\t3\n374542.15026083053\t3\n374542.15026083053\t3\n554412.7400927072\t5\n374542.15026083053\t3\n284606.85534489213\t2\n374542.15026083053\t3\n464477.4451767688\t4\n374542.15026083053\t3\n464477.4451767688\t4\n374542.15026083053\t3\n464477.4451767688\t4\n374542.15026083053\t3\n464477.4451767688\t4\n374542.15026083053\t3\n374542.15026083053\t3\n374542.15026083053\t3\n284606.85534489213\t2\n464477.4451767688\t4\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d2095"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1506709583739_269577639",
+      "id": "20170929-112623_397205340",
+      "dateCreated": "2017-09-29 11:26:23.739",
+      "dateStarted": "2017-10-05 16:51:50.294",
+      "dateFinished": "2017-10-05 16:51:51.643",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n",
+      "user": "admin",
+      "dateUpdated": "2017-10-05 16:51:22.478",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1506983933177_-1356917467",
+      "id": "20171002-153853_693491221",
+      "dateCreated": "2017-10-02 15:38:53.177",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "simpleregression",
+  "id": "2CWVTPB3B",
+  "angularObjects": {
+    "2CQBZRAUD:shared_process": [],
+    "2CR3Z79TN:shared_process": [],
+    "2CPRN8S87:shared_process": [],
+    "2CQ5AG16H:shared_process": [],
+    "2CQ25EC9M:shared_process": [],
+    "2CT66XUSW:shared_process": [],
+    "2CPRDBP2N:shared_process": [],
+    "2CT684WGK:shared_process": [],
+    "2CR65K48E:shared_process": [],
+    "2CQ3HS2GM:shared_process": [],
+    "2CT8TU8HX:shared_process": [],
+    "2CQUGD56B:shared_process": [],
+    "2CSFQERRA:shared_process": [],
+    "2CQ8CCQ1P:shared_process": [],
+    "2CQGDU1WC:shared_process": [],
+    "2CRFYYC5J:shared_process": [],
+    "2CQV1UQ37:shared_process": [],
+    "2CRGVTXD9:shared_process": [],
+    "2CQ22FJC1:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

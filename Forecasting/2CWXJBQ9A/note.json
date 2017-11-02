@@ -1,0 +1,905 @@
+{
+  "paragraphs": [
+    {
+      "text": "import com.cloudera.sparkts._\nimport java.sql.Timestamp\n\nimport com.cloudera.sparkts.EasyPlot\nimport java.time.{LocalDateTime, ZoneId, ZonedDateTime}\nimport org.apache.spark.sql.functions.udf\nimport org.apache.spark.sql.functions._\nimport java.time.format.DateTimeFormatter\nimport java.time.LocalDate\nimport com.cloudera.sparkts.models._\nimport org.apache.spark.sql.types._\nimport org.apache.spark.sql._\nimport breeze.plot._",
+      "user": "admin",
+      "dateUpdated": "2017-11-01 12:07:37.016",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import com.cloudera.sparkts._\nimport java.sql.Timestamp\nimport com.cloudera.sparkts.EasyPlot\nimport java.time.{LocalDateTime, ZoneId, ZonedDateTime}\nimport org.apache.spark.sql.functions.udf\nimport org.apache.spark.sql.functions._\nimport java.time.format.DateTimeFormatter\nimport java.time.LocalDate\nimport com.cloudera.sparkts.models._\nimport org.apache.spark.sql.types._\nimport org.apache.spark.sql._\nimport breeze.plot._\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508963931433_-1310545631",
+      "id": "20171025-133851_1895381411",
+      "dateCreated": "2017-10-25 13:38:51.433",
+      "dateStarted": "2017-11-01 12:07:37.035",
+      "dateFinished": "2017-11-01 12:07:42.811",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val torontoHousingStarts \u003d spark.read.format(\"csv\").option(\"header\",true).option(\"inferSchema\",true).\nload(\"/Users/shruthimurthy/data/TorontoHousingStarts.csv\")",
+      "user": "admin",
+      "dateUpdated": "2017-10-31 11:53:52.949",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "torontoHousingStarts: org.apache.spark.sql.DataFrame \u003d [Sno: int, year: int ... 103 more fields]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d20",
+            "http://127.0.0.1:4040/jobs/job?id\u003d21"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1508965199017_-527377472",
+      "id": "20171025-135959_1747998299",
+      "dateCreated": "2017-10-25 13:59:59.017",
+      "dateStarted": "2017-10-31 11:53:53.059",
+      "dateFinished": "2017-10-31 11:53:57.930",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "\nval timestampUDF \u003d udf((dateString : String) \u003d\u003e {\n    val t \u003d dateString.split(\"/\")\nval dt \u003d ZonedDateTime.of( Integer.valueOf(t.apply(2)), Integer.valueOf(t.apply(0)), Integer.valueOf(t.apply(1)),0,0,0,0,ZoneId.systemDefault())\nTimestamp.from(dt.toInstant)\n})\n\nval toDouble \u003d udf((intValue : Integer) \u003d\u003e {\n    intValue.toDouble\n})\n\n\n\n\n\n",
+      "user": "admin",
+      "dateUpdated": "2017-10-31 11:53:52.999",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "timestampUDF: org.apache.spark.sql.expressions.UserDefinedFunction \u003d UserDefinedFunction(\u003cfunction1\u003e,TimestampType,Some(List(StringType)))\ntoDouble: org.apache.spark.sql.expressions.UserDefinedFunction \u003d UserDefinedFunction(\u003cfunction1\u003e,DoubleType,Some(List(IntegerType)))\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509213805024_820096112",
+      "id": "20171028-110325_390678020",
+      "dateCreated": "2017-10-28 11:03:25.024",
+      "dateStarted": "2017-10-31 11:53:57.926",
+      "dateFinished": "2017-10-31 11:53:58.768",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "torontoHousingStarts.columns.foreach(println)",
+      "user": "admin",
+      "dateUpdated": "2017-10-31 11:53:53.056",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Sno\nyear\nmonth\nunempl_k\nempl_ks\nlab_for_\npop_15pl\nv7\nc_unempl\nc_empl_k\nc_lab_fo\nc_emp_ra\nc_part_r\nc_unemp_\nrate\nv15\nboc_rate\nyield_1t\nyield_3t\nyield_5t\ntse_300\npch_tse\nto_permi\nto_st_to\nto_st_si\nto_st_se\nto_st_ap\nto_st_ro\nto_com_t\nto_com_s\nv30\nto_com_a\nto_com_r\nto_unoc_\nv34\nv35\nto_uc_to\nto_uc_si\nto_uc_se\nto_uc_ap\nto_uc_ro\nto_sa_to\nto_sa_si\nto_sa_ot\nland_ind\nhouse_in\nland_hou\nto_own\nto_renta\nto_condo\nto_coop\nto_other\nto_total\nto_own_s\nv54\nto_own_a\nto_own_r\nto_apt_r\nto_apt_c\nv59\nto_row_r\nto_row_c\nv62\nto_row_o\nto_semi_\nv65\nto_sing_\nv67\nv68\nto_st_l1\nto_st_l2\nto_st_l3\nto_st_l4\nto_co_l1\nto_co_l2\nto_co_l3\nto_co_l4\nint_rat2\nper_lag1\nper_lag2\nper_lag3\nper_lag4\nuc_lag1\nuc_lag2\nuc_lag3\nuc_lag4\nunocc_l1\nunocc_l2\nunocc_l3\nunocc_l4\nunocc_l5\nunocc_l6\nyear_\nmonth_\ndate_\ntrend\nto_st__1\nto_st__2\nto_st__3\nto_st__4\ndif_stl1\ndif_stl2\ndif_stl3\ntrend2\ndatevar\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509242813098_-296173697",
+      "id": "20171028-190653_543385546",
+      "dateCreated": "2017-10-28 19:06:53.098",
+      "dateStarted": "2017-10-31 11:53:58.476",
+      "dateFinished": "2017-10-31 11:53:59.125",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val torontoHousingStartsMod \u003d torontoHousingStarts.withColumn(\"timestamp\",timestampUDF($\"month\"))\nval torontoHousingStartsMod2 \u003d torontoHousingStartsMod.withColumn(\"priceNew\",toDouble($\"to_st_to\"))\n\n torontoHousingStartsMod2.registerTempTable(\"TorontoHousingStarts\")\n \n ",
+      "user": "admin",
+      "dateUpdated": "2017-10-31 11:53:53.103",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "torontoHousingStartsMod: org.apache.spark.sql.DataFrame \u003d [Sno: int, year: int ... 104 more fields]\ntorontoHousingStartsMod2: org.apache.spark.sql.DataFrame \u003d [Sno: int, year: int ... 105 more fields]\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509395930409_1040388912",
+      "id": "20171030-133850_949992974",
+      "dateCreated": "2017-10-30 13:38:50.409",
+      "dateStarted": "2017-10-31 11:53:58.860",
+      "dateFinished": "2017-10-31 11:54:00.746",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val formatter \u003d DateTimeFormatter.ofPattern(\"yyyy-MM-dd\");\nval  date \u003d LocalDate.parse(\"1987-03-01\", formatter);\n\n  val  resultado \u003d date.atStartOfDay(ZoneId.systemDefault());\nval dtIndex \u003d DateTimeIndex.uniform(resultado,178,new MonthFrequency(1))",
+      "user": "admin",
+      "dateUpdated": "2017-11-01 14:29:57.180",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "formatter: java.time.format.DateTimeFormatter \u003d Value(YearOfEra,4,19,EXCEEDS_PAD)\u0027-\u0027Value(MonthOfYear,2)\u0027-\u0027Value(DayOfMonth,2)\ndate: java.time.LocalDate \u003d 1987-03-01\nresultado: java.time.ZonedDateTime \u003d 1987-03-01T00:00-08:00[America/Los_Angeles]\ndtIndex: com.cloudera.sparkts.UniformDateTimeIndex \u003d uniform,America/Los_Angeles,1987-03-01T00:00-08:00[America/Los_Angeles],178,months 1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509221241074_1249657533",
+      "id": "20171028-130721_857765601",
+      "dateCreated": "2017-10-28 13:07:21.074",
+      "dateStarted": "2017-11-01 14:29:57.212",
+      "dateFinished": "2017-11-01 14:29:59.506",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val timeSeriesRDD \u003d TimeSeriesRDD.timeSeriesRDDFromObservations(dtIndex, torontoHousingStartsMod2,\n      \"timestamp\", \"month\", \"priceNew\")",
+      "user": "admin",
+      "dateUpdated": "2017-11-01 16:36:04.323",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "timeSeriesRDD: com.cloudera.sparkts.TimeSeriesRDD[String] \u003d TimeSeriesRDD[111] at RDD at TimeSeriesRDD.scala:54\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509229569574_-2023942943",
+      "id": "20171028-152609_380822886",
+      "dateCreated": "2017-10-28 15:26:09.574",
+      "dateStarted": "2017-10-31 11:54:01.296",
+      "dateFinished": "2017-10-31 11:54:02.507",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "\nval timeSeriesRDDFilled \u003d timeSeriesRDD.fill(\"linear\")\ntimeSeriesRDDFilled.cache()\n\n\nval doubleArrayDup \u003d timeSeriesRDDFilled.toInstants().values.map(vector \u003d\u003e vector.toDense.toArray).collect\nval resultDF \u003d timeSeriesRDDFilled.toInstantsDataFrame(sqlContext)\n\nresultDF.cache()\n//resultDF.show(1)",
+      "user": "admin",
+      "dateUpdated": "2017-11-01 17:11:12.145",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "timeSeriesRDDFilled: com.cloudera.sparkts.TimeSeriesRDD[String] \u003d TimeSeriesRDD[785] at RDD at TimeSeriesRDD.scala:54\nres261: timeSeriesRDDFilled.type \u003d TimeSeriesRDD[785] at RDD at TimeSeriesRDD.scala:54\ndoubleArrayDup: Array[Array[Double]] \u003d Array(Array(NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, 4530.0, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN...resultDF: org.apache.spark.sql.DataFrame \u003d [instant: timestamp, 1/1/1988: double ... 158 more fields]\nres262: resultDF.type \u003d [instant: timestamp, 1/1/1988: double ... 158 more fields]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d198",
+            "http://127.0.0.1:4040/jobs/job?id\u003d199"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1509242540578_-774972063",
+      "id": "20171028-190220_1042460384",
+      "dateCreated": "2017-10-28 19:02:20.578",
+      "dateStarted": "2017-11-01 17:11:12.170",
+      "dateFinished": "2017-11-01 17:11:16.189",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "println(timeSeriesRDDFilled.count())",
+      "user": "admin",
+      "dateUpdated": "2017-10-31 11:53:53.313",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "159\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d22"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1509243028154_-1854869757",
+      "id": "20171028-191028_921579308",
+      "dateCreated": "2017-10-28 19:10:28.154",
+      "dateStarted": "2017-10-31 11:54:03.037",
+      "dateFinished": "2017-10-31 11:54:03.677",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql select timestamp, priceNew from TorontoHousingStarts",
+      "user": "admin",
+      "dateUpdated": "2017-11-02 06:22:10.767",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "lineChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "timestamp": "string",
+                      "priceNew": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "timestamp",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "priceNew",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "timestamp\tpriceNew\n1987-03-01 00:00:00.0\t4530.0\n1987-04-01 00:00:00.0\t4449.0\n1987-05-01 00:00:00.0\t4965.0\n1987-06-01 00:00:00.0\t4514.0\n1987-07-01 00:00:00.0\t4477.0\n1987-08-01 00:00:00.0\t4443.0\n1987-09-01 00:00:00.0\t4097.0\n1987-10-01 00:00:00.0\t3444.0\n1987-11-01 00:00:00.0\t3432.0\n1987-12-01 00:00:00.0\t1932.0\n1988-01-01 00:00:00.0\t2509.0\n1988-02-01 00:00:00.0\t2425.0\n1988-03-01 00:00:00.0\t2613.0\n1988-04-01 00:00:00.0\t4080.0\n1988-05-01 00:00:00.0\t5724.0\n1988-06-01 00:00:00.0\t2820.0\n1988-07-01 00:00:00.0\t3009.0\n1988-08-01 00:00:00.0\t4216.0\n1988-09-01 00:00:00.0\t3494.0\n1988-10-01 00:00:00.0\t2642.0\n1988-11-01 00:00:00.0\t3065.0\n1988-12-01 00:00:00.0\t2194.0\n1989-01-01 00:00:00.0\t4058.0\n1989-02-01 00:00:00.0\t2410.0\n1989-03-01 00:00:00.0\t4120.0\n1989-04-01 00:00:00.0\t3384.0\n1989-05-01 00:00:00.0\t3745.0\n1989-06-01 00:00:00.0\t2783.0\n1989-07-01 00:00:00.0\t2713.0\n1989-08-01 00:00:00.0\t1767.0\n1989-09-01 00:00:00.0\t1854.0\n1989-10-01 00:00:00.0\t2408.0\n1989-11-01 00:00:00.0\t3121.0\n1989-12-01 00:00:00.0\t2821.0\n1990-01-01 00:00:00.0\t2435.0\n1990-02-01 00:00:00.0\t1532.0\n1990-03-01 00:00:00.0\t2006.0\n1990-04-01 00:00:00.0\t1840.0\n1990-05-01 00:00:00.0\t1984.0\n1990-06-01 00:00:00.0\t816.0\n1990-07-01 00:00:00.0\t2329.0\n1990-08-01 00:00:00.0\t919.0\n1990-09-01 00:00:00.0\t1504.0\n1990-10-01 00:00:00.0\t1117.0\n1990-11-01 00:00:00.0\t1175.0\n1990-12-01 00:00:00.0\t1066.0\n1991-01-01 00:00:00.0\t1012.0\n1991-02-01 00:00:00.0\t657.0\n1991-03-01 00:00:00.0\t677.0\n1991-04-01 00:00:00.0\t1491.0\n1991-05-01 00:00:00.0\t1263.0\n1991-06-01 00:00:00.0\t2216.0\n1991-07-01 00:00:00.0\t2481.0\n1991-08-01 00:00:00.0\t1949.0\n1991-09-01 00:00:00.0\t2626.0\n1991-10-01 00:00:00.0\t1735.0\n1991-11-01 00:00:00.0\t1702.0\n1991-12-01 00:00:00.0\t1005.0\n1992-01-01 00:00:00.0\t784.0\n1992-02-01 00:00:00.0\t1331.0\n1992-03-01 00:00:00.0\t1300.0\n1992-04-01 00:00:00.0\t2614.0\n1992-05-01 00:00:00.0\t2679.0\n1992-06-01 00:00:00.0\t1542.0\n1992-07-01 00:00:00.0\t2892.0\n1992-08-01 00:00:00.0\t1481.0\n1992-09-01 00:00:00.0\t1920.0\n1992-10-01 00:00:00.0\t1183.0\n1992-11-01 00:00:00.0\t1620.0\n1992-12-01 00:00:00.0\t1424.0\n1993-01-01 00:00:00.0\t647.0\n1993-02-01 00:00:00.0\t1042.0\n1993-03-01 00:00:00.0\t1364.0\n1993-04-01 00:00:00.0\t1471.0\n1993-05-01 00:00:00.0\t1831.0\n1993-06-01 00:00:00.0\t985.0\n1993-07-01 00:00:00.0\t1307.0\n1993-08-01 00:00:00.0\t982.0\n1993-09-01 00:00:00.0\t1289.0\n1993-10-01 00:00:00.0\t1534.0\n1993-11-01 00:00:00.0\t2085.0\n1993-12-01 00:00:00.0\t1100.0\n1994-01-01 00:00:00.0\t662.0\n1994-02-01 00:00:00.0\t876.0\n1994-03-01 00:00:00.0\t1004.0\n1994-04-01 00:00:00.0\t1850.0\n1994-05-01 00:00:00.0\t1341.0\n1994-06-01 00:00:00.0\t1608.0\n1994-07-01 00:00:00.0\t2121.0\n1994-08-01 00:00:00.0\t1819.0\n1994-09-01 00:00:00.0\t2050.0\n1994-10-01 00:00:00.0\t2425.0\n1994-11-01 00:00:00.0\t1776.0\n1994-12-01 00:00:00.0\t911.0\n1995-01-01 00:00:00.0\t954.0\n1995-02-01 00:00:00.0\t1179.0\n1995-03-01 00:00:00.0\t1302.0\n1995-04-01 00:00:00.0\t1553.0\n1995-05-01 00:00:00.0\t1102.0\n1995-06-01 00:00:00.0\t1623.0\n1995-07-01 00:00:00.0\t912.0\n1995-08-01 00:00:00.0\t1396.0\n1995-09-01 00:00:00.0\t1443.0\n1995-10-01 00:00:00.0\t1022.0\n1995-11-01 00:00:00.0\t1968.0\n1995-12-01 00:00:00.0\t1871.0\n1996-01-01 00:00:00.0\t1038.0\n1996-02-01 00:00:00.0\t816.0\n1996-03-01 00:00:00.0\t923.0\n1996-04-01 00:00:00.0\t1063.0\n1996-05-01 00:00:00.0\t2100.0\n1996-06-01 00:00:00.0\t1844.0\n1996-07-01 00:00:00.0\t1818.0\n1996-08-01 00:00:00.0\t1406.0\n1996-09-01 00:00:00.0\t2343.0\n1996-10-01 00:00:00.0\t1787.0\n1996-11-01 00:00:00.0\t1859.0\n1996-12-01 00:00:00.0\t2001.0\n1997-01-01 00:00:00.0\t1308.0\n1997-02-01 00:00:00.0\t1486.0\n1997-03-01 00:00:00.0\t1412.0\n1997-04-01 00:00:00.0\t2623.0\n1997-05-01 00:00:00.0\t2398.0\n1997-06-01 00:00:00.0\t1648.0\n1997-07-01 00:00:00.0\t2424.0\n1997-08-01 00:00:00.0\t2598.0\n1997-09-01 00:00:00.0\t2632.0\n1997-10-01 00:00:00.0\t2375.0\n1997-11-01 00:00:00.0\t2389.0\n1997-12-01 00:00:00.0\t2281.0\n1998-01-01 00:00:00.0\t1692.0\n1998-02-01 00:00:00.0\t1438.0\n1998-03-01 00:00:00.0\t2223.0\n1998-04-01 00:00:00.0\t2882.0\n1998-05-01 00:00:00.0\t2317.0\n1998-06-01 00:00:00.0\t1619.0\n1998-07-01 00:00:00.0\t1268.0\n1998-08-01 00:00:00.0\t2099.0\n1998-09-01 00:00:00.0\t2666.0\n1998-10-01 00:00:00.0\t2803.0\n1998-11-01 00:00:00.0\t2325.0\n1998-12-01 00:00:00.0\t2578.0\n1999-01-01 00:00:00.0\t1579.0\n1999-02-01 00:00:00.0\t2132.0\n1999-03-01 00:00:00.0\t2321.0\n1999-04-01 00:00:00.0\t3537.0\n1999-05-01 00:00:00.0\t4018.0\n1999-06-01 00:00:00.0\t3014.0\n1999-07-01 00:00:00.0\t2516.0\n1999-08-01 00:00:00.0\t3266.0\n1999-09-01 00:00:00.0\t2605.0\n1999-10-01 00:00:00.0\t3095.0\n1999-11-01 00:00:00.0\t3833.0\n1999-12-01 00:00:00.0\t2988.0\n2000-01-01 00:00:00.0\t1816.0\n2000-02-01 00:00:00.0\t2963.0\n2000-03-01 00:00:00.0\t2425.0\n2000-04-01 00:00:00.0\t4292.0\n2000-05-01 00:00:00.0\t2601.0\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d23"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1509402768799_1328725584",
+      "id": "20171030-153248_382715790",
+      "dateCreated": "2017-10-30 15:32:48.799",
+      "dateStarted": "2017-10-31 11:54:03.698",
+      "dateFinished": "2017-10-31 11:54:03.772",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val doubleArray \u003d torontoHousingStartsMod2.select(\"priceNew\").collect.map(_.getDouble(0))",
+      "user": "admin",
+      "dateUpdated": "2017-10-31 11:53:53.375",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "doubleArray: Array[Double] \u003d Array(4530.0, 4449.0, 4965.0, 4514.0, 4477.0, 4443.0, 4097.0, 3444.0, 3432.0, 1932.0, 2509.0, 2425.0, 2613.0, 4080.0, 5724.0, 2820.0, 3009.0, 4216.0, 3494.0, 2642.0, 3065.0, 2194.0, 4058.0, 2410.0, 4120.0, 3384.0, 3745.0, 2783.0, 2713.0, 1767.0, 1854.0, 2408.0, 3121.0, 2821.0, 2435.0, 1532.0, 2006.0, 1840.0, 1984.0, 816.0, 2329.0, 919.0, 1504.0, 1117.0, 1175.0, 1066.0, 1012.0, 657.0, 677.0, 1491.0, 1263.0, 2216.0, 2481.0, 1949.0, 2626.0, 1735.0, 1702.0, 1005.0, 784.0, 1331.0, 1300.0, 2614.0, 2679.0, 1542.0, 2892.0, 1481.0, 1920.0, 1183.0, 1620.0, 1424.0, 647.0, 1042.0, 1364.0, 1471.0, 1831.0, 985.0, 1307.0, 982.0, 1289.0, 1534.0, 2085.0, 1100.0, 662.0, 876.0, 1004.0, 1850.0, 1341.0, 1608.0, 2121.0, 1819.0, 2050.0, 2425.0, 1776.0, 911.0, 954.0, 1179.0, 1302.0..."
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d24"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1509402811596_-1997181826",
+      "id": "20171030-153331_400009153",
+      "dateCreated": "2017-10-30 15:33:31.596",
+      "dateStarted": "2017-10-31 11:54:03.803",
+      "dateFinished": "2017-10-31 11:54:04.278",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "//val ezPlot \u003d EasyPlot.ezplot(doubleArray,\u0027-\u0027)\nval ezPlot \u003d EasyPlot.acfPlot(doubleArray,40)\n",
+      "user": "admin",
+      "dateUpdated": "2017-10-31 11:53:53.421",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "ezPlot: breeze.plot.Figure \u003d breeze.plot.Figure@42a60dfa\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509404310042_-862059844",
+      "id": "20171030-155830_438568882",
+      "dateCreated": "2017-10-30 15:58:30.042",
+      "dateStarted": "2017-10-31 11:54:04.307",
+      "dateFinished": "2017-10-31 11:54:04.842",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val doubleVec \u003d new org.apache.spark.mllib.linalg.DenseVector(doubleArray)\nprintln(\"Size is : \" + doubleVec.size)",
+      "user": "admin",
+      "dateUpdated": "2017-10-31 16:21:42.992",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "doubleVec: org.apache.spark.mllib.linalg.DenseVector \u003d [4530.0,4449.0,4965.0,4514.0,4477.0,4443.0,4097.0,3444.0,3432.0,1932.0,2509.0,2425.0,2613.0,4080.0,5724.0,2820.0,3009.0,4216.0,3494.0,2642.0,3065.0,2194.0,4058.0,2410.0,4120.0,3384.0,3745.0,2783.0,2713.0,1767.0,1854.0,2408.0,3121.0,2821.0,2435.0,1532.0,2006.0,1840.0,1984.0,816.0,2329.0,919.0,1504.0,1117.0,1175.0,1066.0,1012.0,657.0,677.0,1491.0,1263.0,2216.0,2481.0,1949.0,2626.0,1735.0,1702.0,1005.0,784.0,1331.0,1300.0,2614.0,2679.0,1542.0,2892.0,1481.0,1920.0,1183.0,1620.0,1424.0,647.0,1042.0,1364.0,1471.0,1831.0,985.0,1307.0,982.0,1289.0,1534.0,2085.0,1100.0,662.0,876.0,1004.0,1850.0,1341.0,1608.0,2121.0,1819.0,2050.0,2425.0,1776.0,911.0,954.0,1179.0,1302.0,1553.0,1102.0,1623.0,912.0,1396.0,1443.0,1022.0,1968.0,1871.0,1038.0,816.0...Size is : 159\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509481892561_1252742364",
+      "id": "20171031-133132_1602025336",
+      "dateCreated": "2017-10-31 13:31:32.561",
+      "dateStarted": "2017-10-31 16:21:43.022",
+      "dateFinished": "2017-10-31 16:21:43.814",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val arimaModel \u003d ARIMA.fitModel(1,1,1,doubleVec)\n\nprintln(\"coefficients : \"+ arimaModel.coefficients.mkString(\",\"))\n\nval forecast \u003d arimaModel.forecast(doubleVec,20)\n\nprintln(\" Returned Forecasted Vector Size is : \"+ forecast.size)\n\nprintln(\"forecast of next 20 observations : \"+ forecast.toArray.mkString(\",\"))",
+      "user": "admin",
+      "dateUpdated": "2017-10-31 16:23:24.463",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "arimaModel: com.cloudera.sparkts.models.ARIMAModel \u003d com.cloudera.sparkts.models.ARIMAModel@47b99de9\ncoefficients : -10.371989142095758,0.26432777978859645,-0.8067539639840657\nforecast: org.apache.spark.mllib.linalg.Vector \u003d [4530.0,4552.985087832919,4177.279410534771,4980.050557282901,4535.839876421286,4502.689907996345,4641.0329056999735,4600.596140810282,3846.415307914023,4559.917431978614,2518.5999618725937,3017.43365484394,2722.832754697411,2047.166554099581,2721.3909886056263,6192.770444314663,3085.291876194387,2557.9448792665644,4233.369209220023,3959.787798181966,2777.957887501932,3636.7657819692413,1633.8199145916838,4489.618857963946,1820.2894604763405,4033.102367061875,3107.7071485296756,4033.541646909801,3043.3799611705595,3425.825746923184,2284.5119297930796,1960.628705583225,2096.901272430291,3022.375734459283,2940.4390007873653,3010.7967425259158,1729.0443040311468,2244.6370307919615,1944.0400108785589,2691.116485187435,555.4062215936024,2873.2... Returned Forecasted Vector Size is : 179\nforecast of next 20 observations : 4530.0,4552.985087832919,4177.279410534771,4980.050557282901,4535.839876421286,4502.689907996345,4641.0329056999735,4600.596140810282,3846.415307914023,4559.917431978614,2518.5999618725937,3017.43365484394,2722.832754697411,2047.166554099581,2721.3909886056263,6192.770444314663,3085.291876194387,2557.9448792665644,4233.369209220023,3959.787798181966,2777.957887501932,3636.7657819692413,1633.8199145916838,4489.618857963946,1820.2894604763405,4033.102367061875,3107.7071485296756,4033.541646909801,3043.3799611705595,3425.825746923184,2284.5119297930796,1960.628705583225,2096.901272430291,3022.375734459283,2940.4390007873653,3010.7967425259158,1729.0443040311468,2244.6370307919615,1944.0400108785589,2691.116485187435,555.4062215936024,2873.2138668545695,1030.3553874435752,1793.3833443726367,1308.6284523581576,1378.3494784872858,1248.9720226481697,1341.802710816889,901.8491314582106,422.6261043047593,1399.0840321682665,661.5422859179391,1576.6566770416075,2243.405980706466,1379.7255672736064,2639.665335779269,1753.5526387454531,2084.666476092405,1423.2218940364646,814.3230589418242,1361.906470569403,601.8139224696804,2005.1059232391272,2794.1388722149004,892.2414037620465,3122.7960336100205,1418.698530982777,2259.13415151829,1209.1855894242372,1737.0688710274787,1929.5389317383417,830.2152052288711,1004.776372627509,1265.558100212366,1185.9361916717396,2049.544205330053,976.2781835027312,1465.8801606891184,933.2803717442669,1106.4288425108714,1077.461178352687,2240.603298213857,1452.744257178544,820.126635191479,923.7667490330721,573.2714731576002,1768.230992182275,1119.8327484897202,1140.9358215062493,1897.6348410501414,1503.1268349100214,1581.38626373207,2388.6066150892275,2205.466152647422,1223.7772059827923,1073.916370184402,1198.6525971947085,1171.3338493142546,1681.8467849057965,912.9716233614184,1845.7936356622342,818.8333864282263,1284.971445390717,1571.4167078577366,602.0935287150029,1671.482140513132,2073.252063759629,1311.2142779113374,968.0051108710045,959.3190708115588,519.4326121926457,1789.9639692058975,1597.6082948259582,1832.330113904486,898.9355524635369,2225.140716225153,1642.48988121815,1655.019381539082,2201.9671839860976,1363.2072223826099,1560.3061939860893,804.6967183440374,2244.7295724854057,2489.27648214916,1290.3429557145755,2030.704616583802,2251.8929110076074,2481.8082741885414,2235.8662741231656,2324.9633538760063,2538.455215248259,2027.1072770934572,1272.1725804195141,1721.3872273892841,2773.4207122396115,2597.644716619082,2025.430839114143,1134.7615423321743,1673.5817105404317,2238.1077322502974,2706.703943738135,2099.7069611511583,2927.755716719859,1550.8331418876437,1996.3857376098404,1541.630427120177,2636.961523930518,3826.1142914829234,3118.9516946092053,2183.478568364124,3345.9087355292095,2393.305869747269,2513.5324081880976,3811.876851880555,3596.310315257809,1674.2219357523354,3130.0732826172757,1536.7053579922804,2601.0,3003.4127898094184,3099.409679956181,3114.412335653189,3108.0059651824163,3095.940594357278,3082.379392532647,3068.4228010209818,3054.361697031191,3040.2729674900975,3026.176935748362,3012.078973832144,2997.9805017171902,2983.8818947425375,2969.7832521207197,2955.6846000763658,2941.585945541374,2927.4872903480373,2913.388634980682,2899.289979567329,2885.191324141817\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509486141164_724734937",
+      "id": "20171031-144221_420730430",
+      "dateCreated": "2017-10-31 14:42:21.164",
+      "dateStarted": "2017-10-31 16:23:24.493",
+      "dateFinished": "2017-10-31 16:23:26.980",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val rddOutputInterim \u003d sc.parallelize(forecast.toArray).zipWithIndex.map{ case (p,q) \u003d\u003e Row(p,q)}\n//rddOutputInterim.collect().foreach(println)\n//forecastValues: double, Sno: bigint]\nval schema \u003d StructType(Seq(StructField(\"forecastValues\",DoubleType,true),StructField(\"counter\",LongType,true)))\n",
+      "user": "admin",
+      "dateUpdated": "2017-11-01 12:15:28.690",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "rddOutputInterim: org.apache.spark.rdd.RDD[org.apache.spark.sql.Row] \u003d MapPartitionsRDD[569] at map at \u003cconsole\u003e:192\nschema: org.apache.spark.sql.types.StructType \u003d StructType(StructField(forecastValues,DoubleType,true), StructField(counter,LongType,true))\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d153"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1509486188749_-1513472009",
+      "id": "20171031-144308_1435934941",
+      "dateCreated": "2017-10-31 14:43:08.749",
+      "dateStarted": "2017-11-01 12:15:28.712",
+      "dateFinished": "2017-11-01 12:15:31.162",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val outputforecastDF \u003d sqlContext.createDataFrame(rddOutputInterim,schema)\noutputforecastDF.cache()\noutputforecastDF.columns.foreach(println)\noutputforecastDF.count()\n//outputforecastDF.registerTempTable(\"OutputForecast\")\n//outputforecastDFmodFinal.registerTempTable(\"OutputForecast\")\nval outputforecastDFmod \u003d outputforecastDF.withColumn(\"Sno\",$\"counter\" + 1)\noutputforecastDFmod.cache()\noutputforecastDFmod.select(\"Sno\").show(179)\ntorontoHousingStartsMod2.select(\"Sno\").show(159)\n//sqlContext.sql(\"SELECT rank() from OutputForecast\").show(200)",
+      "user": "admin",
+      "dateUpdated": "2017-11-01 12:19:28.185",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "outputforecastDF: org.apache.spark.sql.DataFrame \u003d [forecastValues: double, counter: bigint]\nres216: outputforecastDF.type \u003d [forecastValues: double, counter: bigint]\nforecastValues\ncounter\nres218: Long \u003d 179\noutputforecastDFmod: org.apache.spark.sql.DataFrame \u003d [forecastValues: double, counter: bigint ... 1 more field]\n+---+\n|Sno|\n+---+\n|  1|\n|  2|\n|  3|\n|  4|\n|  5|\n|  6|\n|  7|\n|  8|\n|  9|\n| 10|\n| 11|\n| 12|\n| 13|\n| 14|\n| 15|\n| 16|\n| 17|\n| 18|\n| 19|\n| 20|\n| 21|\n| 22|\n| 23|\n| 24|\n| 25|\n| 26|\n| 27|\n| 28|\n| 29|\n| 30|\n| 31|\n| 32|\n| 33|\n| 34|\n| 35|\n| 36|\n| 37|\n| 38|\n| 39|\n| 40|\n| 41|\n| 42|\n| 43|\n| 44|\n| 45|\n| 46|\n| 47|\n| 48|\n| 49|\n| 50|\n| 51|\n| 52|\n| 53|\n| 54|\n| 55|\n| 56|\n| 57|\n| 58|\n| 59|\n| 60|\n| 61|\n| 62|\n| 63|\n| 64|\n| 65|\n| 66|\n| 67|\n| 68|\n| 69|\n| 70|\n| 71|\n| 72|\n| 73|\n| 74|\n| 75|\n| 76|\n| 77|\n| 78|\n| 79|\n| 80|\n| 81|\n| 82|\n| 83|\n| 84|\n| 85|\n| 86|\n| 87|\n| 88|\n| 89|\n| 90|\n| 91|\n| 92|\n| 93|\n| 94|\n| 95|\n| 96|\n| 97|\n| 98|\n| 99|\n|100|\n|101|\n|102|\n|103|\n|104|\n|105|\n|106|\n|107|\n|108|\n|109|\n|110|\n|111|\n|112|\n|113|\n|114|\n|115|\n|116|\n|117|\n|118|\n|119|\n|120|\n|121|\n|122|\n|123|\n|124|\n|125|\n|126|\n|127|\n|128|\n|129|\n|130|\n|131|\n|132|\n|133|\n|134|\n|135|\n|136|\n|137|\n|138|\n|139|\n|140|\n|141|\n|142|\n|143|\n|144|\n|145|\n|146|\n|147|\n|148|\n|149|\n|150|\n|151|\n|152|\n|153|\n|154|\n|155|\n|156|\n|157|\n|158|\n|159|\n|160|\n|161|\n|162|\n|163|\n|164|\n|165|\n|166|\n|167|\n|168|\n|169|\n|170|\n|171|\n|172|\n|173|\n|174|\n|175|\n|176|\n|177|\n|178|\n|179|\n+---+\n\n+---+\n|Sno|\n+---+\n|  1|\n|  2|\n|  3|\n|  4|\n|  5|\n|  6|\n|  7|\n|  8|\n|  9|\n| 10|\n| 11|\n| 12|\n| 13|\n| 14|\n| 15|\n| 16|\n| 17|\n| 18|\n| 19|\n| 20|\n| 21|\n| 22|\n| 23|\n| 24|\n| 25|\n| 26|\n| 27|\n| 28|\n| 29|\n| 30|\n| 31|\n| 32|\n| 33|\n| 34|\n| 35|\n| 36|\n| 37|\n| 38|\n| 39|\n| 40|\n| 41|\n| 42|\n| 43|\n| 44|\n| 45|\n| 46|\n| 47|\n| 48|\n| 49|\n| 50|\n| 51|\n| 52|\n| 53|\n| 54|\n| 55|\n| 56|\n| 57|\n| 58|\n| 59|\n| 60|\n| 61|\n| 62|\n| 63|\n| 64|\n| 65|\n| 66|\n| 67|\n| 68|\n| 69|\n| 70|\n| 71|\n| 72|\n| 73|\n| 74|\n| 75|\n| 76|\n| 77|\n| 78|\n| 79|\n| 80|\n| 81|\n| 82|\n| 83|\n| 84|\n| 85|\n| 86|\n| 87|\n| 88|\n| 89|\n| 90|\n| 91|\n| 92|\n| 93|\n| 94|\n| 95|\n| 96|\n| 97|\n| 98|\n| 99|\n|100|\n|101|\n|102|\n|103|\n|104|\n|105|\n|106|\n|107|\n|108|\n|109|\n|110|\n|111|\n|112|\n|113|\n|114|\n|115|\n|116|\n|117|\n|118|\n|119|\n|120|\n|121|\n|122|\n|123|\n|124|\n|125|\n|126|\n|127|\n|128|\n|129|\n|130|\n|131|\n|132|\n|133|\n|134|\n|135|\n|136|\n|137|\n|138|\n|139|\n|140|\n|141|\n|142|\n|143|\n|144|\n|145|\n|146|\n|147|\n|148|\n|149|\n|150|\n|151|\n|152|\n|153|\n|154|\n|155|\n|156|\n|157|\n|158|\n|159|\n+---+\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d167",
+            "http://127.0.0.1:4040/jobs/job?id\u003d168",
+            "http://127.0.0.1:4040/jobs/job?id\u003d169",
+            "http://127.0.0.1:4040/jobs/job?id\u003d170"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1509487414696_1124139877",
+      "id": "20171031-150334_124827863",
+      "dateCreated": "2017-10-31 15:03:34.696",
+      "dateStarted": "2017-11-01 12:18:47.664",
+      "dateFinished": "2017-11-01 12:18:52.804",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val outputforecastDFmodFinal \u003d outputforecastDFmod.join(torontoHousingStartsMod2,Seq(\"Sno\"),\"left_outer\")\noutputforecastDFmodFinal.registerTempTable(\"OutputForecast\")\noutputforecastDFmodFinal.columns.foreach(println)",
+      "user": "admin",
+      "dateUpdated": "2017-11-01 12:19:39.452",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "outputforecastDFmodFinal: org.apache.spark.sql.DataFrame \u003d [Sno: bigint, forecastValues: double ... 107 more fields]\nwarning: there was one deprecation warning; re-run with -deprecation for details\nSno\nforecastValues\ncounter\nyear\nmonth\nunempl_k\nempl_ks\nlab_for_\npop_15pl\nv7\nc_unempl\nc_empl_k\nc_lab_fo\nc_emp_ra\nc_part_r\nc_unemp_\nrate\nv15\nboc_rate\nyield_1t\nyield_3t\nyield_5t\ntse_300\npch_tse\nto_permi\nto_st_to\nto_st_si\nto_st_se\nto_st_ap\nto_st_ro\nto_com_t\nto_com_s\nv30\nto_com_a\nto_com_r\nto_unoc_\nv34\nv35\nto_uc_to\nto_uc_si\nto_uc_se\nto_uc_ap\nto_uc_ro\nto_sa_to\nto_sa_si\nto_sa_ot\nland_ind\nhouse_in\nland_hou\nto_own\nto_renta\nto_condo\nto_coop\nto_other\nto_total\nto_own_s\nv54\nto_own_a\nto_own_r\nto_apt_r\nto_apt_c\nv59\nto_row_r\nto_row_c\nv62\nto_row_o\nto_semi_\nv65\nto_sing_\nv67\nv68\nto_st_l1\nto_st_l2\nto_st_l3\nto_st_l4\nto_co_l1\nto_co_l2\nto_co_l3\nto_co_l4\nint_rat2\nper_lag1\nper_lag2\nper_lag3\nper_lag4\nuc_lag1\nuc_lag2\nuc_lag3\nuc_lag4\nunocc_l1\nunocc_l2\nunocc_l3\nunocc_l4\nunocc_l5\nunocc_l6\nyear_\nmonth_\ndate_\ntrend\nto_st__1\nto_st__2\nto_st__3\nto_st__4\ndif_stl1\ndif_stl2\ndif_stl3\ntrend2\ndatevar\ntimestamp\npriceNew\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509488826072_123034153",
+      "id": "20171031-152706_1040345749",
+      "dateCreated": "2017-10-31 15:27:06.073",
+      "dateStarted": "2017-11-01 12:19:39.481",
+      "dateFinished": "2017-11-01 12:19:41.795",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql select month,cast(forecastValues AS INTEGER) from OutputForecast",
+      "user": "admin",
+      "dateUpdated": "2017-11-01 13:38:42.591",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "scatterChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "month": "string",
+                      "forecastValues": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "month",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": []
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "month\tforecastValues\n3/1/1987\t4530\n4/1/1987\t4552\n5/1/1987\t4177\n6/1/1987\t4980\n7/1/1987\t4535\n8/1/1987\t4502\n9/1/1987\t4641\n10/1/1987\t4600\n11/1/1987\t3846\n12/1/1987\t4559\n1/1/1988\t2518\n2/1/1988\t3017\n3/1/1988\t2722\n4/1/1988\t2047\n5/1/1988\t2721\n6/1/1988\t6192\n7/1/1988\t3085\n8/1/1988\t2557\n9/1/1988\t4233\n10/1/1988\t3959\n11/1/1988\t2777\n12/1/1988\t3636\n1/1/1989\t1633\n2/1/1989\t4489\n3/1/1989\t1820\n4/1/1989\t4033\n5/1/1989\t3107\n6/1/1989\t4033\n7/1/1989\t3043\n8/1/1989\t3425\n9/1/1989\t2284\n10/1/1989\t1960\n11/1/1989\t2096\n12/1/1989\t3022\n1/1/1990\t2940\n2/1/1990\t3010\n3/1/1990\t1729\n4/1/1990\t2244\n5/1/1990\t1944\n6/1/1990\t2691\n7/1/1990\t555\n8/1/1990\t2873\n9/1/1990\t1030\n10/1/1990\t1793\n11/1/1990\t1308\n12/1/1990\t1378\n1/1/1991\t1248\n2/1/1991\t1341\n3/1/1991\t901\n4/1/1991\t422\n5/1/1991\t1399\n6/1/1991\t661\n7/1/1991\t1576\n8/1/1991\t2243\n9/1/1991\t1379\n10/1/1991\t2639\n11/1/1991\t1753\n12/1/1991\t2084\n1/1/1992\t1423\n2/1/1992\t814\n3/1/1992\t1361\n4/1/1992\t601\n5/1/1992\t2005\n6/1/1992\t2794\n7/1/1992\t892\n8/1/1992\t3122\n9/1/1992\t1418\n10/1/1992\t2259\n11/1/1992\t1209\n12/1/1992\t1737\n1/1/1993\t1929\n2/1/1993\t830\n3/1/1993\t1004\n4/1/1993\t1265\n5/1/1993\t1185\n6/1/1993\t2049\n7/1/1993\t976\n8/1/1993\t1465\n9/1/1993\t933\n10/1/1993\t1106\n11/1/1993\t1077\n12/1/1993\t2240\n1/1/1994\t1452\n2/1/1994\t820\n3/1/1994\t923\n4/1/1994\t573\n5/1/1994\t1768\n6/1/1994\t1119\n7/1/1994\t1140\n8/1/1994\t1897\n9/1/1994\t1503\n10/1/1994\t1581\n11/1/1994\t2388\n12/1/1994\t2205\n1/1/1995\t1223\n2/1/1995\t1073\n3/1/1995\t1198\n4/1/1995\t1171\n5/1/1995\t1681\n6/1/1995\t912\n7/1/1995\t1845\n8/1/1995\t818\n9/1/1995\t1284\n10/1/1995\t1571\n11/1/1995\t602\n12/1/1995\t1671\n1/1/1996\t2073\n2/1/1996\t1311\n3/1/1996\t968\n4/1/1996\t959\n5/1/1996\t519\n6/1/1996\t1789\n7/1/1996\t1597\n8/1/1996\t1832\n9/1/1996\t898\n10/1/1996\t2225\n11/1/1996\t1642\n12/1/1996\t1655\n1/1/1997\t2201\n2/1/1997\t1363\n3/1/1997\t1560\n4/1/1997\t804\n5/1/1997\t2244\n6/1/1997\t2489\n7/1/1997\t1290\n8/1/1997\t2030\n9/1/1997\t2251\n10/1/1997\t2481\n11/1/1997\t2235\n12/1/1997\t2324\n1/1/1998\t2538\n2/1/1998\t2027\n3/1/1998\t1272\n4/1/1998\t1721\n5/1/1998\t2773\n6/1/1998\t2597\n7/1/1998\t2025\n8/1/1998\t1134\n9/1/1998\t1673\n10/1/1998\t2238\n11/1/1998\t2706\n12/1/1998\t2099\n1/1/1999\t2927\n2/1/1999\t1550\n3/1/1999\t1996\n4/1/1999\t1541\n5/1/1999\t2636\n6/1/1999\t3826\n7/1/1999\t3118\n8/1/1999\t2183\n9/1/1999\t3345\n10/1/1999\t2393\n11/1/1999\t2513\n12/1/1999\t3811\n1/1/2000\t3596\n2/1/2000\t1674\n3/1/2000\t3130\n4/1/2000\t1536\n5/1/2000\t2601\nnull\t3003\nnull\t3099\nnull\t3114\nnull\t3108\nnull\t3095\nnull\t3082\nnull\t3068\nnull\t3054\nnull\t3040\nnull\t3026\nnull\t3012\nnull\t2997\nnull\t2983\nnull\t2969\nnull\t2955\nnull\t2941\nnull\t2927\nnull\t2913\nnull\t2899\nnull\t2885\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://127.0.0.1:4040/jobs/job?id\u003d183",
+            "http://127.0.0.1:4040/jobs/job?id\u003d184",
+            "http://127.0.0.1:4040/jobs/job?id\u003d185"
+          ],
+          "interpreterSettingId": "2CQV1UQ37"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1509490366452_366001701",
+      "id": "20171031-155246_1337132478",
+      "dateCreated": "2017-10-31 15:52:46.452",
+      "dateStarted": "2017-11-01 13:38:35.608",
+      "dateFinished": "2017-11-01 13:38:35.753",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n",
+      "user": "admin",
+      "dateUpdated": "2017-11-01 15:28:25.133",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1509575305132_621430724",
+      "id": "20171101-152825_2051435447",
+      "dateCreated": "2017-11-01 15:28:25.132",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "HelloWorldTimeSeries",
+  "id": "2CWXJBQ9A",
+  "angularObjects": {
+    "2CQBZRAUD:shared_process": [],
+    "2CR3Z79TN:shared_process": [],
+    "2CPRN8S87:shared_process": [],
+    "2CQ5AG16H:shared_process": [],
+    "2CQ25EC9M:shared_process": [],
+    "2CT66XUSW:shared_process": [],
+    "2CPRDBP2N:shared_process": [],
+    "2CT684WGK:shared_process": [],
+    "2CR65K48E:shared_process": [],
+    "2CQ3HS2GM:shared_process": [],
+    "2CT8TU8HX:shared_process": [],
+    "2CQUGD56B:shared_process": [],
+    "2CSFQERRA:shared_process": [],
+    "2CQ8CCQ1P:shared_process": [],
+    "2CQGDU1WC:shared_process": [],
+    "2CRFYYC5J:shared_process": [],
+    "2CQV1UQ37:shared_process": [],
+    "2CRGVTXD9:shared_process": [],
+    "2CQ22FJC1:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
