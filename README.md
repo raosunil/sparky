@@ -1,1 +1,4 @@
-Adding AspiraOnDroid -- checking
+#####################################
+Time series prediction of Snotel Data
+#####################################
+
